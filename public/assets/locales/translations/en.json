@@ -1,0 +1,76 @@
+{
+  "navbar": {
+    "home": "Home",
+    "contact": "Contact",
+    "login": "Login",
+    "about": "About"
+  },
+  "about": {
+    "jumbotron1": "Don’t wait on bus station.",
+    "jumbotron2": "Check your bus on the way.",
+    "title": "About Phantom",
+    "aboutStatement": "Movement is what powers us. It’s our lifeblood. It’s what gets us out of bed each morning. It pushes us to constantly reimagine how we can move better. For you. For all the places you want to go. For all the things you want to get. For all the ways you want to earn. Across the entire world. In real time. At the incredible speed of now. Phantom App will resolve the issue of waiting time that is unpredictable that you spend on bus stations waiting for the buses to arrive. It will give u details at your figuretips to when the buses will arrive, how many bus seats available, bus routes and bus stops.",
+    "buttonName": "View Bus",
+    "missionTitle":"Mission",
+    "missionStatement": "Our core strategy is to help Rwandan citizens to manage their time well while making travel choices. In addition is to improving the customer experience with a focus on expanding our app features which are user friendly for all customers at different levels while staying within the parameters of our consolidated net income and operating segment contribution profit targets for everyone involved",
+    "visionTitle": "Vision",
+    "visionStatement": "Being a dynamic and progressive transportation app service provider that leverages technology and impacts the lives of all people."
+  },
+  "footer": {
+    "titleCompany": "Company",
+    "aboutUs": "About Us",
+    "contact": "Contact Center",
+    "contactUs": "Contact Us",
+    "stayInTouch": "Stay in touch",
+    "emailPlaceholder": "Your email",
+    "subscribe": "SUBSCRIBE"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "infoPart1": " Please add your personal information and your request to this form,you will be contacted",
+    "infoPart2": "by Phantom Team as soon as possible.",
+    "nameLabel": "Your Names",
+    "namePlaceholder": "write your fullname correctly",
+    "emailLabel":"Email",
+    "emailPlaceholder": "write your valid email",
+    "telnumberLabel": "Phone Number",
+    "telnumberPlaceholder": "Enter phone number in 10 digit-format e.g 0781161254",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Write your message here",
+    "sendButton": "Send"
+  },
+  "validation" : {
+    "fullname" : "fullname is required"
+  },
+  "contactSuccess": {
+    "greetings": "Hello",
+    "introTitle": "Thanks for reaching out to us!",
+    "feedbackPromise": "You will recieve a response soon!",
+    "end": "Phantom Team"
+  },
+  "login":{
+    "loginTitle":"Login",
+    "emailField":"Email",
+    "passwordField":"Password",
+    "loginButton":"Login",
+    "Or":"Or",
+    "loginGoogle":"Login with Google Account",
+    "forgotPassword":"Forgot Password"
+  },
+  "home":{
+    "destinationLabel":"Destination",
+    "sourceLabel":"Source"
+  },
+  "resetLink":{
+    "heading1":"Reset Your Password",
+    "heading2":"Enter your Email address and we’ll send you a link to reset your password",
+    "emailLabel":"Email",
+    "sendButton":"Send"
+  },
+  "changePassword":{
+    "heading1":"Create New Password",
+    "passwordPlaceholder":"New Password",
+    "confirmPasswordPlaceholder":"Confirm Password",
+    "resetButton":"Reset Password"
+  }
+}
