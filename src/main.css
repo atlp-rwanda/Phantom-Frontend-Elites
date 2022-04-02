@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap");
+
 /* Tailwindcss */
 @tailwind base;
 @tailwind components;
@@ -8,3 +10,100 @@
 .jumbotron {
   @apply px-4 pb-1 rounded-md font-semibold text-orange-800 text-xl border-2 border-orange-600 bg-transparent hover:bg-orange-600 hover:text-white;
 }
+.decBtn {
+  @apply text-lg text-white border bg-red-500 rounded-md w-[100px] py-[3px] hover:text-white hover:bg-red-600;
+}
+.resetBtn {
+  @apply text-lg text-white border bg-gray-500 rounded-md w-[100px] py-[3px] hover:text-white hover:bg-gray-600;
+}
+.incBtn {
+  @apply text-lg text-white border bg-green-400 rounded-md w-[100px] py-[3px] hover:text-white hover:bg-green-500;
+}
+.mainHeading {
+  @apply text-4xl leading-9 font-bold tracking-tight text-gray-800 sm:text-3xl sm:leading-8;
+}
+.mp-about {
+  @apply py-2 px-0 lg:mx-[100px] mx-[8px];
+}
+
+.deletebtn {
+  @apply border-2 border-[#D61C1C] px-2 text-sm  rounded-md bg-gray-100 hover:bg-[#D61C1C] hover:text-white;
+}
+.updatebtn {
+  @apply border-2 border-[#0B40FF] px-2 text-sm  rounded-md bg-gray-100 hover:bg-[#0B40FF] hover:text-white;
+}
+.assignbtn {
+  @apply border-2 border-[#0D8619] px-2 text-sm  rounded-md bg-gray-100 hover:bg-[#0D8619] hover:text-white;
+}
+
+.active {
+  @apply font-bold hover:text-gray-400;
+}
+
+.spinner {
+  animation: spin infinite 1s linear;
+
+  /*You can increase or decrease the timer (5s) to 
+     increase or decrease the speed of the spinner*/
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.modelBackground {
+  width: 68%;
+  height: 100vh;
+  background-color: rgb(233, 233, 233);
+  position: fixed;
+  display: flex;
+  margin-top: 0px;
+  padding-bottom: 120px;
+  justify-content: center;
+  align-items: center;
+}
+
+.updateModalBackground {
+  width: 75%;
+  height: 100vh;
+  background-color: rgb(233, 233, 233);
+  position: fixed;
+  display: flex;
+  margin-top: 0px;
+  top: 13%;
+  left: 20%;
+  right: 0px;
+  padding-bottom: 120px;
+  justify-content: center;
+  align-items: center;
+}
+.leaflet-container {
+  width: 99vw;
+  height: 100vh;
+  @apply text-primary font-bold;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #FFF;
+  border-bottom-color: #FF3D00;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 
