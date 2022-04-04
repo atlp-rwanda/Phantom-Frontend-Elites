@@ -1,36 +1,48 @@
-import React from "react";
+import React, { Component } from "react";
+import { MapContainer, TileLayer } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import data from "../assets/data.json";
+import Markers from "./VenueMarkers";
+import Search from "./Search";
 
-/* =============================================
-Landing Page Function Component
-This is the home page component to be rendered
-as the landing page view
-============================================== */
+class MapView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentLocation: { lat: -1.98507, lng: 30.031855 },
+      zoom: 13,
+    };
+  }
+  render() {
+    const { currentLocation, zoom } = this.state;
 
-const Home = () => {
-  return (
-    <div className="h-screen pt-16">
-      <div className="max-w-screen-md bg-gray-100 shadow-lg rounded-lg mx-auto text-center py-8 hover:bg-gray-50">
-        <h1 className="text-4xl leading-9 font-bold tracking-tight text-gray-800 sm:text-3xl sm:leading-8">
-          Welcome to Phantom Landing Page
-        </h1>
-        <h2 className="text-xl font-bold text-gray-800 pt-2 sm:text-lg">
-          This web application is under construction
-        </h2>
-        <div className="mt-8 flex justify-center">
-          <div className="inline-flex rounded-md bg-white shadow ">
-            <a
-              href="https://github.com/atlp-rwanda/Phantom-Frontend-Elites/blob/develop/README.md"
-              target="_blank"
-              className="jumbotron"
-              rel="noreferrer"
-            >
-              App Details...
-            </a>
-          </div>
+    return (
+      <div
+        className="superContainer"
+        style={{
+          position: "relative",
+        }}
+      >
+        <div
+          className="search"
+          style={{
+            position: "absolute",
+            top: 0,
+            right: 0,
+            zIndex: 10000,
+          }}
+        >
+          <Search />
         </div>
+        <MapContainer center={currentLocation} zoom={zoom}>
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          />
+          <Markers venues={data.venues} />
+        </MapContainer>
       </div>
-    </div>
-  );
-};
-
-export default Home;
+    );
+  }
+}
+export default MapView;
