@@ -1,3 +1,5 @@
+[![Development workflow](https://github.com/atlp-rwanda/Phantom-Frontend-Elites/actions/workflows/development.yml/badge.svg?branch=develop&event=push)](https://github.com/atlp-rwanda/Phantom-Frontend-Elites/actions/workflows/development.yml)
+
 # Phantom-Frontend-Elites
 
 ## Description
