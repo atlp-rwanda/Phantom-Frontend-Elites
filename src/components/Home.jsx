@@ -1,4 +1,5 @@
 import React from "react";
+import Counter from "./Counter";
 
 /* =============================================
 Landing Page Function Component
@@ -29,6 +30,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Counter />
     </div>
   );
 };
