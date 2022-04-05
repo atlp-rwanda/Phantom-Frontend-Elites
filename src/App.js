@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import About from "./components/About";
 
 /* =============================================
 App Function Component
@@ -20,9 +22,11 @@ const App = () => {
         <React.StrictMode>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/users/register" element={<Signup />} />
+            <Route path="/register" element={<Signup />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </React.StrictMode>
+        <Footer />
       </div>
     </Router>
   );
