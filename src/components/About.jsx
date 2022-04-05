@@ -13,7 +13,7 @@ const About = () => {
         <div className="bg-[#68C8D5] flex lg:flex-row flex-col">
           {/* Title Grid */}
           <div className="flex-2 lg:order-1 order-2 px-[0px] lg:mx-[100px] mx-[18px] lg:h-screen">
-            <h1 className="lg:text-6xl text-5xl lg:leading-[65px] leading-[60px] text-primary font-bold flex lg:pt-[20vh] pt-8">
+            <h1 className="lg:text-6xl text-5xl lg:leading-[65px] leading-[60px] text-primary font-bold flex lg:pt-[150px] pt-8">
               Don’t wait on bus station. <br />
               Check your bus on the way.
             </h1>
