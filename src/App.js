@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 
 // imported components
 import Home from "./components/Home";
+import Login from "./components/Login";
 
 // imported store file
 import store from "./store";
@@ -23,6 +24,7 @@ const App = () => {
           <React.StrictMode>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />             
             </Routes>
           </React.StrictMode>
         </Router>
