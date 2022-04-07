@@ -1,3 +1,7 @@
+[![Development workflow](https://github.com/atlp-rwanda/Phantom-Frontend-Elites/actions/workflows/development.yml/badge.svg?branch=develop&event=push)](https://github.com/atlp-rwanda/Phantom-Frontend-Elites/actions/workflows/development.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/366ab8d05b90e351e9ec/maintainability)](https://codeclimate.com/github/atlp-rwanda/Phantom-Frontend-Elites/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/366ab8d05b90e351e9ec/test_coverage)](https://codeclimate.com/github/atlp-rwanda/Phantom-Frontend-Elites/test_coverage)
+
 # Phantom-Frontend-Elites
 
 ## Description
