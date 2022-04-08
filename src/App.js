@@ -1,12 +1,14 @@
 // imported modules
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 // imported components
 import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./components/About";
+import Login from "./components/Login";
 
 /* =============================================
 App Function Component
@@ -24,6 +26,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Signup />} />
             <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </React.StrictMode>
         <Footer />

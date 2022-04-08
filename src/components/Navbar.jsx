@@ -64,7 +64,7 @@ export default function Header() {
               <li className=" text-primary font-medium hover:bg-primary hover:text-white hover:w-[100px] px-5 py-2 mx-12 my-4 rounded-md text-md list-none">
                 <Link to="/">Login</Link>
               </li>
-              <li className="bg-primary text-white font-medium hover:bg-primary hover:text-white hover:w-[100px] px-5 py-2 mx-12 my-4 rounded-md text-md list-none">
+              <li className="text-primary font-medium hover:bg-primary hover:text-white hover:w-[100px] px-5 py-2 mx-12 my-4 rounded-md text-md list-none">
                 <Link to="/register">Register</Link>
               </li>
               {/* Dropdown */}
@@ -147,9 +147,9 @@ export default function Header() {
             <Link to="/">Contact</Link>
           </li>
           <li className="text-black font-medium hover:bg-primary hover:text-white px-5 mx-4 my-6 md:my-0 py-2 rounded-md text-md list-none">
-            <Link to="/">Login</Link>
+            <Link to="/login">Login</Link>
           </li>
-          <li className="bg-primary text-white font-medium hover:bg-primary hover:text-white px-5 mx-4 my-6 md:my-0 py-2 rounded-md text-md list-none">
+          <li className="text-primary font-medium hover:bg-primary hover:text-white px-5 mx-4 my-6 md:my-0 py-2 rounded-md text-md list-none">
             <Link to="/register">Register</Link>
           </li>
           {/* Dropdown */}
