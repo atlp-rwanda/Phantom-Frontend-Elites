@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./components/About";
 import Login from "./components/Login";
+import "./main";
 
 /* =============================================
 App Function Component
@@ -19,7 +20,7 @@ put in order to be rendered in our root file
 const App = () => {
   return (
     <Router>
-      <div className="font-roboto">
+      <div className="font-roboto main">
         <Navbar />
         <React.StrictMode>
           <Routes>

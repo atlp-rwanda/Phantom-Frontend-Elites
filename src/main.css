@@ -22,3 +22,7 @@
 .mainHeading {
   @apply text-4xl leading-9 font-bold tracking-tight text-gray-800 sm:text-3xl sm:leading-8;
 }
+.leaflet-container {
+  width: 99vw;
+  height: 80vh;
+}
