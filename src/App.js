@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // imported components
 import Home from "./components/Home";
 import About from "./components/About";
+import Operators from "./components/AdminDashboard/Operators";
 
 /* =============================================
 App Function Component
@@ -19,6 +20,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/operators" element={<Operators />} />
           </Routes>
         </React.StrictMode>
       </div>
