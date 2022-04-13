@@ -1,11 +1,12 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 
-const Table = () => {
+const Table = ({ tableTitle }) => {
   return (
     <>
       <div className="bg-gray-100 rounded shadow-sm mx-8 h-[400px]">
         <h1 className="text-center text-xl text-primary font-bold py-2">
-          Operators
+          {tableTitle}
         </h1>
         <div className="text-left mx-6 text-md font-medium leading-6 tracking-wider">
           <table className="w-full">

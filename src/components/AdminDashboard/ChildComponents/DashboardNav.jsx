@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -6,12 +7,12 @@ import {
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 
-const DashboardNav = () => {
+const DashboardNav = ({ navbarTitle }) => {
   return (
     <>
       <div className="flex justify-between items-center bg-white border-b-2 border-gray-400 shadow-lg py-4 px-8">
         <div>
-          <h1 className="text-xl font-bold text-primary">Manage Drivers</h1>
+          <h1 className="text-xl font-bold text-primary">{navbarTitle}</h1>
         </div>
 
         <div className="flex">

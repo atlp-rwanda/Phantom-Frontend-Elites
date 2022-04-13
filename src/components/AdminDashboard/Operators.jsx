@@ -15,13 +15,13 @@ const Operators = () => {
         </div>
         <div className="flex-1">
           <div>
-            <DashboardNav />
+            <DashboardNav navbarTitle="Manage Operators" />
           </div>
           <div className="mt-8 mb-4 mx-8">
-            <Button />
+            <Button name={"Operator"} />
           </div>
           <div>
-            <Table />
+            <Table tableTitle={"Operators"} />
           </div>
         </div>
       </div>
