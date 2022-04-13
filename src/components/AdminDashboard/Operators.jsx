@@ -17,7 +17,7 @@ const Operators = () => {
           <div>
             <DashboardNav />
           </div>
-          <div className="flex justify-end mx-[140px] mt-16 mb-4">
+          <div className="mt-8 mb-4 mx-8">
             <Button />
           </div>
           <div>

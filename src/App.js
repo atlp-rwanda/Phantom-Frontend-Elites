@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import Operators from "./components/AdminDashboard/Operators";
+import OperatorRegistrationModel from "./components/AdminDashboard/OperatorRegistrationModel";
 
 /* =============================================
 App Function Component
@@ -21,6 +22,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/operators" element={<Operators />} />
+            <Route path="/modal" element={<OperatorRegistrationModel />} />
           </Routes>
         </React.StrictMode>
       </div>

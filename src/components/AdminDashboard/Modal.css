@@ -1,0 +1,11 @@
+.modelBackground {
+  width: 1237px;
+  height: 100vh;
+  background-color: rgb(233, 233, 233);
+  position: fixed;
+  display: flex;
+  margin-top: 0px;
+  padding-bottom: 120px;
+  justify-content: center;
+  align-items: center;
+}
