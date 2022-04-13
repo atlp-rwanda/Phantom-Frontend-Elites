@@ -1,9 +1,5 @@
-import React, { Component } from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
+import React from "react";
 import "leaflet/dist/leaflet.css";
-import data from "../assets/data.json";
-import Search from "./Search";
-import LocationMarker from "./LocationMarker";
 import Navbar from "./NavbarComponent/Navbar";
 import MapView from "./MapView";
 import Footer from "./Footer";

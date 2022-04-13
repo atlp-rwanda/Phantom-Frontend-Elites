@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import App from "./App";
 import "./main.css";
+import "react-phone-number-input/style.css";
 import store from "./store";
 
 // creation of container
