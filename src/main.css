@@ -5,8 +5,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Defined class styles using apply */
-
 .jumbotron {
   @apply px-4 pb-1 rounded-md font-semibold text-orange-800 text-xl border-2 border-orange-600 bg-transparent hover:bg-orange-600 hover:text-white;
 }
@@ -32,4 +30,17 @@
 .leaflet-container {
   width: 99vw;
   height: 100vh;
+}
+.deletebtn {
+  @apply border-2 border-[#D61C1C] px-2 text-sm  rounded-md bg-gray-100 hover:bg-[#D61C1C] hover:text-white;
+}
+.updatebtn {
+  @apply border-2 border-[#0B40FF] px-2 text-sm  rounded-md bg-gray-100 hover:bg-[#0B40FF] hover:text-white;
+}
+.assignbtn {
+  @apply border-2 border-[#0D8619] px-2 text-sm  rounded-md bg-gray-100 hover:bg-[#0D8619] hover:text-white;
+}
+
+.active {
+  @apply text-primary font-bold;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import bus from "../Assets/images/bus.jpg";
-import Navbar from "./NavbarComponent/Navbar";
+import Navbar from "./Navbar/Navbar";
 import Footer from "./Footer";
 
 const About = () => {

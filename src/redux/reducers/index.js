@@ -1,5 +1,7 @@
 import { combineReducers } from "redux";
 import counterReducer from "./counterReducer";
+import driversReducer from "./driversReducer";
+import operatorsReducer from "./operatorsReducer";
 
 /* ==================================================
 allReducers which combines all slice reducer functions
@@ -8,6 +10,8 @@ allReducers which combines all slice reducer functions
 
 const allReducers = combineReducers({
   counterReducer,
+  operators: operatorsReducer,
+  drivers: driversReducer,
 });
 
 export default allReducers;

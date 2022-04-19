@@ -21,13 +21,19 @@ const DashboardNav = ({ navbarTitle }) => {
               className="text-[#A4A6B3] text-lg pl-2"
               icon={faSearch}
             />
-            <input className="outline-none px-4" type="text" />
+            <input className="outline-none px-4 text-[#A4A6B3]" type="text" />
           </div>
           <div className="mr-8">
-            <FontAwesomeIcon className="text-2xl" icon={faBell} />
+            <FontAwesomeIcon
+              className="text-2xl text-[#363740]"
+              icon={faBell}
+            />
           </div>
           <div>
-            <FontAwesomeIcon className="text-2xl" icon={faCircleUser} />
+            <FontAwesomeIcon
+              className="text-2xl text-[#363740]"
+              icon={faCircleUser}
+            />
           </div>
         </div>
       </div>
