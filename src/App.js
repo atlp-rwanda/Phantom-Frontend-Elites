@@ -2,7 +2,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // imported components
-import Home from "./components/Home";
+// import ResetLink from "./components/passwordResetComponents/ResetLink";
+import ChangePassword from "./components/passwordResetComponents/ChangePassword";
+// import Validation from "./components/passwordResetComponents/Validation";
 import "./main";
 
 /* =============================================
@@ -17,7 +19,7 @@ const App = () => {
       <Router>
         <React.StrictMode>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<ChangePassword />} />
           </Routes>
         </React.StrictMode>
       </Router>
