@@ -2,9 +2,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // imported components
-// import ResetLink from "./components/passwordResetComponents/ResetLink";
-import ChangePassword from "./components/passwordResetComponents/ChangePassword";
-// import Validation from "./components/passwordResetComponents/Validation";
+// import ResetLink from "./components/ResetLink";
+import ChangePassword from "./components/ChangePassword";
+// import Validation from "./components/Validation";
 import "./main";
 
 /* =============================================

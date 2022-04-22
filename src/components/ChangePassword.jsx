@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
 import axios from "axios";
@@ -11,30 +11,35 @@ This is the login page to be rendered as Login page
 const baseUrl = "http://localhost:3000/api/v1/reset-password";
 
 const NewPassword = () => {
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-
-    let newPassword = e.target.elements.newPassword?.value;
-    let confirmPassword = e.target.elements.confirmPassword?.value;
-
-    console.log(newPassword, confirmPassword);
-  };
   const location = useLocation();
+  const [invalidUser, setInvalidUser] = useState("");
 
-  const verifyToken = async () => {
-    try {
-      const { token, id } = queryString.parse(location.search);
-      const { data } = await axios(
-        `${baseUrl}/verfy-token?token=${token}&id=${id}`
-      );
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   useEffect(() => {
-    verifyToken();
+    try {
+      async () => {
+        const { token, email } = queryString.parse(location.search);
+        const { data } = await axios(
+          `${baseUrl}/verify-token?token=${token}&email=${email}`
+        );
+        console.log(data);
+      };
+    } catch (error) {
+      if (error?.response?.data) {
+        const { data } = error.response;
+        if (!data.succes) return setInvalidUser(data.error);
+        return console.log(error);
+      }
+    }
   }, []);
+
+  if (invalidUser)
+    return (
+      <div className="max-w-screen-sm m-auto pt-40">
+        <h1 className="text-center text-3xl text-gray-500 mb-3">
+          {invalidUser}
+        </h1>
+      </div>
+    );
 
   return (
     <div className="h-screen flex bg-gray-bg1 ">
@@ -43,7 +48,7 @@ const NewPassword = () => {
           Create New Password
         </h1>
 
-        <form onSubmit={handleFormSubmit}>
+        <form>
           <div>
             <p className=" text-center  mb-6 text-sm">
               Your password must be at least 6 characters and should include a
