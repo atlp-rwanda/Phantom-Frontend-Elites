@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // imported components
 // import ResetLink from "./components/ResetLink";
 import ChangePassword from "./components/ChangePassword";
-// import Validation from "./components/Validation";
 import "./main";
 
 /* =============================================
