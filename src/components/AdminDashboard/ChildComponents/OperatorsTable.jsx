@@ -43,7 +43,8 @@ const OperatorsTable = ({ tableTitle, fetchOperators, operators }) => {
 };
 
 const mapStateToProps = (state) => ({
-  operators: state.operators.operators,
+  operators: state.operatorsReducer.operators,
+  errors: state.operatorsReducer.errors,
 });
 
 // validations for props

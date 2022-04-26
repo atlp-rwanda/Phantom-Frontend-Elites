@@ -14,7 +14,7 @@ const driversReducer = (state = initialState, action) => {
     case REGISTER:
       return {
         ...state,
-        driver: [...state.drivers, action.payload],
+        drivers: [...state.drivers, action.payload],
       };
     default:
       return state;

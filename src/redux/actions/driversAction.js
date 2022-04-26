@@ -11,12 +11,12 @@ export const register = (driverData) => (dispatch) => {
     body: JSON.stringify(driverData),
   })
     .then((res) => {
-      res.json();
+      return res.json();
     })
-    .then((driver) =>
+    .then((data) =>
       dispatch({
         type: REGISTER,
-        payload: driver,
+        payload: data.data,
       })
     )
     .catch(() => {
@@ -26,11 +26,13 @@ export const register = (driverData) => (dispatch) => {
 
 export const fetchDrivers = () => (dispatch) => {
   fetch("http://localhost:7000/api/v1/users")
-    .then((res) => res.json())
-    .then((drivers) =>
+    .then((res) => {
+      return res.json();
+    })
+    .then((drivers) => {
       dispatch({
         type: FETCH_DRIVERS,
         payload: drivers,
-      })
-    );
+      });
+    });
 };

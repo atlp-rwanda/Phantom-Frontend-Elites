@@ -10,7 +10,7 @@ allReducers which combines all slice reducer functions
 
 const allReducers = combineReducers({
   counterReducer,
-  operators: operatorsReducer,
+  operatorsReducer,
   drivers: driversReducer,
 });
 

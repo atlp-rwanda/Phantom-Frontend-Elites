@@ -1,4 +1,8 @@
-import { REGISTER, FETCH_OPERATORS } from "./actionTypes";
+import {
+  REGISTER,
+  FETCH_OPERATORS,
+  REGISTER_OPERATOR_FAIL,
+} from "./actionTypes";
 
 export const registerOperatorsAction = {
   type: REGISTER,
@@ -11,16 +15,23 @@ export const register = (operatorData) => (dispatch) => {
     body: JSON.stringify(operatorData),
   })
     .then((res) => {
-      res.json();
+      return res.json();
     })
-    .then((operator) =>
-      dispatch({
-        type: REGISTER,
-        payload: operator,
-      })
-    )
-    .catch(() => {
-      console.log("The fetch url is empty");
+    .then((data) => {
+      if (data.data) {
+        dispatch({
+          type: REGISTER,
+          payload: data.data,
+        });
+      } else {
+        dispatch({
+          type: REGISTER_OPERATOR_FAIL,
+          payload: data.message,
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err.message);
     });
 };
 

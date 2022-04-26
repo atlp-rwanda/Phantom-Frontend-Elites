@@ -1,7 +1,13 @@
-import { REGISTER, FETCH_OPERATORS } from "../actions/actionTypes";
+import { toast } from "react-toastify";
+import {
+  REGISTER,
+  FETCH_OPERATORS,
+  REGISTER_OPERATOR_FAIL,
+} from "../actions/actionTypes";
 const initialState = {
   operators: [],
-  operator: {},
+  message: "",
+  errors: "",
 };
 
 const operatorsReducer = (state = initialState, action) => {
@@ -14,7 +20,15 @@ const operatorsReducer = (state = initialState, action) => {
     case REGISTER:
       return {
         ...state,
-        operator: [...state.operators, action.payload],
+        operators: [...state.operators, action.payload],
+        message: toast.success("Successfully Registered", {
+          position: "top-center",
+        }),
+      };
+    case REGISTER_OPERATOR_FAIL:
+      return {
+        ...state,
+        errors: action.payload,
       };
     default:
       return state;
