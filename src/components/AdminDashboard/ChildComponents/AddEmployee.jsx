@@ -1,22 +1,29 @@
-import React, { useState, useRef, useCallback, useEffect } from "react";
+import React, { useEffect, useCallback, useRef } from "react";
 import PropTypes from "prop-types";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import AddEmployeeFormModal from "./AddEmployeeFormModal";
+import { connect } from "react-redux";
+import { showModalActionCreator } from "../../../redux/actions/showModal";
 
 // Add employee function component
-const AddEmployee = ({ name }) => {
-  // open model state
-  const [showModal, setShowModal] = useState(false);
-
+const AddEmployee = ({
+  name,
+  isModalOpen,
+  showModalActionCreator: showModal,
+}) => {
   /** ref function for closing the modal
    * when a user clicks outside the model **/
+  const toggleModal = () => {
+    showModal(!isModalOpen);
+  };
 
   const modalRef = useRef();
+
   const handleOutsideClickCloseModal = (e) => {
     if (modalRef.current === e.target) {
-      setShowModal(false);
+      showModal(!isModalOpen);
     }
   };
 
@@ -25,11 +32,11 @@ const AddEmployee = ({ name }) => {
 
   const escKeyPress = useCallback(
     (e) => {
-      if (e.key === "Escape" && showModal) {
-        setShowModal(false);
+      if (e.key === "Escape" && isModalOpen) {
+        showModal(!isModalOpen);
       }
     },
-    [setShowModal, showModal]
+    [isModalOpen]
   );
 
   // useEffect func to run the escKey Press func
@@ -42,7 +49,7 @@ const AddEmployee = ({ name }) => {
   return (
     <div className="flex justify-end">
       <button
-        onClick={() => setShowModal(true)}
+        onClick={toggleModal}
         className="border border-white rounded bg-[#363740] py-[3px]"
       >
         <FontAwesomeIcon className="text-white pr-2 pl-2" icon={faCirclePlus} />
@@ -51,10 +58,9 @@ const AddEmployee = ({ name }) => {
         </Link>
       </button>
 
-      {showModal && (
+      {isModalOpen && (
         <AddEmployeeFormModal
           name={name}
-          closeModal={setShowModal}
           handleOutsideClickCloseModal={handleOutsideClickCloseModal}
           modalRef={modalRef}
         />
@@ -63,9 +69,17 @@ const AddEmployee = ({ name }) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  isModalOpen: state.showModalReducer.isModalOpen,
+});
+
 // Validations for props received
 AddEmployee.propTypes = {
   name: PropTypes.string.isRequired,
+  isModalOpen: PropTypes.bool.isRequired,
+  showModalActionCreator: PropTypes.func.isRequired,
 };
 
-export default AddEmployee;
+export default connect(mapStateToProps, { showModalActionCreator })(
+  AddEmployee
+);

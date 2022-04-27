@@ -1,13 +1,19 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { fetchOperators } from "../../../redux/actions/operatorsAction";
+import { fetchEmployees } from "../../../redux/actions/employeesAction";
 import OperatorsList from "./OperatorsList";
+import Table from "../../../skeleton/Table";
 
-const OperatorsTable = ({ tableTitle, fetchOperators, operators }) => {
+const OperatorsTable = ({
+  tableTitle,
+  fetchEmployees,
+  employees,
+  isPending,
+}) => {
   // Use effect function  to render operators
   useEffect(() => {
-    fetchOperators();
+    fetchEmployees();
   }, []);
 
   return (
@@ -16,42 +22,49 @@ const OperatorsTable = ({ tableTitle, fetchOperators, operators }) => {
         <h1 className="text-center text-xl text-primary font-bold py-4">
           {tableTitle}
         </h1>
-        <div className="text-left mx-8 text-sm leading-6 tracking-wider flex justify-center">
-          <table className="w-auto rounded-t-lg overflow-hidden">
-            <thead className="bg-primary font-bold">
-              <tr>
-                <th className="text-white px-2">No</th>
-                <th className="text-white px-2">FirstName</th>
-                <th className="text-white px-2">LastName</th>
-                <th className="text-white px-2">Email</th>
-                <th className="text-white px-2">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <OperatorsList
-                operators={operators.filter(
-                  (operator) => operator.roleId === 2
-                )}
-              />
-            </tbody>
-          </table>
-        </div>
+
+        {isPending ? (
+          <div className="flex justify-center">
+            <Table />
+          </div>
+        ) : (
+          <div className="text-left mx-8 text-sm leading-6 tracking-wider flex justify-center">
+            <table className="w-auto rounded-t-lg overflow-hidden">
+              <thead className="bg-primary font-bold">
+                <tr>
+                  <th className="text-white w-[10px]">No</th>
+                  <th className="text-white w-[245px]">FirstName</th>
+                  <th className="text-white w-[250px]">LastName</th>
+                  <th className="text-white w-[250px]">Email</th>
+                  <th className="text-white w-[140px]">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <OperatorsList
+                  employees={employees.filter(
+                    (employee) => employee.roleId === 2
+                  )}
+                />
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
-      <div></div>
     </>
   );
 };
 
 const mapStateToProps = (state) => ({
-  operators: state.operatorsReducer.operators,
-  errors: state.operatorsReducer.errors,
+  employees: state.employeesReducer.employees,
+  isPending: state.employeesReducer.isPending,
 });
 
 // validations for props
 OperatorsTable.propTypes = {
   tableTitle: PropTypes.string.isRequired,
-  fetchOperators: PropTypes.func.isRequired,
-  operators: PropTypes.array.isRequired,
+  fetchEmployees: PropTypes.func.isRequired,
+  employees: PropTypes.array.isRequired,
+  isPending: PropTypes.bool.isRequired,
 };
 
-export default connect(mapStateToProps, { fetchOperators })(OperatorsTable);
+export default connect(mapStateToProps, { fetchEmployees })(OperatorsTable);

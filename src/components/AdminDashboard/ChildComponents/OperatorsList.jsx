@@ -2,12 +2,12 @@ import React from "react";
 import Actionbutton from "./Actionbutton";
 import PropTypes from "prop-types";
 
-const OperatorsList = ({ operators }) => {
+const OperatorsList = ({ employees }) => {
   // num definition to increment the Sn column
   let num = 1;
 
   // function to map through all operators
-  const operatorsList = operators.map((operator) => {
+  const operatorsList = employees.map((operator) => {
     return (
       <tr key={operator.id}>
         <th className="text-black font-medium pl-2 pr-6">{num++}</th>
@@ -32,7 +32,7 @@ const OperatorsList = ({ operators }) => {
 };
 
 OperatorsList.propTypes = {
-  operators: PropTypes.array.isRequired,
+  employees: PropTypes.array.isRequired,
 };
 
 export default OperatorsList;

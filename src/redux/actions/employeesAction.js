@@ -1,18 +1,18 @@
 import {
   REGISTER,
-  FETCH_OPERATORS,
-  REGISTER_OPERATOR_FAIL,
+  FETCH_EMPLOYEES,
+  REGISTER_EMPLOYEES_FAIL,
 } from "./actionTypes";
 
-export const registerOperatorsAction = {
+export const registerEmployeessAction = {
   type: REGISTER,
 };
 
-export const register = (operatorData) => (dispatch) => {
-  fetch("http://localhost:7000/api/v1/users", {
+export const register = (employeeData) => (dispatch) => {
+  fetch("https://phantom-backend-elites.herokuapp.com/api/v1/users", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(operatorData),
+    body: JSON.stringify(employeeData),
   })
     .then((res) => {
       return res.json();
@@ -25,7 +25,7 @@ export const register = (operatorData) => (dispatch) => {
         });
       } else {
         dispatch({
-          type: REGISTER_OPERATOR_FAIL,
+          type: REGISTER_EMPLOYEES_FAIL,
           payload: data.message,
         });
       }
@@ -35,13 +35,13 @@ export const register = (operatorData) => (dispatch) => {
     });
 };
 
-export const fetchOperators = () => (dispatch) => {
-  fetch("http://localhost:7000/api/v1/users")
+export const fetchEmployees = () => (dispatch) => {
+  fetch("https://phantom-backend-elites.herokuapp.com/api/v1/users")
     .then((res) => res.json())
-    .then((operators) =>
+    .then((employees) =>
       dispatch({
-        type: FETCH_OPERATORS,
-        payload: operators,
+        type: FETCH_EMPLOYEES,
+        payload: employees,
       })
     );
 };

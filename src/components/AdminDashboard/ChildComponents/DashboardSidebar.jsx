@@ -13,13 +13,17 @@ const Sidebar = () => {
     <>
       <div className="border-2 border-white shadow-lg flex-col bg-white h-screen pr-10">
         <div className="mb-[80px]">
-          <h1 className="text-[#363740] text-[40px] font-bold pl-4">Phantom</h1>
+          <h1 className="text-[#363740] text-[40px] font-bold pl-4">
+            <Link className="cursor-pointer" to="/">
+              Phantom
+            </Link>
+          </h1>
         </div>
 
         <div className="text-gray-500 text-lg flex-col pl-4">
           <div className="hover:text-primary mb-4" activeclassname="active">
             <FontAwesomeIcon icon={faHouseUser} className="pr-2" />
-            <Link className="/" to="/admin">
+            <Link className="" to="/admin">
               Dashboard
             </Link>
           </div>

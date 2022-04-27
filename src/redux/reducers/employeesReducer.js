@@ -1,31 +1,34 @@
 import { toast } from "react-toastify";
 import {
   REGISTER,
-  FETCH_OPERATORS,
-  REGISTER_OPERATOR_FAIL,
+  FETCH_EMPLOYEES,
+  REGISTER_EMPLOYEES_FAIL,
 } from "../actions/actionTypes";
 const initialState = {
-  operators: [],
+  employees: [],
   message: "",
   errors: "",
+  isPending: true,
 };
 
-const operatorsReducer = (state = initialState, action) => {
+const employeesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_OPERATORS:
+    case FETCH_EMPLOYEES:
       return {
         ...state,
-        operators: action.payload,
+        employees: action.payload,
+        isPending: false,
       };
     case REGISTER:
       return {
         ...state,
-        operators: [...state.operators, action.payload],
+        employees: [...state.employees, action.payload],
         message: toast.success("Successfully Registered", {
           position: "top-center",
         }),
+        errors: "",
       };
-    case REGISTER_OPERATOR_FAIL:
+    case REGISTER_EMPLOYEES_FAIL:
       return {
         ...state,
         errors: action.payload,
@@ -35,4 +38,4 @@ const operatorsReducer = (state = initialState, action) => {
   }
 };
 
-export default operatorsReducer;
+export default employeesReducer;
