@@ -44,6 +44,7 @@ module.exports = {
       filename: "[name].css",
       chunkFilename: "[id].css",
     }),
+    new webpack.DefinePlugin({ 'process.env': { PHANTOM_API: JSON.stringify(process.env.PHANTOM_API), }, }), 
   ],
   resolve: {
     extensions: ["", ".js", ".jsx"],

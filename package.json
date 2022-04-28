@@ -4,8 +4,8 @@
   "description": "Phantom Project",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve",
-    "build": "webpack --mode production",
+    "start": "serve -s ./dist",
+    "build": "webpack --config webpack.config.js --mode production",
     "dev": "webpack-dev-server --mode development --open",
     "prepare": "husky install",
     "test": "jest --coverage",
@@ -31,7 +31,6 @@
     "@types/jest": "^27.4.1",
     "babel-jest": "^27.5.1",
     "babel-loader": "^8.2.4",
-    "css-loader": "^6.7.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^16.0.3",
@@ -46,7 +45,6 @@
     "lint-staged": "^12.3.7",
     "mini-css-extract-plugin": "^2.6.0",
     "node-sass": "^7.0.1",
-    "postcss-loader": "^6.2.1",
     "prettier": "^2.6.1",
     "tailwindcss": "^3.0.23",
     "webpack": "^5.71.0",
@@ -62,7 +60,10 @@
     "react-redux": "^7.2.8",
     "react-router-dom": "^6.3.0",
     "redux": "^4.1.2",
-    "redux-thunk": "^2.4.1"
+    "redux-thunk": "^2.4.1",
+    "serve": "^13.0.2",
+    "postcss-loader": "^6.2.1",
+    "css-loader": "^6.7.1"
   },
   "lint-staged": {
     "*.{js, jsx}": "eslint --cache --fix",
