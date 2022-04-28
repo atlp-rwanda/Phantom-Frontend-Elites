@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap");
+
 /* Tailwindcss */
 @tailwind base;
 @tailwind components;
@@ -17,3 +19,39 @@
 .incBtn {
   @apply text-lg text-white border bg-green-400 rounded-md w-[100px] py-[3px] hover:text-white hover:bg-green-500;
 }
+.mainHeading {
+  @apply text-4xl leading-9 font-bold tracking-tight text-gray-800 sm:text-3xl sm:leading-8;
+}
+.mp-about {
+  @apply py-2 px-0 lg:mx-[100px] mx-[8px];
+}
+
+.active {
+  @apply font-bold hover:text-white;
+}
+.leaflet-container {
+  width: 99vw;
+  height: 100vh;
+}
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #FFF;
+  border-bottom-color: #FF3D00;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 

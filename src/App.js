@@ -1,8 +1,13 @@
 // imported modules
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 // imported components
 import Home from "./components/Home";
+import About from "./components/About";
+import Login from "./components/Login";
+import UpdateProfile from "./components/UpdateProfile";
+
 
 /* =============================================
 App Function Component
@@ -12,15 +17,18 @@ put in order to be rendered in our root file
 
 const App = () => {
   return (
-    <div>
-      <Router>
+    <Router>
+      <div className="font-roboto">
         <React.StrictMode>
           <Routes>
             <Route path="/" element={<Home />} />
-          </Routes>
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<UpdateProfile />} />
+         </Routes>
         </React.StrictMode>
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 };
 
