@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 /* =============================================
 Login Page Function Component
 This is the login page to be rendered as Login page
 ============================================== */
-
 const ResetLink = () => {
   // const [data, setData] = useState({
   //     email: "",
@@ -19,18 +19,21 @@ const ResetLink = () => {
   //     });
   //   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     let userEmail = e.target.elements.email?.value;
     const userData = {
       email: userEmail,
     };
 
-    axios
-      .post("http://localhost:3000/api/v1/reset-password/link", userData)
-      .then(function (response) {
-        console.log(response.data);
-      });
+    const { data } = await axios.post(
+      "http://localhost:3000/api/v1/reset-password/link",
+      userData
+    );
+
+    toast.success(`${data.message}`, {
+      position: "top-center",
+    });
   };
 
   return (

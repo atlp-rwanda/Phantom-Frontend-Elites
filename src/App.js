@@ -2,9 +2,11 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // imported components
-// import ResetLink from "./components/ResetLink";
+import ResetLink from "./components/ResetLink";
 import ChangePassword from "./components/ChangePassword";
+import { ToastContainer } from "react-toastify";
 import "./main";
+import "react-toastify/dist/ReactToastify.css";
 
 /* =============================================
 App Function Component
@@ -14,15 +16,17 @@ put in order to be rendered in our root file
 
 const App = () => {
   return (
-    <div className="main">
+    <>
+      <ToastContainer />
       <Router>
         <React.StrictMode>
           <Routes>
-            <Route path="/" element={<ChangePassword />} />
+            <Route path="/" element={<ResetLink />} />
+            <Route path="/reset-password" element={<ChangePassword />} />
           </Routes>
         </React.StrictMode>
       </Router>
-    </div>
+    </>
   );
 };
 

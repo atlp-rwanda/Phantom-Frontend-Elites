@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import queryString from "query-string";
 import axios from "axios";
+import regeneratorRuntime from "regenerator-runtime";
+import { toast } from "react-toastify";
 
 /* =============================================
 Login Page Function Component
@@ -13,30 +15,101 @@ const baseUrl = "http://localhost:3000/api/v1/reset-password";
 const NewPassword = () => {
   const location = useLocation();
   const [invalidUser, setInvalidUser] = useState("");
+  const [busy, setBusy] = useState(true);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
-  useEffect(() => {
+  const [newPassword, setPassword] = useState({
+    password: "",
+    confirmPassword: "",
+  });
+
+  const navigate = useNavigate();
+
+  const { token, email } = queryString.parse(location.search);
+  console.log(token.trim());
+
+  const verifyToken = async () => {
     try {
-      async () => {
-        const { token, email } = queryString.parse(location.search);
-        const { data } = await axios(
-          `${baseUrl}/verify-token?token=${token}&email=${email}`
-        );
-        console.log(data);
-      };
+      const { data } = await axios(
+        `${baseUrl}/verify-token?token=${token}&email=${email}`
+      );
+      console.log(data);
+      setBusy(false);
     } catch (error) {
       if (error?.response?.data) {
         const { data } = error.response;
-        if (!data.succes) return setInvalidUser(data.error);
-        return console.log(error);
+        if (!data.success) return setInvalidUser(data.message);
       }
     }
+  };
+
+  useEffect(() => {
+    verifyToken();
   }, []);
+
+  const handleOnChange = ({ target }) => {
+    const { name, value } = target;
+
+    setPassword({ ...newPassword, [name]: value });
+  };
+  const { password, confirmPassword } = newPassword;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(password);
+    console.log(confirmPassword);
+    if (password.trim().length < 8 || password.trim().length > 30) {
+      return setError("Password must be 8 to 30 characters long!");
+    }
+    if (password !== confirmPassword) {
+      return setError("Password does not match!");
+    }
+
+    console.log(token);
+    try {
+      setBusy(true);
+      const { data } = await axios.post(`${baseUrl}/new-password`, {
+        token,
+        password,
+        confirmPassword,
+      });
+      if (data.status === "ok") {
+        toast.success(`${data.message}`, {
+          position: "top-center",
+        });
+        navigate("/");
+      }
+      setBusy(false);
+    } catch (error) {
+      if (error?.response?.data) {
+        const { data } = error.response;
+        if (!data.success) return setError(data.error);
+      }
+    }
+  };
+
+  if (success)
+    return (
+      <div className="w-50 m-auto pt-40 object-center bg-white">
+        <h1 className="text-center justify-center text-3xl text-gray-500 mb-3">
+          Password Reset Successfully! You can now login.
+        </h1>
+      </div>
+    );
 
   if (invalidUser)
     return (
-      <div className="max-w-screen-sm m-auto pt-40">
-        <h1 className="text-center text-3xl text-gray-500 mb-3">
+      <div className="w-50 m-auto pt-40 object-center bg-white">
+        <h1 className="text-center justify-center text-3xl text-gray-500 mb-3">
           {invalidUser}
+        </h1>
+      </div>
+    );
+  if (busy)
+    return (
+      <div className="w-50 m-auto pt-40 object-center bg-white">
+        <h1 className="text-center justify-center text-3xl text-gray-500 mb-3">
+          Hold on! Verifying reset token...
         </h1>
       </div>
     );
@@ -48,23 +121,28 @@ const NewPassword = () => {
           Create New Password
         </h1>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <div>
-            <p className=" text-center  mb-6 text-sm">
-              Your password must be at least 6 characters and should include a
-              combination of numbers, letters and special characters.
-            </p>
+            {error && (
+              <p className=" text-center  mb-6 text-sm p-2 border rounded-md font-semibold bg-red-500 text-white">
+                {error}
+              </p>
+            )}
 
             <input
               type="password"
               className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
               id="newPassword"
+              name="password"
+              onChange={handleOnChange}
               placeholder="New Password"
             />
             <input
               type="password"
               className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
               id="confirmPassword"
+              name="confirmPassword"
+              onChange={handleOnChange}
               placeholder="Confirm Password"
             />
           </div>
