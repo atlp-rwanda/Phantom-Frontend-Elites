@@ -1,7 +1,9 @@
-import React from "react";
-import Navbar from "./NavbarComponent/Navbar";
-import Footer from "./Footer";
-import Counter from "./Counter";
+import React, { Component } from "react";
+import { MapContainer, TileLayer } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import data from "../assets/data.json";
+import Search from "./Search";
+import LocationMarker from "./LocationMarker";
 
 /* =============================================
 Landing Page Function Component
@@ -32,7 +34,13 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <Counter />
+        <MapContainer center={currentLocation} zoom={zoom}>
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          />
+          <LocationMarker />
+        </MapContainer>
       </div>
       <Footer />
     </>

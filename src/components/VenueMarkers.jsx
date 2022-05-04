@@ -12,7 +12,7 @@ const VenueMarkers = (props) => {
     </Marker>
   ));
 
-  return <Fragment>{markers}</Fragment>;
+  return <div test-data="markers">{markers}</div>;
 };
 
 export default VenueMarkers;
