@@ -10,7 +10,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Footer = () => {
   return (
-    <div className="grid grid-rows-2 text-white py-2 lg:px-24 px-6 ] bg-primary">
+    <div
+      test-data="footerComponent"
+      className="grid grid-rows-2 text-white py-2 lg:px-24 px-6 ] bg-primary"
+    >
       <div className="grid lg:grid-cols-4 row-span-3">
         <div className="mt-[40px]">
           <Link to="">

@@ -98,16 +98,15 @@
       "<rootDir>/enzyme.config.js"
     ],
     "collectCoverageFrom": [
-      "<rootDir>/src/**/*.js",
-      "<rootDir>/src/**/*.jsx"
+      "<rootDir>/src/**/*.{js,jsx,ts,tsx}"
     ],
     "testEnvironment": "jsdom",
     "coverageThreshold": {
       "global": {
-        "branches": 80,
-        "functions": 80,
-        "lines": 80,
-        "statements": 80
+        "branches": 40,
+        "functions": 40,
+        "lines": 40,
+        "statements": 40
       }
     },
     "moduleNameMapper": {

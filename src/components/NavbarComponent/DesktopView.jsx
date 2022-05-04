@@ -30,6 +30,7 @@ const DesktopView = (props) => {
         <div className="relative inline-block text-left mx-4 my-6 md:my-0">
           <div>
             <button
+              test-data="buttonComponent"
               onClick={props.handleClick}
               type="button"
               className="inline-flex justify-center w-full rounded-md border border-gray-700 shadow-sm px-4 py-2 bg-white text-md font-medium text-black focus:bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-offset-gray-100 focus:ring-gray-700"

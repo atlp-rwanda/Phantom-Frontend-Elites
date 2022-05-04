@@ -22,6 +22,7 @@ const Navbar = () => {
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
           <div
+            test-data="buttonComponent"
             className="HAMBURGER-ICON space-y-2"
             onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
           >
@@ -32,6 +33,7 @@ const Navbar = () => {
 
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
             <div
+              test-data="buttonTwoComponent"
               className="CROSS-ICON absolute top-0 right-0 lg:px-7 py-4"
               onClick={() => setIsNavOpen(false)} // change isNavOpen state to false to close the menu
             >
