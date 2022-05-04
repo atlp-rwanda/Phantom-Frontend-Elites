@@ -48,7 +48,7 @@ module.exports = {
     new webpack.DefinePlugin({ 'process.env': { PHANTOM_API: JSON.stringify(process.env.PHANTOM_API), }, }), 
   ],
   resolve: {
-    extensions: ["", ".js", ".jsx"],
+    extensions: ["", ".js", ".jsx", ".svg"],
   },
   devServer: {
     static: {
