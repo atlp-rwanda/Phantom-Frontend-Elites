@@ -1,11 +1,11 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import Search from "../components/Search";
+import MapView from "../../components/MapView";
 
-describe("Search", () => {
+describe("MapView", () => {
   test("snapshot renders", () => {
-    const wrapper = shallow(<Search />);
+    const wrapper = shallow(<MapView />);
     expect(wrapper.length).toBe(1);
   });
 });
