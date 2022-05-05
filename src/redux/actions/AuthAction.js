@@ -11,19 +11,16 @@ const AuthActionType = {
 };
 
 const LoginAuthAction = (loginState, navigate ) => {
-  console.log(loginState,"showing login state")
   return async (dispatch) => {
     try {
       const res = await axios.
       post("/auth/login", loginState);
       const { data } = res;
-      console.log(res)
       dispatch({ type: AuthActionType.LOGIN_SUCCESS, payload: data });
       toast.success("Login successful!",{
         position:"top-center"
       })
       const user = res.data.user;
-      console.log(res.data.user.id,"hello david----")
       if(user.id===2){
         navigate('/operators')
       }
@@ -35,7 +32,6 @@ const LoginAuthAction = (loginState, navigate ) => {
           dispatch({
             type: AuthActionType.AUTH_ERRORS, payload: error.response.data          
       })
-      console.log(error.response.data.message)
       const ms = error.response.data.message
       toast.error(ms,{
         position:"top-center",
