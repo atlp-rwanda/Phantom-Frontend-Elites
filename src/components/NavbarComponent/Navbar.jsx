@@ -16,7 +16,7 @@ const Navbar = () => {
       test-data="navbarComponent"
       className="lg:px-[100px] px-[8px] flex items-center justify-between border-b border-gray-400 shadow-md bg-white"
     >
-      <Link to="">
+      <Link to="/">
         <h1 className="text-primary font-bold text-[40px] ">Phantom</h1>
       </Link>
       <nav>
