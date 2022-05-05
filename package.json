@@ -30,6 +30,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@testing-library/react": "^12.1.2",
+    "@types/enzyme": "^3.10.12",
     "@types/jest": "^27.4.1",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
     "babel-jest": "^27.5.1",
@@ -66,9 +67,13 @@
     "autoprefixer": "^10.4.5",
     "css-loader": "^6.7.1",
     "dotenv": "^16.0.0",
+    "leaflet": "^1.8.0",
+    "leaflet-geosearch": "^3.6.0",
+    "node": "^16.14.0",
     "postcss-loader": "^6.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-leaflet": "^3.2.5",
     "react-redux": "^7.2.8",
     "react-router-dom": "^6.3.0",
     "redux": "^4.1.2",
@@ -101,6 +106,7 @@
       "<rootDir>/src/**/*.{js,jsx,ts,tsx}"
     ],
     "testEnvironment": "jsdom",
+    "collectCoverage": true,
     "coverageThreshold": {
       "global": {
         "branches": 40,

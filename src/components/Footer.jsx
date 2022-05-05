@@ -16,7 +16,7 @@ const Footer = () => {
     >
       <div className="grid lg:grid-cols-4 row-span-3">
         <div className="mt-[40px]">
-          <Link to="">
+          <Link to="/">
             <h1 className="font-bold text-[35px]">Phantom</h1>
           </Link>
         </div>
