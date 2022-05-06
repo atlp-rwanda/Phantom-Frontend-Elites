@@ -5,8 +5,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ResetLink from "./components/ResetLink";
 import ChangePassword from "./components/ChangePassword";
 import { ToastContainer } from "react-toastify";
-import "./main";
+import "./main.css";
 import "react-toastify/dist/ReactToastify.css";
+import Home from "./components/Home";
+import About from "./components/About";
 
 /* =============================================
 App Function Component
@@ -21,8 +23,10 @@ const App = () => {
       <Router>
         <React.StrictMode>
           <Routes>
-            <Route path="/" element={<ResetLink />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/reset-link" element={<ResetLink />} />
             <Route path="/reset-password" element={<ChangePassword />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </React.StrictMode>
       </Router>

@@ -50,7 +50,7 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ["", ".js", ".jsx", ".css", ".json", ".svg"],
+    extensions: ["", ".js", ".jsx", ".svg"],
   },
   devServer: {
     static: {

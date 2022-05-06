@@ -7,18 +7,6 @@ Login Page Function Component
 This is the login page to be rendered as Login page
 ============================================== */
 const ResetLink = () => {
-  // const [data, setData] = useState({
-  //     email: "",
-  // });
-
-  // const handleChange = (e) => {
-  //     const value = e.target.value;
-  //     setData({
-  //         ...data,
-  //         [e.target.name]: value
-  //     });
-  //   };
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     let userEmail = e.target.elements.email?.value;
@@ -30,10 +18,16 @@ const ResetLink = () => {
       "http://localhost:3000/api/v1/reset-password/link",
       userData
     );
-
-    toast.success(`${data.message}`, {
-      position: "top-center",
-    });
+    console.log(data);
+    if (data.status === 400) {
+      toast.error(`${data.message}`, {
+        position: "top-center",
+      });
+    } else {
+      toast.success(`${data.message}`, {
+        position: "top-center",
+      });
+    }
   };
 
   return (

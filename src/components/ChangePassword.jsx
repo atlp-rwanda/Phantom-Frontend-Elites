@@ -10,15 +10,14 @@ Login Page Function Component
 This is the login page to be rendered as Login page
 ============================================== */
 
-const baseUrl = "http://localhost:3000/api/v1/reset-password";
+const baseUrl =
+  "https://phantom-backend-elites.herokuapp.com/api/v1/reset-password";
 
 const NewPassword = () => {
   const location = useLocation();
   const [invalidUser, setInvalidUser] = useState("");
   const [busy, setBusy] = useState(true);
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-
   const [newPassword, setPassword] = useState({
     password: "",
     confirmPassword: "",
@@ -31,7 +30,7 @@ const NewPassword = () => {
 
   const verifyToken = async () => {
     try {
-      const { data } = await axios(
+      const { data } = await axios.get(
         `${baseUrl}/verify-token?token=${token}&email=${email}`
       );
       console.log(data);
@@ -65,7 +64,6 @@ const NewPassword = () => {
       return setError("Password does not match!");
     }
 
-    console.log(token);
     try {
       setBusy(true);
       const { data } = await axios.post(`${baseUrl}/new-password`, {
