@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
+import { red } from "@material-ui/core/colors";
+import pin from "../pin.png";
 
 // import pin from '../path/pin.png'; (if local import)
-const pin = "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png";
 
 const icon = L.icon({
   iconUrl: pin,
-  iconSize: [20, 41],
-  iconAnchor: [0, 44],
-  popupAnchor: [12, -40],
-  shadowUrl: null,
-  shadowSize: null,
-  shadowAnchor: null,
+  iconSize: [40, 40],
 });
 
 function LocationMarker() {
@@ -22,12 +18,15 @@ function LocationMarker() {
   const map = useMap();
 
   useEffect(() => {
-    map.locate().on("locationfound", function (e) {
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(function (position) {
+        console.log("Latitude is :", position.coords.latitude);
+        console.log("Longitude is :", position.coords.longitude);
+      });
+    }
+    map.locate().on("locationfound", (e) => {
       setPosition(e.latlng);
       map.flyTo(e.latlng, map.getZoom());
-      const radius = 1000;
-      const circle = L.circle(e.latlng, radius);
-      circle.addTo(map);
       setBbox(e.bounds.toBBoxString().split(","));
     });
   }, [map]);

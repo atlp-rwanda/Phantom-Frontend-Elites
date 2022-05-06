@@ -1,0 +1,34 @@
+[
+  {
+    "city": "Nyamirambo",
+    "city_ascii": "Nyamirambo",
+    "lat": "-1.97811",
+    "lng": "30.04413",
+    "country": "Rwanda",
+    "id": "1392685764"
+  },
+  {
+    "city": "remera",
+    "lat": "-1.95871",
+    "lng": "30.11904",
+    "country": "Rwanda",
+    "id": "1360771077"
+  },
+  {
+    "city": "Kimironko",
+    "city_ascii": "Kimironko",
+    "lat": "-1.94262",
+    "lng": "30.13820",
+    "country": "Rwanda",
+    "id": "1356872604"
+  },
+  {
+    "city": "Nyabugogo",
+    "city_ascii": "Nyabugogo",
+    "lat": "-1.87910",
+    "lng": "30.08130",
+    "country": "Rwanda",
+    "id": "1356226629"
+  }
+]
+  

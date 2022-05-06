@@ -62,20 +62,20 @@ const MobileView = (props) => {
 
           {props.languageOptions && (
             <div
-              className="origin-top-right absolute right-0 mt-2 w-[132px] rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+              className="origin-top-right absolute right-0 mt-2 w-[132px] rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="menu-button"
               tabIndex="-1"
             >
-              <div className="py-1" role="none">
+              <div className="py-1 z-50" role="none">
                 <li
                   className="text-primary block px-4 py-2 text-sm hover:bg-gray-200"
                   role="menuitem"
                   tabIndex="-1"
                   id="menu-item-0"
                 >
-                  <Link to="/">English</Link>
+                  <Link to="">English</Link>
                 </li>
                 <li
                   className="text-primary block px-4 py-2 text-sm hover:bg-gray-200"
@@ -83,7 +83,7 @@ const MobileView = (props) => {
                   tabIndex="-1"
                   id="menu-item-1"
                 >
-                  <Link to="/">French</Link>
+                  <Link to="">French</Link>
                 </li>
                 <li
                   className="text-primary block px-4 py-2 text-sm hover:bg-gray-200"
@@ -91,7 +91,7 @@ const MobileView = (props) => {
                   tabIndex="-1"
                   id="menu-item-2"
                 >
-                  <Link to="/">Kinyarwanda</Link>
+                  <Link to="">Kinyarwanda</Link>
                 </li>
               </div>
             </div>
