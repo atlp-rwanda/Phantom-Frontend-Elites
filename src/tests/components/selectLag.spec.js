@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import About from "../../components/About";
+import SelectLang from "../../components/SelectLang";
 
 jest.mock("react-i18next", () => ({
   useTranslation: () => ({ t: (key) => key }),
@@ -8,8 +8,7 @@ jest.mock("react-i18next", () => ({
 
 describe("About Component", () => {
   it("Should render without errors", () => {
-    const component = shallow(<About />);
-    const wrapper = component.find('[test-data="aboutComponent"]');
+    const wrapper = shallow(<SelectLang />);
     expect(wrapper.length).toBe(1);
   });
 });
