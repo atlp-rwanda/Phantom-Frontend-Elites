@@ -1,0 +1,28 @@
+{
+  "navbar": {
+    "home": "Ahabanza",
+    "contact": "Baza",
+    "login": "Injira Konti Yawe",
+    "about": "Ibitwerekeyeho"
+  },
+  "about": {
+    "jumbotron1": "Ntukwiriye gutegerereza kubyapa.",
+    "jumbotron2": "Reba bisi yawe munzira.",
+    "title": "Ibyerekeye Phantom",
+    "aboutStatement": "Ingendo nizo ziduha imbaraga. Nicyo kidukura mu buriri buri gitondo. Ingendo nziza zidusunikira guhora twiyumvisha uburyo dushobora kugenda neza ahantu hose ushaka kujya. Ngendana natwe Kuburyo bwiza bwihuse hirya no hino mu Rwanda. Mu gihe nyacyo. Ku muvuduko udasanzwe w'ubu. Porogaramu ya Phantom izakemura ikibazo cyigihe cyo gutegereza bitateganijwe ufata utegereje ko bisi zihagera. Bizaguha u ibisobanuro kwikubitiro kandi kuri mudasobwa cyangwa phone yawe cyigihe bisi irakugereraho, bisi zingahe ziboneka, inzira za bisi hamwe naho bisi zihagarara.",
+    "buttonName": "Reba Bisi",
+    "missionTitle":"Ingamba",
+    "missionStatement": "Ingamba zacu z'ingenzi ni ugufasha abenegihugu b'u Rwanda gucunga neza igihe cyabo muguhitamo ingendo. Mubyongeyeho, ni ukunoza ubunararibonye bwabakiriya hibandwa ku kwagura ibiranga porogaramu kubazikoresha kubakiriya bose mu nzego zitandukanye mugihe ugumye mubipimo byinjiza hamwe nibikorwa byinyungu zitangwa kubantu bose babigizemo uruhare.",
+    "visionTitle": "Icyerekezo",
+    "visionStatement": "Kuba serivise itanga ubwikorezi kandi itera imbere, inatanga serivise kandi ikagira ingaruka mubuzima bwabantu bose."
+  },
+  "footer": {
+    "titleCompany": "Sosiyete",
+    "aboutUs": "Ibitwerekeyeho",
+    "contact": "Twungurane",
+    "contactUs": "Twadikire",
+    "stayInTouch": "Gukomeza kudukurikira",
+    "emailPlaceholder": "Imeri yawe",
+    "subscribe": "IYANDIKISHE"
+  }
+}
