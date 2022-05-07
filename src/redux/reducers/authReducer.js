@@ -1,5 +1,5 @@
 import axios from "axios";
-import { AuthActionType } from "../actions/AuthAction";
+import { AuthActionType, LOADING_TOGGLE_ACTION } from "../actions/AuthAction";
 import { AUTH_ERRORS } from "../actions/actionTypes";
 
 const authState = {
@@ -9,6 +9,7 @@ const authState = {
         user:"",
         token: "",
     },
+    showLoading: false
 };
 
 const getAuthState = () => {
@@ -46,6 +47,11 @@ const getAuthState = () => {
           user: null,
           token: false,
         };  
+      case AuthActionType.LOADING_ACTION:
+        return{
+          ...state,
+          showLoading: action.payload
+        }  
   
       default:
         return state;

@@ -1,12 +1,13 @@
 import React, { useState} from 'react';
 import { GoogleLogin } from 'react-google-login'
-import { connect } from "react-redux"
+import { connect, useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { LoginAuthAction } from "../redux/actions/AuthAction"
+import { loadingToggleAction, LoginAuthAction } from "../redux/actions/AuthAction"
 import { toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css'
 import Navbar from "../components/NavbarComponent/Navbar"
 import Footer from "../components/Footer"
+import Loader from "../skeleton/Loader"
 
 /* =============================================
 Login Page Function Component
@@ -18,6 +19,10 @@ const clientId = 'YOUR_CLIENT_ID.apps.googleusercontent.com'
 
 const Login = (props) => {    
     const { login } = props;
+    const showLoading = useSelector((state)=> state.authreducer.showLoading)
+    console.log(showLoading, "spiner =====")
+
+    const dispatch = useDispatch()
 
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
@@ -25,16 +30,18 @@ const Login = (props) => {
     const [ loginState, setLoginState ] = useState({});
     const navigate = useNavigate();
 
+  
     function handleSubmit(e) {
-        
          e.preventDefault();        
         login({email, password}, navigate);
+        
     }
     return (
       <div test-data="loginComponent">
           <Navbar />
         <div className='h-screen flex bg-gray-bg1 '>
         <div className='w-full max-w-lg m-auto bg-white rounded-xl border border-primaryBorder py-10 px-16 drop-shadow-2xl'>
+       {showLoading && <Loader />}
             <h1 className='text-4xl font-medium text-primary mt-3 mb-8 text-center'>
                 Login
             </h1>
@@ -80,14 +87,10 @@ const Login = (props) => {
                     clientId={clientId}
                     buttonText = 'Login with Google Account'    
                 />
-               <p className='mt-4 ml-10 text-sm'>New to Phantom?   <a
+               <p className='mt-4 ml-32 text-sm'><a
                 href="#!"
                 className="text-blue-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
-                >Signup</a
-              > Forgot password    <a
-                href="#!"
-                className="text-blue-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
-                >reset</a
+                >Forgot Password</a
               ></p>   
                 </form>
         </div>

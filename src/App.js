@@ -11,7 +11,6 @@ import Logout from "./components/Logout"
 import UpdateProfile from "./components/UpdateProfile";
 
 
-
 /* =============================================
 App Function Component
 This is where all the routes to the app shall be 
@@ -28,7 +27,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<UpdateProfile />} />
-          </Routes>
+         </Routes>
         </React.StrictMode>
       </div>
     </Router>
