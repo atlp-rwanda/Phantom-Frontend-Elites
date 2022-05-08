@@ -7,3 +7,4 @@ export const INCREMENT = "INCREMENT";
 export const DECREMENT = "DECREMENT";
 export const RESET = "RESET";
 export const SET_LANGUAGE = "SET_LANGUAGE";
+export const SEND_MESSAGE = "SEND_MESSAGE";

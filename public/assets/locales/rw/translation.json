@@ -24,5 +24,25 @@
     "stayInTouch": "Gukomeza kudukurikira",
     "emailPlaceholder": "Imeri yawe",
     "subscribe": "IYANDIKISHE"
+  },
+  "contact": {
+    "title": "Menyesha unatubwire icyo twagufasha",
+    "infoPart1": "Shyira umwirondoro wawe n'icyifuzo cyawe bwite,",
+    "infoPart2": "Abakozi babishyinzwe bazaguhamagara cg bakwandikire vuba bishoboka.",
+    "nameLabel": "Amazina Yawe",
+    "namePlaceholder": "andika izina ryawe neza",
+    "emailLabel":"Imeri",
+    "emailPlaceholder": "andika imeri yawe yemewe",
+    "telnumberLabel": "Numero ya terefone",
+    "telnumberPlaceholder": "Injiza nimero ya terefone muburyo bwimibare 10 urugero: 0781161254",
+    "messageLabel": "Ubutumwa",
+    "messagePlaceholder": "Andika ubutumwa bwawe hano",
+    "sendButton": "Ohereza"
+  },
+  "contactSuccess": {
+    "greetings": "Muraho",
+    "introTitle": "Urakoze kutugeza ubutumwa bwawe!",
+    "feedbackPromise": "Urakira igisubizo vuba!",
+    "end": "Ubuyobozi bwa Phantom"
   }
 }
