@@ -1,9 +1,12 @@
 // imported modules
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // imported components
 import Home from "./components/Home";
 import About from "./components/About";
+import Contact from "./components/Contact";
 
 /* =============================================
 App Function Component
@@ -15,10 +18,12 @@ const App = () => {
   return (
     <Router>
       <div className="font-roboto">
+        <ToastContainer />
         <React.StrictMode>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </React.StrictMode>
       </div>
