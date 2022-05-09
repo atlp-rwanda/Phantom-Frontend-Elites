@@ -25,7 +25,7 @@ const LoginAuthAction = (loginState, navigate ) => {
       })
       const user = res.data.user;
       if(user.id===1){
-        navigate('/operators')
+        navigate('/dashboard')
       }
       else{
         navigate('/');
