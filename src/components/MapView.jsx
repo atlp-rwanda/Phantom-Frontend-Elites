@@ -4,10 +4,46 @@ import "leaflet/dist/leaflet.css";
 import LocationMarker from "./LocationMarker";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import citiesData from "../data.json";
+// import citiesData from "../data.json";
 import Routing from "./Routing";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
+
+const data = [
+  {
+    "city": "Nyamirambo",
+    "city_ascii": "Nyamirambo",
+    "lat": "-1.97811",
+    "lng": "30.04413",
+    "country": "Rwanda",
+    "id": "1392685764"
+  },
+  {
+    "city": "remera",
+    "lat": "-1.95871",
+    "lng": "30.11904",
+    "country": "Rwanda",
+    "id": "1360771077"
+  },
+  {
+    "city": "Kimironko",
+    "city_ascii": "Kimironko",
+    "lat": "-1.94262",
+    "lng": "30.13820",
+    "country": "Rwanda",
+    "id": "1356872604"
+  },
+  {
+    "city": "Nyabugogo",
+    "city_ascii": "Nyabugogo",
+    "lat": "-1.87910",
+    "lng": "30.08130",
+    "country": "Rwanda",
+    "id": "1356226629"
+  }
+]
+  
+
 
 function MapView() {
   const useStyles = makeStyles((theme) => ({
@@ -33,7 +69,7 @@ function MapView() {
   const [source, setSource] = useState({});
   const [destination, setDestination] = useState({});
   useEffect(() => {
-    citiesData.map((eachCity) => setCities((cities) => [...cities, eachCity]));
+    data.map((eachCity) => setCities((cities) => [...cities, eachCity]));
   }, []);
 
   return (
