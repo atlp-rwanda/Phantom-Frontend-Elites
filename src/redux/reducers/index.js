@@ -3,6 +3,8 @@ import authreducer from "./authReducer";
 import errorReducer from "./errorReducer"
 import contactReducer from "./contactReducer"
 
+import employeesReducer from "./employeesReducer";
+import showModalReducer from "./showModalReducer";
 
 /* ==================================================
 allReducers which combines all slice reducer functions
@@ -13,6 +15,8 @@ const allReducers = combineReducers({
   contactReducer,
   authreducer,
   errorReducer,
+  employeesReducer,
+  showModalReducer,
 });
 
 export default allReducers;

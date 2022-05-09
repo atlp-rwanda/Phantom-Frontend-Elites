@@ -1,6 +1,8 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
+import "./main.css";
+import "react-phone-number-input/style.css";
 import store from "./store";
 import "./main.css";
 import "./langConfig";

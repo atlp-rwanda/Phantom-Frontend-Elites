@@ -10,6 +10,8 @@ import Contact from "./components/Contact";
 import Login from "./components/Login";
 import UpdateProfile from "./components/UpdateProfile";
 
+import OperatorDashboard from "./components/AdminDashboard/OperatorDashboard";
+import DriverDashboard from "./components/AdminDashboard/DriverDashboard";
 
 /* =============================================
 App Function Component
@@ -29,6 +31,8 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<UpdateProfile />} />
+            <Route path="/operators" element={<OperatorDashboard />} />
+            <Route path="/drivers" element={<DriverDashboard />} />
          </Routes>
         </React.StrictMode>
       </div>
