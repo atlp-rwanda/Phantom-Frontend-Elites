@@ -1,9 +1,13 @@
 // imported modules
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 // imported components
+import ResetLink from "./components/ResetLink";
+import ChangePassword from "./components/ChangePassword";
+import "./main.css";
+import "react-toastify/dist/ReactToastify.css";
 import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -28,6 +32,8 @@ const App = () => {
         <React.StrictMode>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/reset-link" element={<ResetLink />} />
+            <Route path="/reset-password" element={<ChangePassword />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
@@ -37,8 +43,8 @@ const App = () => {
             <Route path="/drivers" element={<DriverDashboard />} />
          </Routes>
         </React.StrictMode>
-      </div>
-    </Router>
+        </div>
+      </Router>
   );
 };
 

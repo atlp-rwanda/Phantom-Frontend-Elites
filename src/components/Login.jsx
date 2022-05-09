@@ -4,6 +4,7 @@ import { connect, useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { loadingToggleAction, LoginAuthAction } from "../redux/actions/AuthAction"
 import { toast } from "react-toastify"
+import { Link } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css'
 import Navbar from "../components/NavbarComponent/Navbar"
 import Footer from "../components/Footer"
@@ -86,10 +87,10 @@ const Login = (props) => {
                     clientId={clientId}
                     buttonText = 'Login with Google Account'    
                 />
-               <p className='mt-4 ml-32 text-sm'><a
-                href="#!"
+               <p className='mt-4 ml-32 text-sm'><Link
+                to="/reset-link"
                 className="text-blue-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
-                >Forgot Password</a
+                >Forgot Password</Link
               ></p>   
                 </form>
         </div>
