@@ -24,5 +24,28 @@
     "stayInTouch": "Stay in touch",
     "emailPlaceholder": "Your email",
     "subscribe": "SUBSCRIBE"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "infoPart1": " Please add your personal information and your request to this form,you will be contacted",
+    "infoPart2": "by Phantom Team as soon as possible.",
+    "nameLabel": "Your Names",
+    "namePlaceholder": "write your fullname correctly",
+    "emailLabel":"Email",
+    "emailPlaceholder": "write your valid email",
+    "telnumberLabel": "Phone Number",
+    "telnumberPlaceholder": "Enter phone number in 10 digit-format e.g 0781161254",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Write your message here",
+    "sendButton": "Send"
+  },
+  "validation" : {
+    "fullname" : "fullname is required"
+  },
+  "contactSuccess": {
+    "greetings": "Hello",
+    "introTitle": "Thanks for reaching out to us!",
+    "feedbackPromise": "You will recieve a response soon!",
+    "end": "Phantom Team"
   }
 }

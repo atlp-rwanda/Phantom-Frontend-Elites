@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import counterReducer from "./counterReducer";
+import contactReducer from "./contactReducer";
 
 /* ==================================================
 allReducers which combines all slice reducer functions
@@ -7,7 +7,7 @@ allReducers which combines all slice reducer functions
 ===================================================== */
 
 const allReducers = combineReducers({
-  counterReducer,
+  contactReducer,
 });
 
 export default allReducers;
