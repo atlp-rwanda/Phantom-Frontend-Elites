@@ -8,7 +8,6 @@ dotenv.config();
 
 module.exports = {
   entry: path.join(__dirname, "src", "index.js"),
-  mode: "development",
   output: {
     path: path.join(__dirname, "dist"),
     filename: "bundle.js",
@@ -50,7 +49,7 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ["", ".js", ".jsx", ".svg"],
+    extensions: ["", ".js", ".jsx", ".svg",".json"],
   },
   devServer: {
     static: {
