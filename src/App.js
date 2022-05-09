@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import OperatorDashboard from "./components/AdminDashboard/OperatorDashboard";
 import DriverDashboard from "./components/AdminDashboard/DriverDashboard";
+import Dashboard from "./components/AdminDashboard/Dashboard";
 
 /* =============================================
 App Function Component
@@ -24,6 +25,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/operators" element={<OperatorDashboard />} />
             <Route path="/drivers" element={<DriverDashboard />} />
           </Routes>

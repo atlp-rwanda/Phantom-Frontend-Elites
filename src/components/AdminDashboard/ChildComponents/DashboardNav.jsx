@@ -10,9 +10,9 @@ import {
 const DashboardNav = ({ navbarTitle }) => {
   return (
     <>
-      <div className="flex justify-between items-center bg-white border-b-2 border-gray-400 shadow-lg py-4 px-8">
+      <div className="flex justify-between items-center bg-white  border-gray-400 shadow-md py-4 px-8">
         <div>
-          <h1 className="text-xl font-bold text-primary">{navbarTitle}</h1>
+          <h1 className="text-xl font-bold text-[#3C3868]">{navbarTitle}</h1>
         </div>
 
         <div className="flex">
@@ -25,13 +25,13 @@ const DashboardNav = ({ navbarTitle }) => {
           </div>
           <div className="mr-8">
             <FontAwesomeIcon
-              className="text-2xl text-[#363740] cursor-pointer"
+              className="text-2xl text-[#3C3868] cursor-pointer"
               icon={faBell}
             />
           </div>
           <div>
             <FontAwesomeIcon
-              className="text-2xl text-[#363740] cursor-pointer"
+              className="text-2xl text-[#3C3868] cursor-pointer"
               icon={faCircleUser}
             />
           </div>
