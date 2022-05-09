@@ -16,11 +16,11 @@ as the landing page view
 
 const Home = () => {
   return (
-    <>
+    <div className="mt-16">
       <Navbar />
       <MapView />
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -78,6 +78,13 @@
   }
 }
 
-.phone {
-  margin-bottom: 5vh;
+.container {
+  position: absolute;
+  width: 21%;
+  height: min-content;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  left: 6%;
+  top: 2%;
 }
