@@ -3,18 +3,16 @@ import PropTypes from "prop-types";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import AddEmployeeFormModal from "./AddEmployeeFormModal";
+import AddPermissionFormModal from "./AddPermissionFormModal";
 import { connect } from "react-redux";
-import { showModalActionCreator } from "../../../redux/actions/showModal";
+import { showModalActionCreator } from "../../../redux/actions/showRolePermissionModalAction";
 
-// Add employee function component
-const AddEmployee = ({
+const AddPermission = ({
   name,
+  roleId,
   isModalOpen,
   showModalActionCreator: showModal,
 }) => {
-  /** ref function for closing the modal
-   * when a user clicks outside the model **/
   const toggleModal = () => {
     showModal(!isModalOpen);
   };
@@ -27,9 +25,6 @@ const AddEmployee = ({
     }
   };
 
-  /** callback func for closing the modal
-   * when a user presses escape keyboard key **/
-
   const escKeyPress = useCallback(
     (e) => {
       if (e.key === "Escape" && isModalOpen) {
@@ -38,8 +33,6 @@ const AddEmployee = ({
     },
     [isModalOpen]
   );
-
-  // useEffect func to run the escKey Press func
 
   useEffect(() => {
     document.addEventListener("keydown", escKeyPress);
@@ -59,7 +52,7 @@ const AddEmployee = ({
       </button>
 
       {isModalOpen && (
-        <AddEmployeeFormModal
+        <AddPermissionFormModal
           name={name}
           handleOutsideClickCloseModal={handleOutsideClickCloseModal}
           modalRef={modalRef}
@@ -70,16 +63,16 @@ const AddEmployee = ({
 };
 
 const mapStateToProps = (state) => ({
-  isModalOpen: state.showModalReducer.isModalOpen,
+  isModalOpen: state.showRolePermissionModalReducer.isModalOpen,
 });
 
-// Validations for props received
-AddEmployee.propTypes = {
+AddPermission.propTypes = {
   name: PropTypes.string.isRequired,
+  roleId: PropTypes.string.isRequired,
   isModalOpen: PropTypes.bool.isRequired,
   showModalActionCreator: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, { showModalActionCreator })(
-  AddEmployee
+  AddPermission
 );

@@ -60,3 +60,38 @@
     transform: rotate(360deg);
   }
 }
+
+.modelBackground {
+  width: 68%;
+  height: 100vh;
+  background-color: rgb(233, 233, 233);
+  position: fixed;
+  display: flex;
+  margin-top: 0px;
+  padding-bottom: 120px;
+  justify-content: center;
+  align-items: center;
+}
+
+.roleUpdateBtn {
+  @apply border-2 border-[#0B40FF] px-2 py-1 text-sm  rounded-md bg-gray-100 hover:bg-[#0B40FF] hover:text-white;
+}
+
+.roleDeleteBtn {
+  @apply border-2 border-[#D61C1C] px-2 py-1 text-sm  rounded-md bg-gray-100 hover:bg-[#D61C1C] hover:text-white;
+}
+
+.updateModalBkgnd {
+  width: 75%;
+  height: 100vh;
+  background-color: rgb(233, 233, 233);
+  position: fixed;
+  display: flex;
+  margin-top: 0px;
+  top: 13%;
+  left: 20%;
+  right: 0px;
+  padding-bottom: 120px;
+  justify-content: center;
+  align-items: center;
+}

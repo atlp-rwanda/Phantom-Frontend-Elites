@@ -1,10 +1,10 @@
 import React from "react";
-import AddEmployee from "./ChildComponents/AddEmployee";
+import AddRole from "./ChildComponents/addRole";
 import DashboardNav from "./ChildComponents/DashboardNav";
 import DashboardSidebar from "./ChildComponents/DashboardSidebar";
-import DriversTable from "./ChildComponents/DriversTable";
+import RolesTable from "./ChildComponents/RolesTable";
 
-const DriverDashboard = () => {
+const RoleDashboard = () => {
   return (
     <>
       <div className="flex">
@@ -15,13 +15,13 @@ const DriverDashboard = () => {
         </div>
         <div className="flex-1">
           <div>
-            <DashboardNav navbarTitle="Manage Drivers" />
+            <DashboardNav navbarTitle="Manage Roles" />
           </div>
           <div className="mt-8 mb-4 mx-[10%]">
-            <AddEmployee name={"Driver"} />
+            <AddRole name={"Role"} />
           </div>
           <div>
-            <DriversTable tableTitle={"Drivers"} />
+            <RolesTable tableTitle={"Roles"} />
           </div>
         </div>
       </div>
@@ -29,4 +29,4 @@ const DriverDashboard = () => {
   );
 };
 
-export default DriverDashboard;
+export default RoleDashboard;

@@ -1,10 +1,10 @@
 import React from "react";
-import AddEmployee from "./ChildComponents/AddEmployee";
+import AddPermission from "./ChildComponents/AddPermission";
 import DashboardNav from "./ChildComponents/DashboardNav";
 import DashboardSidebar from "./ChildComponents/DashboardSidebar";
-import OperatorsTable from "./ChildComponents/OperatorsTable";
+import PermissionsTable from "./ChildComponents/PermissionsTable";
 
-const OperatorDashboard = () => {
+const PermissionDashboard = () => {
   return (
     <>
       <div className="flex">
@@ -15,13 +15,13 @@ const OperatorDashboard = () => {
         </div>
         <div className="flex-1">
           <div>
-            <DashboardNav navbarTitle="Manage Operators" />
+            <DashboardNav navbarTitle="Manage Roles" />
           </div>
           <div className="mt-8 mb-4 mx-[10%]">
-            <AddEmployee name={"Operator"} />
+            <AddPermission name={"Permission"} />
           </div>
           <div>
-            <OperatorsTable tableTitle={"Operators"} />
+            <PermissionsTable tableTitle={"Permissions"} />
           </div>
         </div>
       </div>
@@ -29,4 +29,4 @@ const OperatorDashboard = () => {
   );
 };
 
-export default OperatorDashboard;
+export default PermissionDashboard;
