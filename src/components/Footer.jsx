@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import {
   faTwitter,
@@ -9,6 +10,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <div
       test-data="footerComponent"
@@ -22,33 +24,33 @@ const Footer = () => {
         </div>
 
         <div className="mt-[50px]">
-          <h2 className="text-lg pb-4">Company</h2>
-          <Link to="/about" target="_blank">
-            <h2 className="text-sm text-[#9CA3AF] hover:text-white">
-              About Us
-            </h2>
-          </Link>
+          <h2 className="text-lg pb-4">{t("footer.titleCompany")}</h2>
+          <h2 className="text-sm text-[#9CA3AF]">
+            <Link className="hover:text-white" to="/about" target="_blank">
+              {t("footer.aboutUs")}
+            </Link>
+          </h2>
         </div>
 
         <div className="mt-[50px]">
-          <h2 className="text-lg pb-4">Contact Center</h2>
-          <Link to="">
-            <h2 className="text-sm text-[#9CA3AF] hover:text-white">
-              Contact Us
-            </h2>
-          </Link>
+          <h2 className="text-lg pb-4">{t("footer.contact")}</h2>
+          <h2 className="text-sm text-[#9CA3AF]">
+            <Link className="hover:text-white" to="">
+              {t("footer.contactUs")}
+            </Link>
+          </h2>
         </div>
 
         <div className="mt-[50px]">
-          <h2 className="text-lg pb-4">Stay in touch</h2>
+          <h2 className="text-lg pb-4">{t("footer.stayInTouch")}</h2>
           <div className="flex border-2 lg:w-[280px] w-[300px] border-gray-400 p-2 rounded-md">
             <input
               className=" appearance-none bg-transparent focus:outline-none lg:w-[150px]"
               type="text"
-              placeholder="Your email"
+              placeholder={t("footer.emailPlaceholder")}
             />
             <span className="pl-4 text-[#9CA3AF] hover:text-gray-300">
-              <Link to="">SUBSCRIBE</Link>
+              <Link to="">{t("footer.subscribe")}</Link>
             </span>
           </div>
           <div className="text-[#9CA3AF] mt-4">
