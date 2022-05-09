@@ -15,7 +15,7 @@ const ResetLink = () => {
     };
 
     const { data } = await axios.post(
-      "http://localhost:3000/api/v1/reset-password/link",
+      "https://phantom-backend-elites.herokuapp.com/api/v1/reset-password/link",
       userData
     );
     console.log(data);
