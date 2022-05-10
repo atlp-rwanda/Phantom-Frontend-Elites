@@ -36,14 +36,7 @@ const DesktopView = (props) => {
         <div className="relative inline-block text-left mx-4 my-6 md:my-0">
           <div>
             <button
-<<<<<<< HEAD
-<<<<<<< HEAD
               test-data="buttonComponent"
-=======
->>>>>>> 74302ef... Tests modified
-=======
-              test-data="buttonComponent"
->>>>>>> 3721e7a... Modified tests
               onClick={props.handleClick}
               type="button"
               className="inline-flex justify-center w-full rounded-md border border-gray-700 shadow-sm px-4 py-2 bg-white text-md font-medium text-black focus:bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-offset-gray-100 focus:ring-gray-700"
@@ -70,36 +63,36 @@ const DesktopView = (props) => {
 
           {props.languageOptions && (
             <div
-              className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+              className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="menu-button"
               tabIndex="-1"
             >
-              <div className="py-1" role="none">
+              <div className="py-1 z-50" role="none">
                 <li
                   className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200"
                   role="menuitem"
                   tabIndex="-1"
                   id="menu-item-0"
                 >
-                  <Link to="/">English</Link>
+                  <Link to="">English</Link>
                 </li>
                 <li
-                  className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200"
+                  className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 "
                   role="menuitem"
                   tabIndex="-1"
                   id="menu-item-1"
                 >
-                  <Link to="/">French</Link>
+                  <Link to="">French</Link>
                 </li>
                 <li
-                  className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200"
+                  className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 "
                   role="menuitem"
                   tabIndex="-1"
                   id="menu-item-2"
                 >
-                  <Link to="/">Kinyarwanda</Link>
+                  <Link to="">Kinyarwanda</Link>
                 </li>
               </div>
             </div>

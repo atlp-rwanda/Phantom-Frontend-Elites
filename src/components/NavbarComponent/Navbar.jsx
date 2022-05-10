@@ -16,28 +16,13 @@ const Navbar = () => {
       test-data="navbarComponent"
       className="lg:px-[100px] px-[8px] flex items-center justify-between border-b border-gray-400 shadow-md bg-white"
     >
-<<<<<<< HEAD
-<<<<<<< HEAD
       <Link to="/">
-=======
-      <Link to="">
->>>>>>> 74302ef... Tests modified
-=======
-      <Link to="/">
->>>>>>> 55abcb6... Added final touches
         <h1 className="text-primary font-bold text-[40px] ">Phantom</h1>
       </Link>
-      <nav>
+      <nav className="z-50">
         <section className="MOBILE-MENU flex lg:hidden">
           <div
-<<<<<<< HEAD
-<<<<<<< HEAD
             test-data="buttonComponent"
-=======
->>>>>>> 74302ef... Tests modified
-=======
-            test-data="buttonComponent"
->>>>>>> 3721e7a... Modified tests
             className="HAMBURGER-ICON space-y-2"
             onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
           >
@@ -48,14 +33,7 @@ const Navbar = () => {
 
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
             <div
-<<<<<<< HEAD
-<<<<<<< HEAD
               test-data="buttonTwoComponent"
-=======
->>>>>>> 74302ef... Tests modified
-=======
-              test-data="buttonTwoComponent"
->>>>>>> 3721e7a... Modified tests
               className="CROSS-ICON absolute top-0 right-0 lg:px-7 py-4"
               onClick={() => setIsNavOpen(false)} // change isNavOpen state to false to close the menu
             >

@@ -1,6 +1,6 @@
 import React from "react";
 import "leaflet/dist/leaflet.css";
-import Navbar from "./Navbar";
+import Navbar from "./NavbarComponent/Navbar";
 import MapView from "./MapView";
 import Footer from "./Footer";
 

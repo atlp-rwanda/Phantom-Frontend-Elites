@@ -41,6 +41,8 @@ const App = () => {
             <Route path="/drivers" element={<DriverDashboard />} />
             <Route path="/operators" element={<OperatorDashboard />} />
             <Route path="/drivers" element={<DriverDashboard />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </React.StrictMode>
       </div>

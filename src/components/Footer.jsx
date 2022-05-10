@@ -10,30 +10,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Footer = () => {
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 3721e7a... Modified tests
     <div
       test-data="footerComponent"
       className="grid grid-rows-2 text-white py-2 lg:px-24 px-6 ] bg-primary"
     >
-<<<<<<< HEAD
       <div className="grid lg:grid-cols-4 row-span-3">
         <div className="mt-[40px]">
           <Link to="/">
-=======
-    <div className="grid grid-rows-2 text-white py-2 lg:px-24 px-6 ] bg-primary">
-=======
->>>>>>> 3721e7a... Modified tests
-      <div className="grid lg:grid-cols-4 row-span-3">
-        <div className="mt-[40px]">
-<<<<<<< HEAD
-          <Link to="">
->>>>>>> 74302ef... Tests modified
-=======
-          <Link to="/">
->>>>>>> 55abcb6... Added final touches
             <h1 className="font-bold text-[35px]">Phantom</h1>
           </Link>
         </div>
