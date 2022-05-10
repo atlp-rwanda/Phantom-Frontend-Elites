@@ -20,7 +20,7 @@ i18n
       caches: ["localStorage"],
     },
     backend: {
-      loadPath: "/assets/locales/{{lng}}/translation.json",
+      loadPath: "/assets/locales/translations/{{lng}}.json",
     },
     react: {
       useSuspense: false,
