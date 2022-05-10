@@ -92,6 +92,7 @@
     "recharts": "^2.1.9",
     "css-loader": "^6.7.1",
     "node": "^16.14.0",
+    "joi-browser": "^13.4.0",
     "postcss-loader": "^6.2.1",
     "react-redux": "^7.2.8",
     "react-router-dom": "^6.3.0",

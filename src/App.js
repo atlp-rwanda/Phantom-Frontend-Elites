@@ -16,6 +16,8 @@ import Login from "./components/Login";
 import Logout from "./components/Logout";
 import UpdateProfile from "./components/UpdateProfile";
 import Dashboard from "./components/AdminDashboard/Dashboard";
+import RoleDashboard from "./components/AdminDashboard/RoleDashboard";
+import PermissionDashboard from "./components/AdminDashboard/PermissionDashboard";
 
 /* =============================================
 App Function Component
@@ -41,6 +43,8 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<UpdateProfile />} />
             <Route path="/logout" element={<Logout />} />
+            <Route path="/roles" element={<RoleDashboard />} />
+            <Route path="/permissions" element={<PermissionDashboard />} />
           </Routes>
         </React.StrictMode>
       </div>
