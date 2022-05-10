@@ -2,7 +2,7 @@ const path = require("path");
 const dotenv = require("dotenv");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const webpack = require("webpack")
+const webpack = require("webpack");
 
 dotenv.config();
 
@@ -16,7 +16,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.(js|jsx)$/,
+        test: /.(js|jsx|xml)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -45,7 +45,9 @@ module.exports = {
       filename: "[name].css",
       chunkFilename: "[id].css",
     }),
-    new webpack.DefinePlugin({ 'process.env': { PHANTOM_API: JSON.stringify(process.env.PHANTOM_API), }, }), 
+    new webpack.DefinePlugin({
+      "process.env": { PHANTOM_API: JSON.stringify(process.env.PHANTOM_API) },
+    }),
   ],
   resolve: {
     extensions: ["", ".js", ".jsx", ".svg"],

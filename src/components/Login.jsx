@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { GoogleLogin } from "react-google-login";
 import { connect, useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   loadingToggleAction,
   LoginAuthAction,
@@ -39,7 +39,7 @@ const Login = (props) => {
   return (
     <div test-data="loginComponent">
       <Navbar />
-      <div className="h-screen flex bg-gray-bg1 ">
+      <div className="h-screen flex bg-gray-bg1 pt-14">
         <div className="w-full max-w-lg m-auto bg-white rounded-xl border border-primaryBorder py-10 px-16 drop-shadow-2xl">
           {showLoading && <Loader />}
           <h1 className="text-4xl font-medium text-primary mt-3 mb-8 text-center">
@@ -89,12 +89,12 @@ const Login = (props) => {
               buttonText="Login with Google Account"
             />
             <p className="mt-4 ml-32 text-sm">
-              <a
-                href="#!"
+              <Link
+                to="/reset-link"
                 className="text-blue-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
               >
                 Forgot Password
-              </a>
+              </Link>
             </p>
           </form>
         </div>
