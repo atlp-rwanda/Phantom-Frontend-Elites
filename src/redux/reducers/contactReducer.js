@@ -1,4 +1,6 @@
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
+import swal from "sweetalert";
+
 import { SEND_MESSAGE } from "../actions/actionTypes";
 const initialState = {
   messages: [],
@@ -11,10 +13,15 @@ const employeesReducer = (state = initialState, action) => {
     case SEND_MESSAGE:
       return {
         ...state,
-        messages: [...state.messages, action.payload],
-        sentStatus: toast.success("Your message was delivered!", {
-          position: "top-center",
-        }),
+        // messages: [...state.messages, action.payload],
+        // sentStatus: toast.success("Your message was delivered!", {
+        //   position: "top-center",
+        // }),
+        message: swal(
+          "Thanks!",
+          "Your message was successfully sent!",
+          "success"
+        ),
       };
     default:
       return state;
