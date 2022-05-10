@@ -12,6 +12,7 @@ import DriverDashboard from "./components/AdminDashboard/DriverDashboard";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import UpdateProfile from "./components/UpdateProfile";
+import Dashboard from "./components/AdminDashboard/Dashboard";
 
 /* =============================================
 App Function Component
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/operators" element={<OperatorDashboard />} />
             <Route path="/drivers" element={<DriverDashboard />} />
             <Route path="/login" element={<Login />} />
