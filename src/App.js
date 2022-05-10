@@ -9,6 +9,9 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import OperatorDashboard from "./components/AdminDashboard/OperatorDashboard";
 import DriverDashboard from "./components/AdminDashboard/DriverDashboard";
+import Login from "./components/Login";
+import Logout from "./components/Logout";
+import UpdateProfile from "./components/UpdateProfile";
 
 /* =============================================
 App Function Component
@@ -28,6 +31,9 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/operators" element={<OperatorDashboard />} />
             <Route path="/drivers" element={<DriverDashboard />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<UpdateProfile />} />
+            <Route path="/logout" element={<Logout />} />
           </Routes>
         </React.StrictMode>
       </div>
