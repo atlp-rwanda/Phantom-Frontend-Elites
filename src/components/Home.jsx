@@ -1,11 +1,5 @@
 import React from "react";
 import "leaflet/dist/leaflet.css";
-<<<<<<< HEAD
-=======
-import data from "../assets/data.json";
-import Search from "./Search";
-import LocationMarker from "./LocationMarker";
->>>>>>> 55abcb6... Added final touches
 import Navbar from "./NavbarComponent/Navbar";
 import MapView from "./MapView";
 import Footer from "./Footer";
