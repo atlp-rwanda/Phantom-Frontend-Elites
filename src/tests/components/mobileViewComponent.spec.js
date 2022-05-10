@@ -2,6 +2,10 @@ import React from "react";
 import { shallow } from "enzyme";
 import MobileView from "../../components/NavbarComponent/MobileView";
 
+jest.mock("react-i18next", () => ({
+  useTranslation: () => ({ t: (key) => key }),
+}));
+
 const setUp = (props = {}) => {
   const setComponent = shallow(<MobileView {...props} />);
   return setComponent;

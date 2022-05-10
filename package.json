@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "serve -s ./dist",
+    "prestart": "npm run build && mkdir -p dist/assets/locales/translations/ && cp public/assets/locales/translations/* dist/assets/locales/translations/",
     "build": "webpack --config webpack.config.js --mode production",
     "dev": "webpack-dev-server --mode development --open",
     "prepare": "husky install",
@@ -35,6 +36,7 @@
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
     "babel-jest": "^27.5.1",
     "babel-loader": "^8.2.4",
+    "css-loader": "^6.7.1",
     "enzyme": "^3.11.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.5.0",
@@ -60,25 +62,45 @@
     "webpack-pwa-manifest": "^4.3.0"
   },
   "dependencies": {
+    "axios": "^0.26.1",
+    "dotenv": "^16.0.0",
+    "leaflet": "^1.7.1",
+    "leaflet-geosearch": "^3.6.0",
+    "query-string": "^7.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-leaflet": "^3.2.5",
+    "react-leaflet-geosearch": "^0.3.4",
+    "autoprefixer": "^10.4.5",  
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
-    "autoprefixer": "^10.4.5",
+    "@material-ui/core": "4.12.1",
+    "@material-ui/lab": "4.0.0-alpha.60",
+    "font-awesome": "^4.7.0",
+    "i18next": "^21.7.1",
+    "i18next-browser-languagedetector": "^6.1.4",
+    "i18next-http-backend": "^1.4.0",
+    "leaflet-routing-machine": "3.2.12",
+    "react-google-login": "^5.2.2",
+    "react-i18next": "^11.16.9",
+    "react-loader-spinner": "^6.0.0-0",
+    "react-phone-number-input": "^3.1.52",
+    "react-spinners": "^0.11.0",
+    "react-toastify": "^9.0.1",
+    "react-validation": "^3.0.7",
+    "recharts": "^2.1.9",
     "css-loader": "^6.7.1",
-    "dotenv": "^16.0.0",
-    "leaflet": "^1.8.0",
-    "leaflet-geosearch": "^3.6.0",
     "node": "^16.14.0",
+    "joi-browser": "^13.4.0",
     "postcss-loader": "^6.2.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-leaflet": "^3.2.5",
     "react-redux": "^7.2.8",
     "react-router-dom": "^6.3.0",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
-    "serve": "^13.0.2"
+    "serve": "^13.0.2",
+    "sweetalert": "^2.1.2"
   },
   "lint-staged": {
     "*.{js, jsx}": "eslint --cache --fix",
@@ -103,16 +125,18 @@
       "<rootDir>/enzyme.config.js"
     ],
     "collectCoverageFrom": [
-      "<rootDir>/src/**/*.{js,jsx,ts,tsx}"
+      "<rootDir>/src/components/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/redux/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/skeleton/**/*.{js,jsx,ts,tsx}"
     ],
     "testEnvironment": "jsdom",
     "collectCoverage": true,
     "coverageThreshold": {
       "global": {
-        "branches": 40,
-        "functions": 40,
-        "lines": 40,
-        "statements": 40
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
       }
     },
     "moduleNameMapper": {

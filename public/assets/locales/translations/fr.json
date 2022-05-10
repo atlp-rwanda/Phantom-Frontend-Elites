@@ -1,0 +1,48 @@
+{
+  "navbar": {
+    "home": "Accueil",
+    "contact": "Contactez",
+    "login": "Connexion",
+    "about": "Propos"
+  },
+  "about": {
+    "jumbotron1": "N'attendez pas à la gare routière.",
+    "jumbotron2": "Vérifiez votre bus sur le chemin.",
+    "title": "À propos de Phantom",
+    "aboutStatement": "Le mouvement est ce qui nous alimente. C'est notre force vitale. C'est ce qui nous fait sortir du lit chaque matin. Cela nous pousse à constamment réimaginer comment nous pouvons mieux bouger. Pour toi. Pour tous les endroits où vous voulez aller. Pour toutes les choses que vous voulez obtenir. Pour toutes les façons dont vous voulez gagner. A travers le monde entier. En temps réel. À la vitesse incroyable de maintenant. Phantom App résoudra le problème du temps d'attente imprévisible que vous passez dans les gares routières en attendant l'arrivée des bus. Il vous donnera des détails sur l'heure d'arrivée des bus, le nombre de sièges de bus disponibles, les itinéraires de bus et les arrêts de bus.",
+    "buttonName": "Afficher le bus",
+    "missionTitle":"Mission",
+    "missionStatement": "Notre stratégie principale est d'aider les citoyens rwandais à bien gérer leur temps tout en faisant des choix de voyage. En outre, il s'agit d'améliorer l'expérience client en mettant l'accent sur l'expansion de nos fonctionnalités d'application qui sont conviviales pour tous les clients à différents niveaux tout en restant dans les paramètres de nos objectifs de bénéfice net consolidé et de contribution du secteur d'exploitation pour toutes les personnes impliquées.",
+    "visionTitle": "Vision",
+    "visionStatement": "Être un service d'application de transport dynamique et progressif qui tire parti de la technologie et a un impact sur la vie de tous."
+  },
+  "footer": {
+    "titleCompany": "Société",
+    "aboutUs": "À propos de nous",
+    "contact": "Centre d'appels",
+    "contactUs": "Nous contacter",
+    "stayInTouch": "Reste en contact",
+    "emailPlaceholder": "Votre e-mail",
+    "subscribe": "S'ABONNER"
+  },
+  "contact": {
+    "title": "Entrer en contact",
+    "infoPart1": "Veuillez ajouter vos informations personnelles et votre demande à ce formulaire, ",
+    "infoPart2": "vous serez contacté par Phantom Team dès que possible.",
+    "nameLabel": "Vos noms",
+    "namePlaceholder": "écrivez correctement votre nom complet",
+    "emailLabel":"E-mail",
+    "emailPlaceholder": "écrivez votre email valide",
+    "telnumberLabel": "Numéro de téléphone",
+    "telnumberPlaceholder": "Entrez le numéro de téléphone au format à 10 chiffres, par exemple 0781161254",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Ecrivez votre message ici",
+    "sendButton": "Envoyer"
+  },
+  "contactSuccess": {
+    "greetings": "Bonjour",
+    "introTitle": "Merci de nous avoir contactés !",
+    "feedbackPromise": "Vous recevrez une réponse bientôt!",
+    "end": "Équipe Phantom"
+  }
+}
