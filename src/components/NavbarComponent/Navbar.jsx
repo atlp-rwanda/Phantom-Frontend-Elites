@@ -19,7 +19,7 @@ const Navbar = () => {
       <Link to="/">
         <h1 className="text-primary font-bold text-[40px] ">Phantom</h1>
       </Link>
-      <nav>
+      <nav className="z-50">
         <section className="MOBILE-MENU flex lg:hidden">
           <div
             test-data="buttonComponent"

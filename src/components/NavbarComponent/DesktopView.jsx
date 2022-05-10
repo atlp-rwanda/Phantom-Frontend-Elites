@@ -13,18 +13,24 @@ const DesktopView = (props) => {
           className="text-black font-medium hover:bg-primary hover:text-white px-5 py-2 mx-4 my-6 md:my-0 rounded-md text-md list-none"
           aria-current="page"
         >
-          <Link activeclassname="active" to="/">
+          <Link exact="true" activeclassname="active" to="/">
             Home
           </Link>
         </li>
         <li className="text-black font-medium hover:bg-primary hover:text-white px-5 mx-4 my-6 md:my-0 py-2 rounded-md text-md list-none">
-          <Link to="/contact">Contact</Link>
+          <Link exact="true" activeclassname="active" to="/contact">
+            Contact
+          </Link>
         </li>
         <li className="text-black font-medium hover:bg-primary hover:text-white px-5 mx-4 my-6 md:my-0 py-2 rounded-md text-md list-none">
-          <Link to="/login">Login</Link>
+          <Link exact="true" activeclassname="active" to="/login">
+            Login
+          </Link>
         </li>
         <li className="text-primary font-medium hover:bg-primary hover:text-white hover:font-bold px-5 mx-4 my-6 md:my-0 py-2 rounded-md text-md list-none">
-          <Link to="/about">About</Link>
+          <Link exact="true" activeclassname="active" to="/about">
+            About
+          </Link>
         </li>
         {/* Dropdown */}
         <div className="relative inline-block text-left mx-4 my-6 md:my-0">
@@ -57,36 +63,36 @@ const DesktopView = (props) => {
 
           {props.languageOptions && (
             <div
-              className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+              className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="menu-button"
               tabIndex="-1"
             >
-              <div className="py-1" role="none">
+              <div className="py-1 z-50" role="none">
                 <li
                   className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200"
                   role="menuitem"
                   tabIndex="-1"
                   id="menu-item-0"
                 >
-                  <Link to="/">English</Link>
+                  <Link to="">English</Link>
                 </li>
                 <li
-                  className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200"
+                  className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 "
                   role="menuitem"
                   tabIndex="-1"
                   id="menu-item-1"
                 >
-                  <Link to="/">French</Link>
+                  <Link to="">French</Link>
                 </li>
                 <li
-                  className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200"
+                  className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 "
                   role="menuitem"
                   tabIndex="-1"
                   id="menu-item-2"
                 >
-                  <Link to="/">Kinyarwanda</Link>
+                  <Link to="">Kinyarwanda</Link>
                 </li>
               </div>
             </div>

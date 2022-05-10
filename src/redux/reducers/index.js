@@ -1,5 +1,9 @@
 import { combineReducers } from "redux";
-import counterReducer from "./counterReducer";
+import authreducer from "./authReducer";
+import errorReducer from "./errorReducer"
+
+import employeesReducer from "./employeesReducer";
+import showModalReducer from "./showModalReducer";
 
 /* ==================================================
 allReducers which combines all slice reducer functions
@@ -7,7 +11,10 @@ allReducers which combines all slice reducer functions
 ===================================================== */
 
 const allReducers = combineReducers({
-  counterReducer,
+  authreducer,
+  errorReducer,
+  employeesReducer,
+  showModalReducer,
 });
 
 export default allReducers;
