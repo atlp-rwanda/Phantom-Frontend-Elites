@@ -16,7 +16,6 @@ import Loader from "../skeleton/Loader";
 Login Page Function Component
 This is the login page to be rendered as Login page
 ============================================== */
-toast.configure();
 
 const clientId = "YOUR_CLIENT_ID.apps.googleusercontent.com";
 

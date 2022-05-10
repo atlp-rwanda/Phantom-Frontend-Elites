@@ -23,11 +23,10 @@ const LoginAuthAction = (loginState, navigate) => {
         position: "top-center",
       });
       const user = res.data.user;
-      if (user.id === 2) {
-        navigate("/operators");
-      }
-      if (user.id === 3) {
-        navigate("/drivers");
+      if (user.id === 1) {
+        navigate("/dashboard");
+      } else {
+        navigate("/");
       }
     } catch (error) {
       dispatch(returnErrors(error.response.data, error.response.status));

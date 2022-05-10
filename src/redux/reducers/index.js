@@ -2,7 +2,6 @@ import { combineReducers } from "redux";
 import contactReducer from "./contactReducer";
 import employeesReducer from "./employeesReducer";
 import showModalReducer from "./showModalReducer";
-import counterReducer from "./counterReducer";
 import authreducer from "./authReducer";
 import errorReducer from "./errorReducer";
 
@@ -15,7 +14,6 @@ const allReducers = combineReducers({
   contactReducer,
   employeesReducer,
   showModalReducer,
-  counterReducer,
   authreducer,
   errorReducer,
 });
