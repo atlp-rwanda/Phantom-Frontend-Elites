@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router";
 import AddDriver from "./ChildComponents/AddDriver";
 import DashboardNav from "./ChildComponents/DashboardNav";
 import DashboardSidebar from "./ChildComponents/DashboardSidebar";
 import DriversTable from "./ChildComponents/DriversTable";
 
 const DriverDashboard = () => {
+  const isAuthenticated = localStorage.getItem("token");
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    if(isAuthenticated===null) navigate("/login")
+  },[])
+
+  if(isAuthenticated!==null){
   return (
     <>
       <div className="flex">
@@ -27,6 +36,9 @@ const DriverDashboard = () => {
       </div>
     </>
   );
+}else{
+  return null;
+}
 };
 
 export default DriverDashboard;

@@ -1,10 +1,19 @@
-import React from "react";
+import React ,{ useEffect } from "react";
+import { useNavigate } from "react-router";
 import AddOperator from "./ChildComponents/AddOperator";
 import DashboardNav from "./ChildComponents/DashboardNav";
 import DashboardSidebar from "./ChildComponents/DashboardSidebar";
 import OperatorsTable from "./ChildComponents/OperatorsTable";
 
 const OperatorDashboard = () => {
+  const isAuthenticated = localStorage.getItem("token");
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    if(isAuthenticated===null) navigate("/login")
+  },[])
+
+  if(isAuthenticated!==null){
   return (
     <>
       <div className="flex">
@@ -27,6 +36,9 @@ const OperatorDashboard = () => {
       </div>
     </>
   );
+}else{
+  return null;
+}
 };
 
 export default OperatorDashboard;
