@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import queryString from "query-string";
 import axios from "axios";
-import regeneratorRuntime from "regenerator-runtime";
 import { toast } from "react-toastify";
 
 /* =============================================
@@ -85,15 +84,6 @@ const NewPassword = () => {
       }
     }
   };
-
-  if (success)
-    return (
-      <div className="w-50 m-auto pt-40 object-center bg-white">
-        <h1 className="text-center justify-center text-3xl text-gray-500 mb-3">
-          Password Reset Successfully! You can now login.
-        </h1>
-      </div>
-    );
 
   if (invalidUser)
     return (
