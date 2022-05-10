@@ -26,8 +26,61 @@
   @apply py-2 px-0 lg:mx-[100px] mx-[8px];
 }
 
+.deletebtn {
+  @apply border-2 border-[#D61C1C] px-2 text-sm  rounded-md bg-gray-100 hover:bg-[#D61C1C] hover:text-white;
+}
+.updatebtn {
+  @apply border-2 border-[#0B40FF] px-2 text-sm  rounded-md bg-gray-100 hover:bg-[#0B40FF] hover:text-white;
+}
+.assignbtn {
+  @apply border-2 border-[#0D8619] px-2 text-sm  rounded-md bg-gray-100 hover:bg-[#0D8619] hover:text-white;
+}
+
 .active {
-  @apply font-bold hover:text-white;
+  @apply font-bold hover:text-gray-400;
+}
+
+.spinner {
+  animation: spin infinite 1s linear;
+
+  /*You can increase or decrease the timer (5s) to 
+     increase or decrease the speed of the spinner*/
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.modelBackground {
+  width: 68%;
+  height: 100vh;
+  background-color: rgb(233, 233, 233);
+  position: fixed;
+  display: flex;
+  margin-top: 0px;
+  padding-bottom: 120px;
+  justify-content: center;
+  align-items: center;
+}
+
+.updateModalBackground {
+  width: 75%;
+  height: 100vh;
+  background-color: rgb(233, 233, 233);
+  position: fixed;
+  display: flex;
+  margin-top: 0px;
+  top: 13%;
+  left: 20%;
+  right: 0px;
+  padding-bottom: 120px;
+  justify-content: center;
+  align-items: center;
 }
 .leaflet-container {
   width: 99vw;
