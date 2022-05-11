@@ -73,7 +73,7 @@ const NewPassword = () => {
         toast.success(`${data.message}`, {
           position: "top-center",
         });
-        navigate("/");
+        navigate("/login");
       }
       setBusy(false);
     } catch (error) {
