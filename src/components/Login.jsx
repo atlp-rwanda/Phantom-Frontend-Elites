@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { GoogleLogin } from "react-google-login";
 import { connect, useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   loadingToggleAction,
   LoginAuthAction,
@@ -89,12 +91,12 @@ const Login = (props) => {
               buttonText="Login with Google Account"
             />
             <p className="mt-4 ml-32 text-sm">
-              <Link
-                to="/reset-link"
+              <a
+                href="#!"
                 className="text-blue-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
               >
                 Forgot Password
-              </Link>
+              </a>
             </p>
           </form>
         </div>

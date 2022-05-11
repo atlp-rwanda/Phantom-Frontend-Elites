@@ -3,10 +3,10 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./main.css";
 // imported components
 import ResetLink from "./components/ResetLink";
 import ChangePassword from "./components/ChangePassword";
-import "./main.css";
 import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -36,12 +36,12 @@ const App = () => {
             <Route path="/reset-link" element={<ResetLink />} />
             <Route path="/reset-password" element={<ChangePassword />} />
             <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/operators" element={<OperatorDashboard />} />
-            <Route path="/drivers" element={<DriverDashboard />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<UpdateProfile />} />
+            <Route path="/operators" element={<OperatorDashboard />} />
+            <Route path="/drivers" element={<DriverDashboard />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/roles" element={<RoleDashboard />} />
             <Route path="/permissions" element={<PermissionDashboard />} />

@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
 

@@ -12,11 +12,13 @@ const AuthActionType = {
 };
 
 const LoginAuthAction = (loginState, navigate) => {
+  console.log(loginState, "showing login state");
   return async (dispatch) => {
     try {
       dispatch({ type: AuthActionType.LOADING_ACTION, payload: true });
       const res = await axios.post("/auth/login", loginState);
       const { data } = res;
+      console.log(res);
       dispatch({ type: AuthActionType.LOGIN_SUCCESS, payload: data });
       dispatch({ type: AuthActionType.LOADING_ACTION, payload: false });
       toast.success("Login successful!", {
@@ -34,6 +36,7 @@ const LoginAuthAction = (loginState, navigate) => {
         type: AuthActionType.AUTH_ERRORS,
         payload: error.response.data,
       });
+      console.log(error.response.data.message);
       const ms = error.response.data.message;
       dispatch({ type: AuthActionType.LOADING_ACTION, payload: false });
       toast.error(ms, {

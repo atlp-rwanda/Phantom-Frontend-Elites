@@ -16,7 +16,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.(js|jsx|xml)$/,
+        test: /.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -39,18 +39,21 @@ module.exports = {
       filename: "index.html",
       template: path.join(__dirname, "public", "index.html"),
       inject: true,
-      title: "John",
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css",
     }),
     new webpack.DefinePlugin({
-      "process.env": { PHANTOM_API: JSON.stringify(process.env.PHANTOM_API) },
+      "process.env": {
+        REACT_APP_PHANTOM_API: JSON.stringify(
+          process.env.REACT_APP_PHANTOM_API
+        ),
+      },
     }),
   ],
   resolve: {
-    extensions: ["", ".js", ".jsx", ".svg"],
+    extensions: ["", ".js", ".jsx"],
   },
   devServer: {
     static: {
