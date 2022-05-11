@@ -24,20 +24,21 @@ const NewPassword = () => {
 
   const navigate = useNavigate();
 
-  const { token, email } = queryString.parse(location.search);
-  console.log(token.trim());
+  const { token, email } = queryString.parse(location.search)
 
   const verifyToken = async () => {
     try {
       const { data } = await axios.get(
         `${baseUrl}/verify-token?token=${token}&email=${email}`
       );
-      console.log(data);
       setBusy(false);
     } catch (error) {
       if (error?.response?.data) {
         const { data } = error.response;
-        if (!data.success) return setInvalidUser(data.message);
+        if (!data.success) {
+          toast.error(`${data.message}`, { position: "top-center", }); 
+           navigate("/login");
+        };
       }
     }
   };
@@ -54,9 +55,7 @@ const NewPassword = () => {
   const { password, confirmPassword } = newPassword;
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(password);
-    console.log(confirmPassword);
-    if (password.trim().length < 8 || password.trim().length > 30) {
+    if (password?.trim().length < 8 || password?.trim().length > 30) {
       return setError("Password must be 8 to 30 characters long!");
     }
     if (password !== confirmPassword) {
