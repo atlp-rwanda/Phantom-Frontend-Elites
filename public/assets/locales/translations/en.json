@@ -47,5 +47,30 @@
     "introTitle": "Thanks for reaching out to us!",
     "feedbackPromise": "You will recieve a response soon!",
     "end": "Phantom Team"
+  },
+  "login":{
+    "loginTitle":"Login",
+    "emailField":"Email",
+    "passwordField":"Password",
+    "loginButton":"Login",
+    "Or":"Or",
+    "loginGoogle":"Login with Google Account",
+    "forgotPassword":"Forgot Password"
+  },
+  "home":{
+    "destinationLabel":"Destination",
+    "sourceLabel":"Source"
+  },
+  "resetLink":{
+    "heading1":"Reset Your Password",
+    "heading2":"Enter your Email address and we’ll send you a link to reset your password",
+    "emailLabel":"Email",
+    "sendButton":"Send"
+  },
+  "changePassword":{
+    "heading1":"Create New Password",
+    "passwordPlaceholder":"New Password",
+    "confirmPasswordPlaceholder":"Confirm Password",
+    "resetButton":"Reset Password"
   }
 }

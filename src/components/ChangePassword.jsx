@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import queryString from "query-string";
 import axios from "axios";
 import { toast } from "react-toastify";
+import {useTranslation } from "react-i18next"
 
 /* =============================================
 Login Page Function Component
@@ -13,6 +14,7 @@ const baseUrl =
   "https://phantom-backend-elites.herokuapp.com/api/v1/reset-password";
 
 const NewPassword = () => {
+  const {t} = useTranslation();
   const location = useLocation();
   const [invalidUser, setInvalidUser] = useState("");
   const [busy, setBusy] = useState(true);
@@ -105,7 +107,7 @@ const NewPassword = () => {
     <div className="h-screen flex bg-gray-bg1 ">
       <div className="w-full max-w-lg m-auto bg-white rounded-xl border border-primaryBorder py-10 px-16 drop-shadow-2xl">
         <h1 className="text-4xl font-medium text-primary mt-3 mb-5 text-center">
-          Create New Password
+          {t("changePassword.heading1")}
         </h1>
 
         <form onSubmit={handleSubmit}>
@@ -122,7 +124,7 @@ const NewPassword = () => {
               id="newPassword"
               name="password"
               onChange={handleOnChange}
-              placeholder="New Password"
+              placeholder={t("changePassword.passwordPlaceholder")}
             />
             <input
               type="password"
@@ -130,7 +132,7 @@ const NewPassword = () => {
               id="confirmPassword"
               name="confirmPassword"
               onChange={handleOnChange}
-              placeholder="Confirm Password"
+              placeholder={t("changePassword.confirmPasswordPlaceholder")}
             />
           </div>
 
@@ -138,7 +140,7 @@ const NewPassword = () => {
             <button
               className={`w-full bg-black py-2 px-4 text-sm  font-semibold text-white rounded border border-black focus:outline-none focus:border-green-dark`}
             >
-              Reset Password
+               {t("changePassword.resetButton")}
             </button>
           </div>
         </form>

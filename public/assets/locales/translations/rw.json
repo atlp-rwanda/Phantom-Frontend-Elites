@@ -44,5 +44,30 @@
     "introTitle": "Urakoze kutugeza ubutumwa bwawe!",
     "feedbackPromise": "Urakira igisubizo vuba!",
     "end": "Ubuyobozi bwa Phantom"
+  },
+  "login":{
+    "loginTitle":"Injira muri konti",
+    "emailField":"Imeri",
+    "passwordField":"Ijambobanga",
+    "loginButton":"Injira muri konti",
+    "Or":"Cyangwa",
+    "loginGoogle":"Injira na konti ya Google",
+    "forgotPassword":"Wibagiwe ijambobanga"
+  },
+  "home":{
+    "destinationLabel":"Aho ujya",
+    "sourceLabel":"Aho uva"
+  },
+  "resetLink":{
+    "heading1":"Hindura ijambobanga",
+    "heading2":"Andika imeri yawe turakoherereza ubutumwa bwo guhindura ijambobanga",
+    "emailLabel":"Imeri",
+    "sendButton":"Ohereza"
+  },
+  "changePassword":{
+    "heading1":"Hindura ijambobanga",
+    "passwordPlaceholder":"Ijambobanga rishya",
+    "confirmPasswordPlaceholder":"Subiramo ijambobanga",
+    "resetButton":"Emeza"
   }
 }

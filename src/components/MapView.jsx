@@ -8,8 +8,11 @@ import citiesData from "../data.json";
 import Routing from "./Routing";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
+import {useTranslation } from "react-i18next";
+
 
 function MapView() {
+  const {t} = useTranslation();
   const useStyles = makeStyles((theme) => ({
     inputRoot: {
       color: "black",
@@ -60,7 +63,7 @@ function MapView() {
             <TextField
               {...params}
               color="secondary"
-              label="Source"
+              label= {t("home.sourceLabel")}
               variant="outlined"
               InputLabelProps={{
                 style: { color: "black" },
@@ -89,7 +92,7 @@ function MapView() {
               {...params}
               onChange={({ target }) => setDestination(target.value)}
               color="secondary"
-              label="Destination"
+              label={t("home.destinationLabel")}
               variant="outlined"
               InputLabelProps={{
                 style: { color: "black" },

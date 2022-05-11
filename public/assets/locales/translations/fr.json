@@ -44,5 +44,30 @@
     "introTitle": "Merci de nous avoir contactés !",
     "feedbackPromise": "Vous recevrez une réponse bientôt!",
     "end": "Équipe Phantom"
+  },
+  "login":{
+    "loginTitle":"Connexion",
+    "emailField":"E-mail",
+    "passwordField":"Le mot de passe",
+    "loginButton":"Connexion",
+    "Or":"Ou alors",
+    "loginGoogle":"Connectez-vous avec un compte Google",
+    "forgotPassword":"Mot de passe oublié"
+  }  ,
+  "home":{
+    "destinationLabel":"Destination",
+    "sourceLabel":"La source"
+  },
+  "resetLink":{
+    "heading1":"Réinitialisez votre mot de passe",
+    "heading2":"Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe",
+    "emailLabel":"E-mail",
+    "sendButton":"Envoyer"
+  },
+  "changePassword":{
+    "heading1":"Créer un nouveau mot de passe",
+    "passwordPlaceholder":"Nouveau mot de passe",
+    "confirmPasswordPlaceholder":"Confirmez le mot de passe",
+    "resetButton":"Envoyer"
   }
 }
