@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "serve -s ./dist",
-    "prestart": "npm run build && mkdir -p dist/assets/locales/translations/ && cp public/assets/locales/translations/* dist/assets/locales/translations/",
     "build": "webpack --config webpack.config.js --mode production",
     "dev": "webpack-dev-server --mode development --open",
     "prepare": "husky install",
