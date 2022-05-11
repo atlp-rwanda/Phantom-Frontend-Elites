@@ -1,7 +1,8 @@
-/* eslint-disable no-case-declarations */
 /* eslint-disable dot-notation */
+/* eslint-disable no-case-declarations */
+/* eslint-disable no-unused-vars */
 import axios from "axios";
-import { AuthActionType } from "../actions/AuthAction";
+import { AuthActionType, LOADING_TOGGLE_ACTION } from "../actions/AuthAction";
 import { AUTH_ERRORS } from "../actions/actionTypes";
 
 const authState = {
