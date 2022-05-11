@@ -1,5 +1,5 @@
 import React from "react";
-import AddRole from "./ChildComponents/addRole";
+import AddRole from "./ChildComponents/AddRole";
 import DashboardNav from "./ChildComponents/DashboardNav";
 import DashboardSidebar from "./ChildComponents/DashboardSidebar";
 import RolesTable from "./ChildComponents/RolesTable";
