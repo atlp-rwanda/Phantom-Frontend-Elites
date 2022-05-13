@@ -36,12 +36,14 @@ const DriversList = ({ drivers }) => {
           <th className="text-black font-medium pr-6 pt-[8px]">
             {driver.email}
           </th>
-          <th className="text-black font-medium pr-6 pt-[8px]">
-            Kimironko - Downtown
-          </th>
           <th className="text-black font-medium pr-6 pt-[8px]">RAE569H</th>
           <th className="text-black pt-[8px]">
-            <button className="assignbtn mr-2">Assign</button>
+            <button title="Assign Bus" className="assignbtn mr-2">
+              Assign
+            </button>
+            <button title="Unassign Bus" className="assignbtn mr-2">
+              Unassign
+            </button>
             <button
               className="updatebtn mr-2"
               onClick={() => {

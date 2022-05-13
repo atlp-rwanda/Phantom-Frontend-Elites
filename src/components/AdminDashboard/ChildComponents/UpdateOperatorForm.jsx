@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,12 +7,7 @@ import employeeFormValidations from "../../../validations/employeeForm";
 import { showOperatorModalAC } from "../../../redux/actions/showModal";
 import { updateEmployee } from "../../../redux/actions/employeesAction";
 
-const UpdateOperatorForm = ({
-  id,
-  name,
-  handleOutsideClickCloseModal,
-  modalRef,
-}) => {
+const UpdateOperatorForm = ({ id, name }) => {
   const { employees, emailExistError } = useSelector(
     (state) => state.employeesReducer
   );
@@ -26,7 +21,6 @@ const UpdateOperatorForm = ({
   };
   const operator = employees.find((employee) => employee.id === id);
 
-  // const operator = operators[id-1]
   const [values, setValues] = useState({
     firstName: operator.firstName,
     lastName: operator.lastName,
@@ -56,12 +50,28 @@ const UpdateOperatorForm = ({
     dispatch(showOperatorModalAC(!isOperatorModalOpen));
   };
 
+  const modalRef = useRef();
+
+  /** callback func for closing the modal
+   * when a user presses escape keyboard key **/
+  const escKeyPress = useCallback(
+    (e) => {
+      if (e.key === "Escape" && open) {
+        dispatch(showOperatorModalAC(!isOperatorModalOpen));
+      }
+    },
+    [isOperatorModalOpen]
+  );
+
+  // useEffect func to run the escKey Press func
+
+  useEffect(() => {
+    document.addEventListener("keydown", escKeyPress);
+    return () => document.removeEventListener("keydown", escKeyPress);
+  }, [escKeyPress]);
+
   return (
-    <div
-      className="updateModalBackground"
-      ref={modalRef}
-      onClick={handleOutsideClickCloseModal}
-    >
+    <div className="updateModalBackground" ref={modalRef}>
       <div className="bg-grey-lighter flex flex-col">
         <div className="w-[450px] mx-auto mt-0 flex flex-col items-center justify-center  px-2">
           {/* Registration form */}
