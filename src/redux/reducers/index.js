@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import employeesReducer from "./employeesReducer";
 import showModalReducer from "./showModalReducer";
+import busesReducer from "./busesReducer";
 
 /* ==================================================
 allReducers which combines all slice reducer functions
@@ -10,6 +11,7 @@ allReducers which combines all slice reducer functions
 const allReducers = combineReducers({
   employeesReducer,
   showModalReducer,
+  busesReducer,
 });
 
 export default allReducers;
