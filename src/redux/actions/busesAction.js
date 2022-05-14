@@ -20,7 +20,6 @@ export const fetchBuses = () => (dispatch) => {
 };
 // register action creator
 export const registerBuses = (busData) => (dispatch) => {
-  console.log("action.....", busData);
   fetch("https://phantom-backend-elites.herokuapp.com/api/v1/buses", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -30,8 +29,6 @@ export const registerBuses = (busData) => (dispatch) => {
       return res.json();
     })
     .then((data) => {
-      console.log("action data...", data);
-      console.log("action bus...", data.bus);
       if (data.bus) {
         dispatch({
           type: REGISTER_BUS,

@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { faEye, faEyeSlash, faKey } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import changePasswordFormValidations from "../validations/changePassword";
+import { useDispatch, useSelector } from "react-redux";
+import { changePassword } from "../redux/actions/changePasswordAction";
 import ChangePwdLoader from "../skeleton/ChangePwdLoader";
+import { useNavigate } from "react-router-dom";
 
 const ChangePassword = () => {
-  const [showLoading, setShowLoading] = useState(false);
   const [values, setValues] = useState({
     currentPassword: "",
     newPassword: "",
@@ -25,13 +27,19 @@ const ChangePassword = () => {
       [name]: value,
     });
   };
-
+  const dispatch = useDispatch();
+  const { error, showLoading } = useSelector(
+    (state) => state.changePasswordReducer
+  );
+  const navigate = useNavigate();
+  const userStoredInfo = localStorage.getItem("token");
+  const userInfo = JSON.parse(userStoredInfo).user.user;
+  const { id } = userInfo;
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("errors-----", errors.currentPassword);
     setErrors(changePasswordFormValidations(values));
-    const user = { ...values };
-    console.log("************", user);
+    const credentials = { ...values };
+    dispatch(changePassword(id, credentials, navigate));
   };
 
   // navigate('/')
@@ -43,7 +51,6 @@ const ChangePassword = () => {
         newPassword: "",
         confirmPassword: "",
       });
-      setShowLoading(!showLoading);
     }
   }, [errors]);
 
@@ -55,6 +62,11 @@ const ChangePassword = () => {
             <FontAwesomeIcon className="text-4xl" icon={faKey} />
             <h1 className="pb-3">Change Password</h1>
           </div>
+          {error && (
+            <div className="text-red-900 text-lg text-center -mt-6 mb-2 bg-red-100 p-4 rounded-md">
+              {error}
+            </div>
+          )}
           <div>
             <input
               type={showPassword ? "text" : "password"}
@@ -114,7 +126,7 @@ const ChangePassword = () => {
               type="submit"
               className="w-full bg-black py-[10px] px-4 text-md  font-semibold tracking-wider text-white rounded-md hover:bg-gray-700"
             >
-              {!showLoading ? <ChangePwdLoader /> : "Change Password"}
+              {showLoading ? <ChangePwdLoader /> : "Change Password"}
             </button>
           </div>
         </form>

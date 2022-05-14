@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from "redux";
-import thunk from "redux-thunk";
 import allReducers from "./redux/reducers/index";
+import thunk from "redux-thunk";
 
 /* =============================================
 Created store for all app states and takes an
