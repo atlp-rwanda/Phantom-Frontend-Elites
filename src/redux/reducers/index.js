@@ -5,6 +5,7 @@ import busesReducer from "./busesReducer";
 import authreducer from "./authReducer";
 import errorReducer from "./errorReducer";
 import changePasswordReducer from "./changePasswordReducer";
+import assignDriverBusReducer from "./assignDriverBusReducer";
 
 /* ==================================================
 allReducers which combines all slice reducer functions
@@ -18,6 +19,7 @@ const allReducers = combineReducers({
   authreducer,
   errorReducer,
   changePasswordReducer,
+  assignDriverBusReducer,
 });
 
 export default allReducers;

@@ -18,7 +18,7 @@ const AddBusFormModal = ({ name, handleOutsideClickCloseModal, modalRef }) => {
   const [values, setValues] = useState({
     brand: "",
     plateNo: "",
-    driver: null,
+    driverId: null,
     seats: "",
     status: "inactive",
   });
@@ -35,13 +35,7 @@ const AddBusFormModal = ({ name, handleOutsideClickCloseModal, modalRef }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors(busesFormValidations(values));
-    const bus = {
-      brand: values.brand,
-      plateNo: values.plateNo,
-      driver: null,
-      seats: values.seats,
-      status: values.status,
-    };
+    const bus = { ...values };
     dispatch(registerBuses(bus));
     setValues({
       brand: "",

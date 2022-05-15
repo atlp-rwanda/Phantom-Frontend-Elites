@@ -1,15 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import UpdateDriverForm from "./UpdateDriverForm";
+import AssignDriverBusFormModal from "./AssignDriverBusFormModal";
 import { deleteEmployee } from "../../../redux/actions/employeesAction";
-import { showDriverModalAC } from "../../../redux/actions/showModal";
+import {
+  showDriverModalAC,
+  showAssignModalAC,
+} from "../../../redux/actions/showModal";
+import { fetchBuses } from "../../../redux/actions/busesAction";
 
 const DriversList = ({ drivers }) => {
-  const { isDriverModalOpen } = useSelector((state) => state.showModalReducer);
+  const { isDriverModalOpen, isAssignModalOpen } = useSelector(
+    (state) => state.showModalReducer
+  );
+  console.log("Reducer", isAssignModalOpen);
   const dispatch = useDispatch();
 
   const [id, setId] = useState();
+  const [driverId, setDriverId] = useState();
   // handle delete function
   const handleDelete = (id) => {
     dispatch(deleteEmployee(id));
@@ -17,12 +26,25 @@ const DriversList = ({ drivers }) => {
   const handleUpdate = (id) => {
     setId(id);
   };
+  const handleAssign = (driverId) => {
+    setDriverId(driverId);
+  };
+  const { buses } = useSelector((state) => state.busesReducer);
+  useEffect(() => {
+    dispatch(fetchBuses());
+  }, []);
   const toggleOperatorModal = () => {
     dispatch(showDriverModalAC(!isDriverModalOpen));
+  };
+
+  const toggleAssignModal = () => {
+    dispatch(showAssignModalAC(!isAssignModalOpen));
   };
   // num definition to increment the Sn column
   let num = 1;
 
+  const busesObj = Object.entries(buses);
+  console.log("Object", busesObj);
   // function to map through all drivers
   const driversList = drivers.map((driver) => {
     return (
@@ -36,12 +58,21 @@ const DriversList = ({ drivers }) => {
           <th className="text-black font-medium pr-6 pt-[8px]">
             {driver.email}
           </th>
-          <th className="text-black font-medium pr-6 pt-[8px]">RAE569H</th>
+          <th className="text-black font-medium pr-6 pt-[8px]">
+            {busesObj.filter((bus) => bus.driverId === driver.id)}
+          </th>
           <th className="text-black pt-[8px]">
-            <button title="Assign Bus" className="assignbtn mr-2">
+            <button
+              title="Assign Bus"
+              className="assignbtn mr-2"
+              onClick={() => {
+                toggleAssignModal();
+                handleAssign(driver.id);
+              }}
+            >
               Assign
             </button>
-            <button title="Unassign Bus" className="assignbtn mr-2">
+            <button title="Unassign Bus" className="unassignbtn mr-2">
               Unassign
             </button>
             <button
@@ -69,6 +100,7 @@ const DriversList = ({ drivers }) => {
   return (
     <>
       {isDriverModalOpen && <UpdateDriverForm id={id} />}
+      {isAssignModalOpen && <AssignDriverBusFormModal driverId={driverId} />}
       {driversList}
     </>
   );
