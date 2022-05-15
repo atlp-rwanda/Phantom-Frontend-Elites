@@ -12,6 +12,7 @@ class MapView extends Component {
       zoom: 13,
     };
   }
+
   render() {
     const { currentLocation, zoom } = this.state;
 

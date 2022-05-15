@@ -1,4 +1,4 @@
-import React, { useState } from "react"; // import state
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,19 +7,15 @@ import DesktopView from "./DesktopView";
 
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
-  const [languageOptions, setLanguageOptions] = useState(false);
-  const handleClick = () => {
-    setLanguageOptions(!languageOptions);
-  };
   return (
     <div
       test-data="navbarComponent"
-      className="lg:px-[100px] px-[8px] flex items-center justify-between border-b border-gray-400 shadow-md bg-white"
+      className="lg:px-[100px] px-[8px] flex items-center justify-between border-b border-gray-400 shadow-md bg-white fixed top-0 right-0 left-0 bott0m-0 z-50"
     >
       <Link to="/">
-        <h1 className="text-primary font-bold text-[40px] ">Phantom</h1>
+        <h1 className="text-primary font-bold text-[40px]">Phantom</h1>
       </Link>
-      <nav>
+      <nav className="z-50">
         <section className="MOBILE-MENU flex lg:hidden">
           <div
             test-data="buttonComponent"
@@ -50,16 +46,10 @@ const Navbar = () => {
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             </div>
-            <MobileView
-              handleClick={handleClick}
-              languageOptions={languageOptions}
-            />
+            <MobileView />
           </div>
         </section>
-        <DesktopView
-          handleClick={handleClick}
-          languageOptions={languageOptions}
-        />
+        <DesktopView />
       </nav>
       <style>{`
       .hideMenuNav {
