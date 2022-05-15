@@ -1,13 +1,14 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import LocationMarker from "./LocationMarker";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import citiesData from "../data.json";
+import citiesData from "../../data.json";
 import Routing from "./Routing";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
+import AnimatedCarOnRoute from "../DriverDashboard/AnimatedCarOnRoute";
 
 function MapView() {
   const useStyles = makeStyles((theme) => ({
@@ -104,6 +105,7 @@ function MapView() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
+        <AnimatedCarOnRoute />
         <LocationMarker />
         {Object.keys(source).length > 0 &&
           Object.keys(destination).length > 0 && (

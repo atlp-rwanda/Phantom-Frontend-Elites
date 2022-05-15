@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import { red } from "@material-ui/core/colors";
-import pin from "../pin.png";
+import pin from "../../pin.png";
 
 // import pin from '../path/pin.png'; (if local import)
 
@@ -18,12 +18,6 @@ function LocationMarker() {
   const map = useMap();
 
   useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(function (position) {
-        console.log("Latitude is :", position.coords.latitude);
-        console.log("Longitude is :", position.coords.longitude);
-      });
-    }
     map.locate().on("locationfound", (e) => {
       setPosition(e.latlng);
       map.flyTo(e.latlng, map.getZoom());
