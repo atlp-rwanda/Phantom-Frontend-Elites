@@ -12,6 +12,8 @@ import ManageBuses from "./components/AdminDashboard/ManageBuses";
 import ChangePassword from "./components/ChangePassword";
 import Login from "./components/Login";
 import UpdateProfile from "./components/UpdateProfile";
+import Dashboard from "./components/AdminDashboard/Dashboard";
+import PaginatedBoard from "./components/AdminDashboard/PaginatedBoard";
 
 /* =============================================
 App Function Component
@@ -34,6 +36,8 @@ const App = () => {
             <Route path="/changepassword" element={<ChangePassword />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<UpdateProfile />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/paginatedlist" element={<PaginatedBoard />} />
           </Routes>
         </React.StrictMode>
       </div>

@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 
 const AvatarDropdown = ({ handleLogout }) => {
   return (
-    <div className="avatarDropdown shadow-md">
+    <div className="avatarDropdown shadow-md z-50">
       <div className="dropdownItems">
         <button>My Profile</button>
       </div>

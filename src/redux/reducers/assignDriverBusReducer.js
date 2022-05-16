@@ -1,19 +1,29 @@
 import { toast } from "react-toastify";
-import { ASSIGN_BUS_SUCCESS, ASSIGN_BUS_FAIL } from "../actions/actionTypes";
+import {
+  ASSIGN_BUS_SUCCESS,
+  ASSIGN_BUS_FAIL,
+  FETCH_DRIVERS_ASSIGNED_BUSES,
+} from "../actions/actionTypes";
 const initialState = {
-  plateNo: "",
+  driversAssigned: [],
   driverFirstname: "",
   driverLastname: "",
   message: "",
   errors: "",
+  isPending: true,
 };
 
 const busesReducer = (state = initialState, action) => {
   switch (action.type) {
+    case FETCH_DRIVERS_ASSIGNED_BUSES:
+      return {
+        ...state,
+        driversAssigned: action.payload,
+        isPending: false,
+      };
     case ASSIGN_BUS_SUCCESS: {
       return {
         ...state,
-        plateNo: action.plateNo,
         driverFirstname: action.driverFirstname,
         driverLastname: action.driverLastname,
         message: toast.success(`${action.message}`, {
@@ -24,7 +34,9 @@ const busesReducer = (state = initialState, action) => {
     case ASSIGN_BUS_FAIL:
       return {
         ...state,
-        errors: action.payload,
+        errors: toast.error(`${action.payload}`, {
+          position: "top-center",
+        }),
       };
     default:
       return state;

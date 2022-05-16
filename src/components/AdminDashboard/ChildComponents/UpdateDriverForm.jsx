@@ -70,7 +70,10 @@ const UpdateDriverForm = ({ id, name }) => {
   }, [escKeyPress]);
 
   return (
-    <div className="updateModalBackground" ref={modalRef}>
+    <div
+      className="bg-[#e9e9e9] absolute flex justify-center lg:top-[12vh] pt-[10vh] lg:w-[68%] w-[100%] h-lg:[80vh] my-auto items-center top-0 lg:right-auto lg:left-[24%] lg:bottom-auto right-0 left-0 bottom-0"
+      ref={modalRef}
+    >
       <div className="bg-grey-lighter flex flex-col">
         <div className="w-[450px] mx-auto mt-0 flex flex-col items-center justify-center  px-2">
           {/* Registration form */}

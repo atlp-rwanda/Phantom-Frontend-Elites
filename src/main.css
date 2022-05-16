@@ -72,20 +72,6 @@
   align-items: center;
 }
 
-.updateModalBackground {
-  width: 75%;
-  height: 100vh;
-  background-color: rgb(233, 233, 233);
-  position: fixed;
-  display: flex;
-  margin-top: 0px;
-  top: 13%;
-  left: 20%;
-  right: 0px;
-  padding-bottom: 120px;
-  justify-content: center;
-  align-items: center;
-}
 .leaflet-container {
   width: 99vw;
   height: 100vh;
@@ -125,7 +111,7 @@
   padding: 8px;
   border-radius: 50%;
 }
-<<<<<<< HEAD <<<<<<< HEAD <<<<<<< HEAD .loader {
+.loader {
   width: 48px;
   height: 48px;
   border: 5px solid #fff;
@@ -156,6 +142,34 @@
   left: 0px;
   right: 0px;
   bottom: 0px;
+  padding-bottom: 120px;
+  justify-content: center;
+  align-items: center;
+}
+
+.skeleton {
+  animation: skeleton-loading 0.5s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+  }
+  100% {
+    background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+  }
+}
+
+.updateModalBackground {
+  width: 75%;
+  height: 100vh;
+  background-color: rgb(233, 233, 233);
+  position: fixed;
+  display: flex;
+  margin-top: 0px;
+  top: 13%;
+  left: 20%;
+  right: 0px;
   padding-bottom: 120px;
   justify-content: center;
   align-items: center;

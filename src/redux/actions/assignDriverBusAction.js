@@ -1,8 +1,25 @@
-import { ASSIGN_BUS_SUCCESS, ASSIGN_BUS_FAIL } from "./actionTypes";
+import {
+  ASSIGN_BUS_SUCCESS,
+  ASSIGN_BUS_FAIL,
+  FETCH_DRIVERS_ASSIGNED_BUSES,
+} from "./actionTypes";
+
+// get all action creator
+export const fetchDriversAssigned = () => (dispatch) => {
+  fetch(
+    "https://phantom-backend-elites.herokuapp.com/api/v1/drivers/assigned-buses"
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      dispatch({
+        type: FETCH_DRIVERS_ASSIGNED_BUSES,
+        payload: data,
+      });
+    });
+};
 
 // Assign driver bus action creator
 export const assignDriverBus = (assignData) => (dispatch) => {
-  console.log("Assigned data ====", assignData);
   fetch(
     "https://phantom-backend-elites.herokuapp.com/api/v1/drivers/assign-bus",
     {
@@ -15,10 +32,7 @@ export const assignDriverBus = (assignData) => (dispatch) => {
       return res.json();
     })
     .then((data) => {
-      console.log("data in the action---", data);
-      if (data) {
-        console.log("DATA IN ACTION", data.result.plateNo);
-        console.log("data in action", data.result.drivers.firstName);
+      if (data.result) {
         dispatch({
           type: ASSIGN_BUS_SUCCESS,
           plateNo: data.result.plateNo,

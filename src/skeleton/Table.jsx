@@ -4,30 +4,30 @@ const Table = () => {
   return (
     <>
       <div className="flex-col">
-        <div className="w-[600px] h-6 bg-gray-300 rounded-t-lg"></div>
-        <div className="flex justify-between w-[600px]">
-          <div className="w-[125px] mt-2 h-4 bg-gray-300"></div>
-          <div className="w-[125px] mt-2 h-4 bg-gray-300"></div>
-          <div className="w-[125px] mt-2 h-4 bg-gray-300"></div>
-          <div className="w-[125px] mt-2 h-4 bg-gray-300"></div>
+        <div className="w-[350px] lg:w-[800px] h-6 skeleton rounded-t-lg"></div>
+        <div className="flex justify-between w-[350px] lg:w-[800px]">
+          <div className="w-[70px] lg:w-[170px] mt-2 h-4 skeleton"></div>
+          <div className="w-[70px] lg:w-[170px] mt-2 h-4 skeleton"></div>
+          <div className="w-[70px] lg:w-[170px] mt-2 h-4 skeleton"></div>
+          <div className="w-[70px] lg:w-[170px] mt-2 h-4 skeleton"></div>
         </div>
-        <div className="flex justify-between w-[600px]">
-          <div className="w-[125px] mt-2 h-4 bg-gray-300"></div>
-          <div className="w-[125px] mt-2 h-4 bg-gray-300"></div>
-          <div className="w-[125px] mt-2 h-4 bg-gray-300"></div>
-          <div className="w-[125px] mt-2 h-4 bg-gray-300"></div>
+        <div className="flex justify-between w-[350px] lg:w-[800px]">
+          <div className="w-[70px] lg:w-[170px] mt-2 h-4 skeleton"></div>
+          <div className="w-[70px] lg:w-[170px] mt-2 h-4 skeleton"></div>
+          <div className="w-[70px] lg:w-[170px] mt-2 h-4 skeleton"></div>
+          <div className="w-[70px] lg:w-[170px] mt-2 h-4 skeleton"></div>
         </div>
-        <div className="flex justify-between w-[600px]">
-          <div className="w-[125px] mt-2 h-4 bg-gray-300"></div>
-          <div className="w-[125px] mt-2 h-4 bg-gray-300"></div>
-          <div className="w-[125px] mt-2 h-4 bg-gray-300"></div>
-          <div className="w-[125px] mt-2 h-4 bg-gray-300"></div>
+        <div className="flex justify-between w-[350px] lg:w-[800px]">
+          <div className="w-[70px] lg:w-[170px] mt-2 h-4 skeleton"></div>
+          <div className="w-[70px] lg:w-[170px] mt-2 h-4 skeleton"></div>
+          <div className="w-[70px] lg:w-[170px] mt-2 h-4 skeleton"></div>
+          <div className="w-[70px] lg:w-[170px] mt-2 h-4 skeleton"></div>
         </div>
-        <div className="flex justify-between w-[600px]">
-          <div className="w-[125px] mt-2 h-4 bg-gray-300"></div>
-          <div className="w-[125px] mt-2 h-4 bg-gray-300"></div>
-          <div className="w-[125px] mt-2 h-4 bg-gray-300"></div>
-          <div className="w-[125px] mt-2 h-4 bg-gray-300"></div>
+        <div className="flex justify-between w-[350px] lg:w-[800px]">
+          <div className="w-[70px] lg:w-[170px] mt-2 h-4 skeleton"></div>
+          <div className="w-[70px] lg:w-[170px] mt-2 h-4 skeleton"></div>
+          <div className="w-[70px] lg:w-[170px] mt-2 h-4 skeleton"></div>
+          <div className="w-[70px] lg:w-[170px] mt-2 h-4 skeleton"></div>
         </div>
       </div>
     </>

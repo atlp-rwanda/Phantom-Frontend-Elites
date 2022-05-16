@@ -35,7 +35,13 @@ const AddBusFormModal = ({ name, handleOutsideClickCloseModal, modalRef }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors(busesFormValidations(values));
-    const bus = { ...values };
+    const bus = {
+      brand: values.brand,
+      plateNo: values.plateNo,
+      driverId: values?.null,
+      seats: values.seats,
+      status: values.status,
+    };
     dispatch(registerBuses(bus));
     setValues({
       brand: "",
@@ -47,7 +53,7 @@ const AddBusFormModal = ({ name, handleOutsideClickCloseModal, modalRef }) => {
 
   return (
     <div
-      className="modelBackground"
+      className="bg-[#e9e9e9] absolute flex justify-center lg:top-[12vh] pt-[10vh] lg:w-[68%] w-[100%] h-lg:[80vh] my-auto items-center top-0 lg:right-auto lg:left-auto lg:bottom-auto right-0 left-0 bottom-0"
       ref={modalRef}
       onClick={handleOutsideClickCloseModal}
     >

@@ -7,7 +7,7 @@ import AddBusFormModal from "./AddBusFormModal";
 import { useDispatch, useSelector } from "react-redux";
 import { showModalActionCreator } from "../../../redux/actions/showModal";
 
-// Add employee function component
+// Add buses function component
 const AddBus = ({ name }) => {
   const { isModalOpen } = useSelector((state) => state.showModalReducer);
   const dispatch = useDispatch();

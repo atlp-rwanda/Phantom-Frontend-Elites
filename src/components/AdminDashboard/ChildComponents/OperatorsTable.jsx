@@ -15,7 +15,7 @@ const OperatorsTable = ({ tableTitle }) => {
 
   return (
     <>
-      <div className="bg-gray-100 rounded shadow-sm mx-0 lg:mx-[10%] pb-4">
+      <div className="bg-gray-100 rounded shadow-sm mx-0 lg:mx-[10%] pb-4 -z-50">
         <h1 className="text-center text-xl text-primary font-bold py-4">
           {tableTitle}
         </h1>
@@ -25,15 +25,21 @@ const OperatorsTable = ({ tableTitle }) => {
             <Table />
           </div>
         ) : (
-          <div className="text-left mx-8 text-sm leading-6 tracking-wider flex justify-center">
-            <table className="w-auto rounded-t-lg overflow-hidden">
+          <div className="text-left lg:mx-8 mx-auto text-sm lg:leading-6 lg:tracking-wider lg:overflow-hidden flex lg:justify-center lg:w-auto w-[95vw] overflow-x-scroll">
+            <table className="rounded-t-lg overflow-hidden">
               <thead className="bg-primary font-bold">
                 <tr>
-                  <th className="text-white w-[10px]">No</th>
-                  <th className="text-white w-[260px]">FirstName</th>
-                  <th className="text-white w-[250px]">LastName</th>
-                  <th className="text-white w-[270px]">Email</th>
-                  <th className="text-white w-[150px]">Actions</th>
+                  <th className="text-white px-2 py-[4px] w-[10px]">No</th>
+                  <th className="text-white px-2 py-[4px] w-[200px]">
+                    FirstName
+                  </th>
+                  <th className="text-white px-2 py-[4px] w-[180px]">
+                    LastName
+                  </th>
+                  <th className="text-white px-2 py-[4px] w-[200px]">Email</th>
+                  <th className="text-white px-2 py-[4px] w-[200px]">
+                    Actions
+                  </th>
                 </tr>
               </thead>
               <tbody>
