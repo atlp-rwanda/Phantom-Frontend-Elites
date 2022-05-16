@@ -46,3 +46,8 @@ export const SHOW_PROFILE_MODAL = "SHOW_PROFILE_MODAL";
 
 
 
+/* =============================================
+This is where all our action types constants 
+are defined
+============================================== */
+

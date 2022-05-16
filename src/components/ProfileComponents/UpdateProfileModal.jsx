@@ -67,7 +67,7 @@ const UpdateProfileModal = ({id}) => {
     let profile; 
     if(profilePic.length === 0){
         profile = { ...values };
-        toast.error("Image not save, try again")
+        toast.error("Internet issues: Image not saved, try again");
     }else{
         toast.success("Image saved")
         profile = { ...profile, profilePic }
