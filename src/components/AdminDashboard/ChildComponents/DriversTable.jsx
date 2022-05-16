@@ -26,16 +26,21 @@ const DriversTable = ({ tableTitle }) => {
             <Table />
           </div>
         ) : (
-          <div className="text-left mx-8 text-sm leading-6 tracking-wider flex justify-center">
-            <table className="w-auto rounded-t-lg overflow-hidden">
+          <div className="text-left lg:mx-8 mx-auto text-sm lg:leading-6 lg:tracking-wider lg:overflow-hidden flex lg:justify-center lg:w-auto w-[95vw] overflow-x-scroll">
+            <table className="overflow-hidden rounded-t-lg">
               <thead className="bg-primary font-bold">
                 <tr>
-                  <th className="text-white w-[10px]">No</th>
-                  <th className="text-white w-[130px]">FirstName</th>
-                  <th className="text-white w-[150px]">LastName</th>
-                  <th className="text-white w-[200px]">Email</th>
-                  <th className="text-white w-[150px]">Assigned Bus</th>
-                  <th className="text-white w-[300px]">Actions</th>
+                  <th className="text-white px-2 py-[4px] w-[10px]">No</th>
+                  <th className="text-white px-2 py-[4px] w-[170px]">
+                    FirstName
+                  </th>
+                  <th className="text-white px-2 py-[4px] w-[180px]">
+                    LastName
+                  </th>
+                  <th className="text-white px-2 py-[4px] w-[230px]">Email</th>
+                  <th className="text-white px-2 py-[4px] w-[200px]">
+                    Actions
+                  </th>
                 </tr>
               </thead>
               <tbody>

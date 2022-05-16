@@ -4,11 +4,13 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { showAssignModalAC } from "../../../redux/actions/showModal";
-import { fetchBuses } from "../../../redux/actions/busesAction";
 import { assignDriverBus } from "../../../redux/actions/assignDriverBusAction";
+import { fetchEmployees } from "../../../redux/actions/employeesAction";
 
-const AssignDriverBusFormModal = ({ driverId }) => {
-  const { isModalOpen } = useSelector((state) => state.showModalReducer);
+const AssignDriverBusFormModal = ({ plateNo }) => {
+  const { isModalOpen, isAssignModalOpen } = useSelector(
+    (state) => state.showModalReducer
+  );
 
   const dispatch = useDispatch();
 
@@ -16,12 +18,12 @@ const AssignDriverBusFormModal = ({ driverId }) => {
     dispatch(showAssignModalAC(isModalOpen));
   };
   useEffect(() => {
-    dispatch(fetchBuses());
+    dispatch(fetchEmployees());
   }, []);
 
   const [values, setValues] = useState({
-    driverId: driverId,
-    plateNo: "Select a Plate No",
+    plateNo: plateNo,
+    driverId: "Select a driver",
   });
 
   const handleChange = (e) => {
@@ -36,9 +38,11 @@ const AssignDriverBusFormModal = ({ driverId }) => {
     e.preventDefault();
     const assignedData = { ...values };
     dispatch(assignDriverBus(assignedData));
+    dispatch(showAssignModalAC(!isAssignModalOpen));
   };
 
-  const { buses } = useSelector((state) => state.busesReducer);
+  const { employees } = useSelector((state) => state.employeesReducer);
+  const drivers = employees.filter((driver) => driver.roleId === 3);
 
   return (
     <div className="assignModalBackground">
@@ -64,29 +68,29 @@ const AssignDriverBusFormModal = ({ driverId }) => {
                 </h1>
               </div>
             </div>
-            <label>Driver</label>
+            <label>Plate No</label>
             <input
               type="text"
               className="block border border-gray-400 w-full p-2 rounded mb-4"
-              name="driverId"
-              placeholder="first name to be updated"
-              value={values.driverId}
-              onChange={handleChange}
-            />
-            <label>Bus</label>
-            <select
-              className="block border border-gray-400 w-full p-2 rounded mb-6 mt-2"
               name="plateNo"
+              placeholder="first name to be updated"
               value={values.plateNo}
               onChange={handleChange}
+            />
+            <label>Driver</label>
+            <select
+              className="block border border-gray-400 w-full p-2 rounded mb-6 mt-2"
+              name="driverId"
+              value={values.driverId}
+              onChange={handleChange}
             >
-              <option disabled value="Select a Plate No">
-                Select a Plate No
+              <option disabled value="Select a driver">
+                Select a driver
               </option>
-              {buses.map((bus) => {
+              {drivers.map((driver) => {
                 return (
-                  <option key={bus.plateNo} value={bus.plateNo}>
-                    {bus.plateNo}
+                  <option key={driver.id} value={driver.id}>
+                    {driver.firstName} {driver.lastName}
                   </option>
                 );
               })}
@@ -107,7 +111,7 @@ const AssignDriverBusFormModal = ({ driverId }) => {
 };
 
 AssignDriverBusFormModal.propTypes = {
-  driverId: PropTypes.number.isRequired,
+  plateNo: PropTypes.string.isRequired,
 };
 
 export default AssignDriverBusFormModal;

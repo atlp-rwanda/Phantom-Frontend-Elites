@@ -1,10 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import AddBus from "./ChildComponents/AddBus";
 import DashboardNav from "./ChildComponents/DashboardNav";
 import DashboardSidebar from "./ChildComponents/DashboardSidebar";
-import BusesTable from "./ChildComponents/BusesTable";
+import PaginatedTable from "./ChildComponents/PaginatedTable";
 
-const ManageBuses = () => {
+const PaginatedBoard = () => {
   const [open, setOpen] = useState(false);
 
   const modalRef = useRef();
@@ -39,7 +38,7 @@ const ManageBuses = () => {
   }, [escKeyPress]);
 
   return (
-    <div onClick={handleOutsideClick} className="flex h-screen">
+    <div onClick={handleOutsideClick} ref={modalRef} className="flex h-screen">
       <div className="flex-2">
         <div>
           <DashboardSidebar />
@@ -52,18 +51,15 @@ const ManageBuses = () => {
             setOpen={setOpen}
             handleOutsideClick={handleOutsideClick}
             modalRef={modalRef}
-            navbarTitle="Manage Buses"
+            navbarTitle="Manage Drivers"
           />
         </div>
-        <div className="mt-8 mb-4 mx-[10%]">
-          <AddBus name={"Bus"} />
-        </div>
-        <div>
-          <BusesTable tableTitle={"Buses"} />
+        <div className="mt-[15vh] mb-4 mx-[10%]">
+          <PaginatedTable />
         </div>
       </div>
     </div>
   );
 };
 
-export default ManageBuses;
+export default PaginatedBoard;

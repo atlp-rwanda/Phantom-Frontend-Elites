@@ -8,12 +8,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { NavLink as Link } from "react-router-dom";
 
-const Sidebar = () => {
+const MobileSideBar = () => {
   return (
     <>
-      <div className="hidden border-2 border-white shadow-lg lg:flex flex-col bg-white h-screen pr-10">
-        <div className="mb-[80px]">
-          <h1 className="text-[#3c3868] text-[40px] font-bold pl-4">
+      <div className="border-2 border-white shadow-lg flex-col bg-white w-auto h-[93vh] absolute pr-10 z-50">
+        <div className="mb-[50px]">
+          <h1 className="text-[#3c3868] text-[25px] font-bold pl-4">
             <Link className="cursor-pointer" to="/">
               Phantom
             </Link>
@@ -60,4 +60,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default MobileSideBar;
