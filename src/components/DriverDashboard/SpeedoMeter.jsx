@@ -1,12 +1,12 @@
 import React from "react";
 import ReactSpeedometer from "react-d3-speedometer";
 /*Counter End*/
-const SpeedoMeter = ({ speed }) => {
+const SpeedoMeter = () => {
   return (
     <>
       <ReactSpeedometer
         maxValue={500}
-        value={speed}
+        value={100}
         needleColor="white"
         startColor="green"
         segments={10}

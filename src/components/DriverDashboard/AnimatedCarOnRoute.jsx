@@ -80,7 +80,6 @@ const AnimatedCarOnRoute = () => {
   function startClick() {
     animatedMarker.start();
   }
-  startClick();
 
   function pauseClick() {
     animatedMarker.pause();

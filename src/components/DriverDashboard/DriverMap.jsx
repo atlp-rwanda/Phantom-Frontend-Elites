@@ -7,8 +7,6 @@ import AnimatedCarOnRoute from "./AnimatedCarOnRoute";
 function DriverMap() {
   const [cities, setCities] = useState([]);
   const position = [39.898457, 116.391844];
-  const [source, setSource] = useState({});
-  const [destination, setDestination] = useState({});
   useEffect(() => {
     citiesData.map((eachCity) => setCities((cities) => [...cities, eachCity]));
   }, []);

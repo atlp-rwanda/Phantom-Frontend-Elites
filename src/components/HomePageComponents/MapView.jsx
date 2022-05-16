@@ -105,7 +105,6 @@ function MapView() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        <AnimatedCarOnRoute />
         <LocationMarker />
         {Object.keys(source).length > 0 &&
           Object.keys(destination).length > 0 && (

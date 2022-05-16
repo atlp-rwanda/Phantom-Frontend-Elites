@@ -44,7 +44,7 @@ const DriverDashboard = () => {
   return (
     <div className="flex gap-3">
       <div className="flex flex-col w-2/5 p-5 bg-[#3C3868] text-center">
-        <SpeedoMeter speed={value} />
+        <SpeedoMeter />
         <div className="flex gap-3 w-fit p-4">
           <button
             onMouseOver={increment}
