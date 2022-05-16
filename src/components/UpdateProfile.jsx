@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback, useState, useRef } from "react";
 import * as moment from "moment"
-import ProfileSidebar from "./ProfileComponents/ProfileSidebar";
-import DashboardNav from "./AdminDashboard/ChildComponents/DashboardNav";
+import DashboardSider from "../components/AdminDashboard/ChildComponents/DashboardSidebar";
+import DashboardNav from "../components/AdminDashboard/ChildComponents/DashboardNav"
 import { fetchProfile } from "../redux/actions/profileAction";
 import { useSelector, useDispatch } from "react-redux";
 import { showProfileModalAC } from "../redux/actions/showModal"
@@ -35,21 +35,62 @@ const UpdateProfile = () => {
  
   const dispatch = useDispatch();
 
+  const [open, setOpen] = useState(false);
+
+  const modalRef = useRef();
+
+  /** Function to close the dropdown when
+  a user clicks outside**/
+  const handleOutsideClick = useCallback(
+    (e) => {
+      if (e.target.length !== 0 && open) {
+        setOpen(!open);
+      }
+    },
+    [open]
+  );
+
+
+  /** callback func for closing the modal
+   * when a user presses escape keyboard key **/
+   const escKeyPress = useCallback(
+    (e) => {
+      if (e.key === "Escape" && open) {
+        setOpen(!open);
+      }
+    },
+    [open]
+  );
+
+
+
   useEffect(() => {
     dispatch(fetchProfile(id));
   }, [])
 
+
+  useEffect(() => {
+    document.addEventListener("keydown", escKeyPress);
+    return () => document.removeEventListener("keydown", escKeyPress);
+  }, [escKeyPress]);
+
   return (
     <>
-     <div className="flex">
+     <div className="flex" onClick={handleOutsideClick} ref={modalRef}>
         <div className="flex-2">
           <div>
-              <ProfileSidebar />
+              <DashboardSider />
           </div>
         </div>
         <div className="flex-1">
-          <div>
-            <DashboardNav navbarTitle="Update Account" />
+        <div>
+          <DashboardNav
+            open={open}
+            setOpen={setOpen}
+            handleOutsideClick={handleOutsideClick}
+            modalRef={modalRef}
+            navbarTitle="Manage Operators"
+          />
           </div>
           
           {isLoading ? (

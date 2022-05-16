@@ -15,18 +15,24 @@ const DesktopView = () => {
           className="text-black font-medium hover:bg-primary hover:text-white px-5 py-2 mx-4 my-6 md:my-0 rounded-md text-md list-none"
           aria-current="page"
         >
-          <Link activeclassname="active" to="/">
-            {t("navbar.home")}
+          <Link exact="true" activeclassname="active" to="/">
+            Home
           </Link>
         </li>
         <li className="text-black font-medium hover:bg-primary hover:text-white px-5 mx-4 my-6 md:my-0 py-2 rounded-md text-md list-none">
-          <Link to="/contact">{t("navbar.contact")}</Link>
+          <Link exact="true" activeclassname="active" to="/contact">
+            Contact
+          </Link>
         </li>
         <li className="text-black font-medium hover:bg-primary hover:text-white px-5 mx-4 my-6 md:my-0 py-2 rounded-md text-md list-none">
-          <Link to="/login">{t("navbar.login")}</Link>
+          <Link exact="true" activeclassname="active" to="/login">
+            Login
+          </Link>
         </li>
         <li className="text-primary font-medium hover:bg-primary hover:text-white hover:font-bold px-5 mx-4 my-6 md:my-0 py-2 rounded-md text-md list-none">
-          <Link to="/about">{t("navbar.about")}</Link>
+          <Link exact="true" activeclassname="active" to="/about">
+            About
+          </Link>
         </li>
         {/* Dropdown */}
         <div className="relative inline-block text-left mx-4 my-6 md:my-0">

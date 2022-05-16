@@ -9,8 +9,8 @@ Created store for all app states and takes an
 overall reducer functions and a second argument
 to help in  Redux DevTools extension
 ============================================== */
+const middleware = [thunk];
 
-const middleware=[thunk];
 const store = createStore(
   allReducers,
   compose(

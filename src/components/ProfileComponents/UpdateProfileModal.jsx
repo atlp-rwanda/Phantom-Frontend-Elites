@@ -20,8 +20,8 @@ const UpdateProfileModal = ({id}) => {
     dispatch(showProfileModalAC(!isProfileModalOpen));
   };
 
-  const dispatch = useDispatch();
-  // const operator = operators[id-1]
+  const dispatch = useDispatch(); 
+  
   const [values, setValues] = useState({
     firstName: profile.firstName,
     lastName:  profile.lastName,

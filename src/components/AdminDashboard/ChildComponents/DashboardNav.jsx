@@ -1,18 +1,44 @@
 import React from "react";
+import { useSelector } from "react-redux"
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBell,
-  faCircleUser,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
+import AvatarDropdown from "../../AvatarDropdown";
 
-const DashboardNav = ({ navbarTitle }) => {
+const DashboardNav = ({
+  navbarTitle,
+  handleOutsideClick,
+  modalRef,
+  open,
+  setOpen,
+}) => {
+
+  const profile = useSelector((state)=> state.profileReducer.profile)
+
+
+  const navigate = useNavigate();
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
   return (
     <>
-      <div className="flex justify-between items-center bg-white  border-gray-400 shadow-md py-4 px-8">
+      <div
+        onClick={handleOutsideClick}
+        ref={modalRef}
+        className="flex justify-between items-center bg-white border-b-2 border-gray-400 shadow-lg py-4 px-8"
+      >
         <div>
-          <h1 className="text-xl font-bold text-[#3C3868]">{navbarTitle}</h1>
+          <h1 className="text-xl font-bold text-primary">{navbarTitle}</h1>
         </div>
 
         <div className="flex">
@@ -25,24 +51,34 @@ const DashboardNav = ({ navbarTitle }) => {
           </div>
           <div className="mr-8">
             <FontAwesomeIcon
-              className="text-2xl text-[#3C3868] cursor-pointer"
+              className="text-3xl text-[#363740] cursor-pointer"
               icon={faBell}
             />
           </div>
           <div>
-            <FontAwesomeIcon
-              className="text-2xl text-[#3C3868] cursor-pointer"
-              icon={faCircleUser}
+            <img
+              className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500 object-cover"
+              src={profile.profilePic}
+              onClick={handleClick}
             />
           </div>
         </div>
       </div>
+      {open && (
+        <div className="">
+          <AvatarDropdown handleLogout={handleLogout} />
+        </div>
+      )}
     </>
   );
 };
 
 DashboardNav.propTypes = {
   navbarTitle: PropTypes.string.isRequired,
+  handleOutsideClick: PropTypes.func.isRequired,
+  modalRef: PropTypes.object.isRequired,
+  open: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
 };
 
 export default DashboardNav;
