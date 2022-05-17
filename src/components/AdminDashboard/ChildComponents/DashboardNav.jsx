@@ -1,9 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux"
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBell,
-  faCircleUser,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
@@ -16,6 +16,10 @@ const DashboardNav = ({
   open,
   setOpen,
 }) => {
+
+  const profile = useSelector((state)=> state.profileReducer.profile)
+
+
   const navigate = useNavigate();
   const handleClick = () => {
     setOpen(!open);
@@ -52,9 +56,9 @@ const DashboardNav = ({
             />
           </div>
           <div>
-            <FontAwesomeIcon
-              className="text-3xl text-[#363740] cursor-pointer focus-within:text-4xl"
-              icon={faCircleUser}
+            <img
+              className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500 object-cover"
+              src={profile.profilePic}
               onClick={handleClick}
             />
           </div>

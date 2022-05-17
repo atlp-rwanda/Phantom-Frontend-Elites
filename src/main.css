@@ -164,4 +164,39 @@
   padding-bottom: 120px;
   justify-content: center;
   align-items: center;
+  @apply text-primary font-bold;
+}
+
+.avatarDropdown {
+  position: absolute;
+  top: 65px;
+  right: -100px;
+  width: 300px;
+  transform: translateX(-45%);
+  background-color: #fff;
+  border: 1px solid lightgray;
+  color: #ccccc;
+  font-size: 19px;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dropdownItems {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  transition: background(500ms);
+  padding: 0.5rem;
+}
+.dropdownItems:hover {
+  background-color: lightgray;
+  color: black;
+}
+.icon {
+  background: lightgray;
+  border: 1px;
+  padding: 8px;
+  border-radius: 50%;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import PropTypes from "prop-types";
 import {
   faArrowRightFromBracket,
@@ -7,10 +8,18 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AvatarDropdown = ({ handleLogout }) => {
+
+  const navigate = useNavigate();
+
+  const handleProfileClicked = () => {
+    navigate("/profile");
+  }
+
   return (
     <div className="avatarDropdown shadow-md">
       <div className="dropdownItems">
-        <button>My Profile</button>
+        <button onClick={ handleProfileClicked}
+        >My Profile</button>
       </div>
       <hr className="my-2 border-[0.5px] border-gray-800 bg-gray-800" />
       <div className="dropdownItems">

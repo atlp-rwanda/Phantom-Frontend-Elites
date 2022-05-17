@@ -33,15 +33,16 @@ const UpdateProfileModal = ({id}) => {
   });
  
 
-  const [image, setImage] = useState("");
   const [profilePic, setProfilePic] = useState("");
   let pic = "";
+
+  let userImage;
 
 
   const uploadImage = async() => {
     const formData = new FormData();
-    formData.append("file",  image);
-    formData.append("upload_preset", "bfgsniut")
+    formData.append("file",  userImage);
+    formData.append("upload_preset", "bfgsniut");
 
     await axios.post("https://api.cloudinary.com/v1_1/dsrhtsy41/image/upload", 
     formData
@@ -67,7 +68,7 @@ const UpdateProfileModal = ({id}) => {
     let profile; 
     if(profilePic.length === 0){
         profile = { ...values };
-        toast.error("Image not save, try again")
+        toast.error("Internet issues: Image not saved, try again");
     }else{
         toast.success("Image saved")
         profile = { ...profile, profilePic }
@@ -161,8 +162,8 @@ const UpdateProfileModal = ({id}) => {
              <input 
              type="file" 
              name="profilePic" 
-             onChange={(e) => {
-                   setImage(e.target.files[0]) 
+             onChange={(e) => { 
+                   userImage= e.target.files[0];
                    uploadImage()
              } } />
             <div className="mt-2 text-center">

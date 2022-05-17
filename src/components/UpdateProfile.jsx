@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback, useState, useRef } from "react";
 import * as moment from "moment"
-import ProfileSidebar from "./ProfileComponents/ProfileSidebar";
-import DashboardNav from "./AdminDashboard/ChildComponents/DashboardNav";
+import DashboardSider from "../components/AdminDashboard/ChildComponents/DashboardSidebar";
+import DashboardNav from "../components/AdminDashboard/ChildComponents/DashboardNav"
 import { fetchProfile } from "../redux/actions/profileAction";
 import { useSelector, useDispatch } from "react-redux";
 import { showProfileModalAC } from "../redux/actions/showModal"
@@ -19,7 +19,6 @@ const UpdateProfile = () => {
   const profile = useSelector((state)=> state.profileReducer.profile)
 
   const {isLoading} = useSelector((state) => state.profileReducer)
-  console.log(isLoading, "is loading ---")
 
   const storedInfo = localStorage.getItem("token");
   const userInfo = JSON.parse(storedInfo).user.user;
@@ -36,32 +35,73 @@ const UpdateProfile = () => {
  
   const dispatch = useDispatch();
 
+  const [open, setOpen] = useState(false);
+
+  const modalRef = useRef();
+
+  /** Function to close the dropdown when
+  a user clicks outside**/
+  const handleOutsideClick = useCallback(
+    (e) => {
+      if (e.target.length !== 0 && open) {
+        setOpen(!open);
+      }
+    },
+    [open]
+  );
+
+
+  /** callback func for closing the modal
+   * when a user presses escape keyboard key **/
+   const escKeyPress = useCallback(
+    (e) => {
+      if (e.key === "Escape" && open) {
+        setOpen(!open);
+      }
+    },
+    [open]
+  );
+
+
+
   useEffect(() => {
     dispatch(fetchProfile(id));
   }, [])
 
+
+  useEffect(() => {
+    document.addEventListener("keydown", escKeyPress);
+    return () => document.removeEventListener("keydown", escKeyPress);
+  }, [escKeyPress]);
+
   return (
     <>
-     <div className="flex">
+     <div className="flex" onClick={handleOutsideClick} ref={modalRef}>
         <div className="flex-2">
           <div>
-              <ProfileSidebar />
+              <DashboardSider />
           </div>
         </div>
         <div className="flex-1">
-          <div>
-            <DashboardNav navbarTitle="Update Account" />
+        <div>
+          <DashboardNav
+            open={open}
+            setOpen={setOpen}
+            handleOutsideClick={handleOutsideClick}
+            modalRef={modalRef}
+            navbarTitle="Manage Operators"
+          />
           </div>
           
           {isLoading ? (
             <ProfileSkeleton />
         ) : (
 
-          <div className="mt-28 ml-64 h-16">
+          <div className="mt-28 w-[70%] m-auto">
             <div >
-                <div href="#"className="flex flex-col bg-white rounded-lg border shadow-md md:flex-row w-[1080px] h-[500px] hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                <img className="pt-8 pl-8 object-cover w-[450px] h-[450px] rounded" src={profile.profilePic} alt=""/>
-                <div className="pt-8 ml-36">
+                <div href="#"className="flex lg:space-x-28 space-x-0 space-y-6 lg:flex-row flex-col  bg-white rounded-lg border shadow-md w-auto h-auto hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <img className="lg:py-8 pt-8 py-0 px-8 flex lg:justify-start justify-center object-cover w-[450px] rounded" src={profile.profilePic} alt=""/>
+                <div className="lg:pt-8 pt-0 flex-col lg:justify-start justify-center">
                   <div className="flex flex-col justify-between p-4 leading-normal">
                   <h4 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-mono">{`${profile.firstName} ${profile.lastName}`}</h4>
                   <p className="mb-2 text-gray-400 dark:text-gray-400">You can change or fill in the missing <br /> personal information, like date of birth,<br/> address, phone,license and national id </p>
@@ -75,14 +115,14 @@ const UpdateProfile = () => {
                   <p className="mb-2  text-gray-500 dark:text-gray-500"><span className="pr-4"><NumbersIcon style={{ fill: '#2E64E3' }}/>ID</span> {profile.nationalIdNo}</p>
                   <p className="mb-2  text-gray-500 dark:text-gray-500"><span className="pr-4"><NumbersIcon style={{ fill: '#2E64E3' }}/>License</span>{profile.drivingLicenseNo}</p>
                   </div>
-              <button 
-                    className="ml-6 bg-gray-600 text-white font-bold py-2 px-4 rounded"
+                  <button 
+                    className="mb-8 ml-6 bg-gray-600 text-white font-bold py-2 px-4 rounded"
                     onClick={() => {
                       toggleProfileModal();
                     }}
-               >
+                    >
                      Update
-              </button>
+                  </button>
               </div>        
               </div>
               </div> 

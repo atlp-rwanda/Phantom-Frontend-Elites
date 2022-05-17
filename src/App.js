@@ -30,6 +30,8 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<UpdateProfile />} />
+            <Route path="/operators" element={<OperatorDashboard />} />
+            <Route path="/drivers" element={<DriverDashboard />} />
           </Routes>
         </React.StrictMode>
       </div>

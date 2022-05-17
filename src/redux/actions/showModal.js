@@ -1,5 +1,3 @@
-
-  
 import {
   SHOW_DRIVER_MODAL,
   SHOW_MODAL,
