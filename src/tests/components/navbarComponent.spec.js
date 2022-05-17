@@ -2,6 +2,10 @@ import React from "react";
 import { shallow } from "enzyme";
 import Navbar from "../../components/NavbarComponent/Navbar";
 
+jest.mock("react-i18next", () => ({
+  useTranslation: () => ({ t: (key) => key }),
+}));
+
 // set up for the components
 const setUp = (props = {}) => {
   const setComponent = shallow(<Navbar {...props} />);
