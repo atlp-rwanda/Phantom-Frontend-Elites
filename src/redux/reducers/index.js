@@ -7,7 +7,8 @@ import errorReducer from "./errorReducer";
 import { showRolePermissionModalReducer } from "./showRolePermissionModalReducer";
 import roleReducer from "./roleReducer";
 import permissionReducer from "./permissionReducer";
-import profileReducer from "./profileReducer"
+import profileReducer from "./profileReducer";
+import busesReducer from "./busesReducer"
 
 
 /* ==================================================
@@ -25,6 +26,7 @@ const allReducers = combineReducers({
   roleReducer,
   permissionReducer,
   profileReducer,
+  busesReducer,
 });
 
 export default allReducers;

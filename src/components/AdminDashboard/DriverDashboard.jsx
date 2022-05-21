@@ -1,10 +1,19 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router";
 import AddDriver from "./ChildComponents/AddDriver";
 import DashboardNav from "./ChildComponents/DashboardNav";
 import DashboardSidebar from "./ChildComponents/DashboardSidebar";
 import DriversTable from "./ChildComponents/DriversTable";
 
 const DriverDashboard = () => {
+
+  const isAuthenticated = localStorage.getItem("token");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated === null) navigate("/login");
+  }, []);
+  
   const [open, setOpen] = useState(false);
 
   const modalRef = useRef();
@@ -37,6 +46,8 @@ const DriverDashboard = () => {
     document.addEventListener("keydown", escKeyPress);
     return () => document.removeEventListener("keydown", escKeyPress);
   }, [escKeyPress]);
+
+  if (isAuthenticated !== null) {
   return (
     <div onClick={handleOutsideClick} className="flex">
       <div className="flex-2">
@@ -63,6 +74,9 @@ const DriverDashboard = () => {
       </div>
     </div>
   );
+  }else{
+    return null;
+  }
 };
 
 export default DriverDashboard;

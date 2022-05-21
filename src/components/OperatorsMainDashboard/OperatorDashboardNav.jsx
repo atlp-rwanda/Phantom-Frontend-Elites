@@ -1,5 +1,5 @@
-import React from "react";
-import { useSelector } from "react-redux"
+import React,{ useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux"
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,6 +7,7 @@ import {
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { fetchProfile } from "../../redux/actions/profileAction";
 import AvatarDropdown from "../AvatarDropdown";
 
 const DashboardNav = ({
@@ -17,9 +18,16 @@ const DashboardNav = ({
   setOpen,
 }) => {
   
+  const dispatch = useDispatch();
+  const profile = useSelector((state)=> state.profileReducer.profile);
+  const storedInfo = localStorage.getItem("token");
+  const userInfo = JSON.parse(storedInfo).user.user;
 
-  const profile = useSelector((state)=> state.profileReducer.profile)
+  const {id} = userInfo;
 
+  useEffect(() => {
+    dispatch(fetchProfile(id));
+  }, [])
 
   const navigate = useNavigate();
   const handleClick = () => {

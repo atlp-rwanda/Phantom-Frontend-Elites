@@ -1,10 +1,19 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router";
 import AddOperator from "./ChildComponents/AddOperator";
 import DashboardNav from "./ChildComponents/DashboardNav";
 import DashboardSidebar from "./ChildComponents/DashboardSidebar";
 import OperatorsTable from "./ChildComponents/OperatorsTable";
 
 const OperatorDashboard = () => {
+
+  const isAuthenticated = localStorage.getItem("token");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated === null) navigate("/login");
+  }, []);
+  
   const [open, setOpen] = useState(false);
 
   const modalRef = useRef();
@@ -38,6 +47,7 @@ const OperatorDashboard = () => {
     return () => document.removeEventListener("keydown", escKeyPress);
   }, [escKeyPress]);
 
+  if (isAuthenticated !== null) {
   return (
     <div onClick={handleOutsideClick} ref={modalRef} className="flex">
       <div className="flex-2">
@@ -64,6 +74,9 @@ const OperatorDashboard = () => {
       </div>
     </div>
   );
+  }else{
+    return null;
+  }
 };
 
 export default OperatorDashboard;

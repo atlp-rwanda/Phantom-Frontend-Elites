@@ -1,9 +1,21 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router";
 import DashboardContainer from "../DashboardComponents/DashboardContainer";
 import DashboardNav from "./ChildComponents/DashboardNav";
 import DashboardSidebar from "./ChildComponents/DashboardSidebar";
 
 const Dashboard = () => {
+
+  const isAuthenticated = localStorage.getItem("token");
+  const userInfo = JSON.parse(isAuthenticated).user.user;
+
+  const {id} = userInfo;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if ((isAuthenticated === null) || (id!==1)) navigate("/login");
+  }, []);
+
   const [open, setOpen] = useState(false);
 
   const modalRef = useRef();
@@ -36,6 +48,8 @@ const Dashboard = () => {
     document.addEventListener("keydown", escKeyPress);
     return () => document.removeEventListener("keydown", escKeyPress);
   }, [escKeyPress]);
+
+  if (isAuthenticated !== null) {
   return (
     <div onClick={handleOutsideClick}>
       <div className="flex">
@@ -59,6 +73,9 @@ const Dashboard = () => {
       </div>
     </div>
   );
+  }else{
+    return null;
+  }
 };
 
 export default Dashboard;

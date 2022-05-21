@@ -23,7 +23,7 @@ const Sidebar = () => {
         <div className="text-gray-900 text-lg flex-col pl-4">
           <div className="hover:text-gray-600 mb-4" activeclassname="active">
             <FontAwesomeIcon icon={faHouseUser} className="pr-2" />
-            <Link className="" to="/admin">
+            <Link className="" to="/dashboard">
               Dashboard
             </Link>
           </div>
