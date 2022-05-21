@@ -35,7 +35,7 @@ const Footer = () => {
         <div className="mt-[50px]">
           <h2 className="text-lg pb-4">{t("footer.contact")}</h2>
           <h2 className="text-sm text-[#9CA3AF]">
-            <Link className="hover:text-white" target="_blank" to="/contact">
+            <Link className="hover:text-white" to="">
               {t("footer.contactUs")}
             </Link>
           </h2>

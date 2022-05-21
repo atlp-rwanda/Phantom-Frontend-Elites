@@ -28,8 +28,8 @@ const UpdateDriverForm = ({
   const [values, setValues] = useState({
     firstName: driver.firstName,
     lastName: driver.lastName,
-    email: driver.email,
     gender: driver.gender,
+    roleId: driver.roleId,
   });
 
   const [errors, setErrors] = useState({});
@@ -49,7 +49,6 @@ const UpdateDriverForm = ({
     setValues({
       firstName: "",
       lastName: "",
-      email: "",
       gender: "Male",
     });
     dispatch(showDriverModalAC(!isDriverModalOpen));
@@ -114,18 +113,6 @@ const UpdateDriverForm = ({
                 {errors.lastName}
               </div>
             )}
-            <label>New Email</label>
-            <input
-              type="text"
-              name="email"
-              className="block border border-gray-400 w-full p-2 rounded mb-4"
-              placeholder="new email to be updated"
-              value={values.email}
-              onChange={handleChange}
-            />
-            {errors.email && (
-              <div className="text-red-800 text-sm -mt-4">{errors.email}</div>
-            )}
             <label>New Gender</label>
             <select
               className="block border border-gray-400 w-full p-2 rounded mb-4"
@@ -138,6 +125,19 @@ const UpdateDriverForm = ({
             </select>
             {errors.gender && (
               <div className="text-red-800 text-sm -mt-4">{errors.gender}</div>
+            )}
+            <label>New Role</label>
+            <select
+              className="block border border-gray-400 w-full p-2 rounded mb-4"
+              name="roleId"
+              value={values.roleId}
+              onChange={handleChange}
+            >
+              <option value="2">Operator</option>
+              <option value="3">Driver</option>
+            </select>
+            {errors.roleId && (
+              <div className="text-red-800 text-sm -mt-4">{errors.roleId}</div>
             )}
             <div className="text-center">
               <button

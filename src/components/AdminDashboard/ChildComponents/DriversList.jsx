@@ -28,21 +28,19 @@ const DriversList = ({ drivers }) => {
     return (
       <>
         <tr key={driver.id}>
-          <th className="text-black font-medium pl-2 pr-6">{num++}</th>
-          <th className="text-black font-medium pl-2 pr-6">
-            {driver.firstName}
-          </th>
-          <th className="text-black font-medium pl-2 pr-6 pt-[8px]">
+          <th className="text-black font-medium pr-6">{num++}</th>
+          <th className="text-black font-medium pr-6">{driver.firstName}</th>
+          <th className="text-black font-medium pr-6 pt-[8px]">
             {driver.lastName}
           </th>
-          <th className="text-black font-medium pl-2 pr-6 pt-[8px]">
+          <th className="text-black font-medium pr-6 pt-[8px]">
             {driver.email}
           </th>
-          <th className="text-black font-medium pl-2 pr-6 pt-[8px]">
+          <th className="text-black font-medium pr-6 pt-[8px]">
             Kimironko - Downtown
           </th>
-          <th className="text-black font-medium pl-2 pr-6 pt-[8px]">RAE569H</th>
-          <th className="text-black pl-2 pt-[8px]">
+          <th className="text-black font-medium pr-6 pt-[8px]">RAE569H</th>
+          <th className="text-black pt-[8px]">
             <button className="assignbtn mr-2">Assign</button>
             <button
               className="updatebtn mr-2"

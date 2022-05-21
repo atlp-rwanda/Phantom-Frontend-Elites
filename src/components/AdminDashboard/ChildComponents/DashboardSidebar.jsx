@@ -3,21 +3,12 @@ import {
   faGear,
   faHouseUser,
   faRoad,
-  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { NavLink as Link } from "react-router-dom";
-import { useNavigate } from "react-router";
 
 const Sidebar = () => {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    console.log("hello");
-    localStorage.removeItem("token");
-    navigate("/");
-  };
   return (
     <>
       <div className="border-2 border-white shadow-lg flex-col bg-white h-screen pr-10">
@@ -31,11 +22,8 @@ const Sidebar = () => {
 
         <div className="text-gray-900 text-lg flex-col pl-4">
           <div className="hover:text-gray-600 mb-4" activeclassname="active">
-            <FontAwesomeIcon
-              icon={faHouseUser}
-              className="pr-2 text-[#736EAA] "
-            />
-            <Link className="text-[#736EAA]" to="/dashboard">
+            <FontAwesomeIcon icon={faHouseUser} className="pr-2" />
+            <Link className="" to="/admin">
               Dashboard
             </Link>
           </div>
@@ -62,10 +50,6 @@ const Sidebar = () => {
           <div className="hover:text-gray-600">
             <FontAwesomeIcon icon={faGear} className="pr-2" />
             <Link to="/permissions">Manage Permission</Link>
-          </div>
-          <div className="hover:text-primary mt-[30vh]">
-            <FontAwesomeIcon icon={faUser} className="pr-2" />
-            <button onClick={handleLogout}>Logout</button>
           </div>
         </div>
       </div>

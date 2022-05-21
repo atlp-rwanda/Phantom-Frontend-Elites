@@ -31,17 +31,15 @@ const OperatorsList = () => {
   const operatorsList = operators.map((operator) => {
     return (
       <tr key={operator.id}>
-        <th className="text-black font-medium pl-2 pr-6">{num++}</th>
-        <th className="text-black font-medium pl-2 pr-6">
-          {operator.firstName}
-        </th>
-        <th className="text-black font-medium pl-2 pr-6 pt-[8px]">
+        <th className="text-black font-medium pr-6">{num++}</th>
+        <th className="text-black font-medium pr-6">{operator.firstName}</th>
+        <th className="text-black font-medium pr-6 pt-[8px]">
           {operator.lastName}
         </th>
-        <th className="text-black font-medium pl-2 pr-6 pt-[8px]">
+        <th className="text-black font-medium pr-6 pt-[8px]">
           {operator.email}
         </th>
-        <th className="text-black pl-2 pt-[8px]">
+        <th className="text-black pt-[8px]">
           <button
             className="updatebtn mr-2"
             onClick={() => {

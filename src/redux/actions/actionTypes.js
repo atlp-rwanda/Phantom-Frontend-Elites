@@ -1,8 +1,3 @@
-/* =============================================
-This is where all our action types constants 
-are defined
-============================================== */
-
 export const INCREMENT = "INCREMENT";
 export const DECREMENT = "DECREMENT";
 export const RESET = "RESET";
@@ -39,3 +34,20 @@ export const UPDATE_PERMISSIONS = "UPDATE_PERMISSIONS";
 export const UPDATE_PERMISSION_FAIL = "UPDATE_PERMISSION_FAIL";
 export const DELETE_PERMISSIONS = "DELETE_PERMISSIONS";
 export const HANDLE_PERMISSIONS_ERRORS = "HANDLE_PERMISSIONS_ERRORS";
+
+export const FETCH_OPERATORS = "FETCH_OPERATORS";
+
+
+// UPDATE PROFILE
+export const FETCH_PROFILE = "FETCH_PROFILE";
+export const UPDATE_PROFILE = "UPDATE_PROFILE";
+export const SHOW_PROFILE_MODAL = "SHOW_PROFILE_MODAL";
+
+
+
+
+/* =============================================
+This is where all our action types constants 
+are defined
+============================================== */
+

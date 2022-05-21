@@ -7,6 +7,8 @@ import errorReducer from "./errorReducer";
 import { showRolePermissionModalReducer } from "./showRolePermissionModalReducer";
 import roleReducer from "./roleReducer";
 import permissionReducer from "./permissionReducer";
+import profileReducer from "./profileReducer"
+
 
 /* ==================================================
 allReducers which combines all slice reducer functions
@@ -22,6 +24,7 @@ const allReducers = combineReducers({
   showRolePermissionModalReducer,
   roleReducer,
   permissionReducer,
+  profileReducer,
 });
 
 export default allReducers;
