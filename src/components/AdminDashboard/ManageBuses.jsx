@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import DashboardContainer from "../DashboardComponents/DashboardContainer";
+import AddBus from "./ChildComponents/AddBus";
 import DashboardNav from "./ChildComponents/DashboardNav";
 import DashboardSidebar from "./ChildComponents/DashboardSidebar";
+import BusesTable from "./ChildComponents/BusesTable";
 
-const Dashboard = () => {
+const ManageBuses = () => {
   const [open, setOpen] = useState(false);
 
   const modalRef = useRef();
@@ -36,29 +37,33 @@ const Dashboard = () => {
     document.addEventListener("keydown", escKeyPress);
     return () => document.removeEventListener("keydown", escKeyPress);
   }, [escKeyPress]);
+
   return (
-    <div onClick={handleOutsideClick}>
-      <div className="flex">
-        <div className="flex-2">
-          <div>
-            <DashboardSidebar />
-          </div>
+    <div onClick={handleOutsideClick} className="flex h-screen">
+      <div className="flex-2">
+        <div>
+          <DashboardSidebar />
         </div>
-        <div className="flex-1 bg-[#F7F8FC]">
-          <div>
-            <DashboardNav
-              open={open}
-              setOpen={setOpen}
-              handleOutsideClick={handleOutsideClick}
-              modalRef={modalRef}
-              navbarTitle="Dashboard"
-            />
-          </div>
-          <DashboardContainer />
+      </div>
+      <div className="flex-1">
+        <div>
+          <DashboardNav
+            open={open}
+            setOpen={setOpen}
+            handleOutsideClick={handleOutsideClick}
+            modalRef={modalRef}
+            navbarTitle="Manage Buses"
+          />
+        </div>
+        <div className="mt-8 mb-4 mx-[10%]">
+          <AddBus name={"Bus"} />
+        </div>
+        <div>
+          <BusesTable tableTitle={"Buses"} />
         </div>
       </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default ManageBuses;

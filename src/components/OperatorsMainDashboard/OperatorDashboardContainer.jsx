@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import CircleWidget from "./CircleWidget";
-import TotalWidget from "./TotalWidget";
-import Analytics from "./Analytics";
+import CircleWidget from "../DashboardComponents/CircleWidget";
+import TotalWidget from "../DashboardComponents/TotalWidget";
+import Analytics from "../DashboardComponents/Analytics";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchEmployees } from "../../redux/actions/employeesAction";
 import { fetchBuses } from "../../redux/actions/busesAction";
 
-const DashboardContainer = () => {
+const OperatorDashboardContainer = () => {
   // Use effect function  to render operators
   const dispatch = useDispatch();
   useEffect(() => {
@@ -15,26 +15,19 @@ const DashboardContainer = () => {
   }, []);
   const { employees } = useSelector((state) => state.employeesReducer);
   const { buses } = useSelector((state) => state.busesReducer);
-  const operators = employees.filter((operator) => operator.roleId === 2);
   const drivers = employees.filter((driver) => driver.roleId === 3);
-  const companies = buses.map((bus) => bus.brand);
-
-  const totalOperators = operators.length;
   const totalDrivers = drivers.length;
   const totalBuses = buses.length;
-  const totalCompanies = companies.length;
 
   return (
     <div className="flex flex-col lg:mt-16 mt-10">
       {/* Small cards */}
-      <div className="lg:flex flex-wrap mx-auto justify-center lg:space-x-8 lg:items-center lg:space-y-2 space-y-6">
+      <div className="lg:flex flex-wrap mx-auto justify-center lg:space-x-44 lg:items-center lg:space-y-2 space-y-6">
         <CircleWidget total={totalBuses} />
-        <div className="flex lg:space-x-8">
-          <TotalWidget title="Total Operators" total={totalOperators} />
+        <div className="flex">
           <TotalWidget title="Total Drivers" total={totalDrivers} />
         </div>
         <div className="flex lg:space-x-8">
-          <TotalWidget title="Total Companies" total={totalCompanies} />
           <TotalWidget title="Total Routes" total={10} />
         </div>
       </div>
@@ -53,4 +46,4 @@ const DashboardContainer = () => {
   );
 };
 
-export default DashboardContainer;
+export default OperatorDashboardContainer;

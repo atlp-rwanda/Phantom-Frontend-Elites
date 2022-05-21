@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,12 +7,7 @@ import employeeFormValidations from "../../../validations/employeeForm";
 import { showDriverModalAC } from "../../../redux/actions/showModal";
 import { updateEmployee } from "../../../redux/actions/employeesAction";
 
-const UpdateDriverForm = ({
-  id,
-  name,
-  handleOutsideClickCloseModal,
-  modalRef,
-}) => {
+const UpdateDriverForm = ({ id, name }) => {
   const { employees, emailExistError } = useSelector(
     (state) => state.employeesReducer
   );
@@ -54,11 +49,30 @@ const UpdateDriverForm = ({
     dispatch(showDriverModalAC(!isDriverModalOpen));
   };
 
+  const modalRef = useRef();
+
+  /** callback func for closing the modal
+   * when a user presses escape keyboard key **/
+  const escKeyPress = useCallback(
+    (e) => {
+      if (e.key === "Escape" && open) {
+        dispatch(showDriverModalAC(!isDriverModalOpen));
+      }
+    },
+    [isDriverModalOpen]
+  );
+
+  // useEffect func to run the escKey Press func
+
+  useEffect(() => {
+    document.addEventListener("keydown", escKeyPress);
+    return () => document.removeEventListener("keydown", escKeyPress);
+  }, [escKeyPress]);
+
   return (
     <div
-      className="updateModalBackground"
+      className="bg-[#e9e9e9] absolute flex justify-center lg:top-[12vh] pt-[10vh] lg:w-[68%] w-[100%] h-lg:[80vh] my-auto items-center top-0 lg:right-auto lg:left-[24%] lg:bottom-auto right-0 left-0 bottom-0"
       ref={modalRef}
-      onClick={handleOutsideClickCloseModal}
     >
       <div className="bg-grey-lighter flex flex-col">
         <div className="w-[450px] mx-auto mt-0 flex flex-col items-center justify-center  px-2">

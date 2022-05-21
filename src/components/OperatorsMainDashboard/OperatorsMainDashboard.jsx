@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import DashboardContainer from "../DashboardComponents/DashboardContainer";
-import DashboardNav from "./ChildComponents/DashboardNav";
-import DashboardSidebar from "./ChildComponents/DashboardSidebar";
+import DashboardContainer from "./OperatorDashboardContainer";
+import OperatorDashboardNav from "./OperatorDashboardNav";
+import OperatorDashboardSidebar from "./OperatorDashboardSidebar"
 
-const Dashboard = () => {
+const OperatorsMainDashboard = () => {
   const [open, setOpen] = useState(false);
 
   const modalRef = useRef();
@@ -41,12 +41,12 @@ const Dashboard = () => {
       <div className="flex">
         <div className="flex-2">
           <div>
-            <DashboardSidebar />
+            <OperatorDashboardSidebar />
           </div>
         </div>
         <div className="flex-1 bg-[#F7F8FC]">
           <div>
-            <DashboardNav
+            <OperatorDashboardNav
               open={open}
               setOpen={setOpen}
               handleOutsideClick={handleOutsideClick}
@@ -61,4 +61,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default OperatorsMainDashboard;

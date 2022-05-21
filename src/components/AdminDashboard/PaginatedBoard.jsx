@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import DashboardContainer from "../DashboardComponents/DashboardContainer";
 import DashboardNav from "./ChildComponents/DashboardNav";
 import DashboardSidebar from "./ChildComponents/DashboardSidebar";
+import PaginatedTable from "./ChildComponents/PaginatedTable";
 
-const Dashboard = () => {
+const PaginatedBoard = () => {
   const [open, setOpen] = useState(false);
 
   const modalRef = useRef();
@@ -36,29 +36,30 @@ const Dashboard = () => {
     document.addEventListener("keydown", escKeyPress);
     return () => document.removeEventListener("keydown", escKeyPress);
   }, [escKeyPress]);
+
   return (
-    <div onClick={handleOutsideClick}>
-      <div className="flex">
-        <div className="flex-2">
-          <div>
-            <DashboardSidebar />
-          </div>
+    <div onClick={handleOutsideClick} ref={modalRef} className="flex h-screen">
+      <div className="flex-2">
+        <div>
+          <DashboardSidebar />
         </div>
-        <div className="flex-1 bg-[#F7F8FC]">
-          <div>
-            <DashboardNav
-              open={open}
-              setOpen={setOpen}
-              handleOutsideClick={handleOutsideClick}
-              modalRef={modalRef}
-              navbarTitle="Dashboard"
-            />
-          </div>
-          <DashboardContainer />
+      </div>
+      <div className="flex-1">
+        <div>
+          <DashboardNav
+            open={open}
+            setOpen={setOpen}
+            handleOutsideClick={handleOutsideClick}
+            modalRef={modalRef}
+            navbarTitle="Manage Drivers"
+          />
+        </div>
+        <div className="mt-[15vh] mb-4 mx-[10%]">
+          <PaginatedTable />
         </div>
       </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default PaginatedBoard;

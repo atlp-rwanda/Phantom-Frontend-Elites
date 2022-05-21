@@ -7,7 +7,7 @@ import {
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import AvatarDropdown from "../../AvatarDropdown";
+import AvatarDropdown from "../AvatarDropdown";
 
 const DashboardNav = ({
   navbarTitle,
@@ -16,6 +16,7 @@ const DashboardNav = ({
   open,
   setOpen,
 }) => {
+  
 
   const profile = useSelector((state)=> state.profileReducer.profile)
 

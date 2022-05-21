@@ -1,4 +1,5 @@
 import { toast } from "react-toastify";
+import swal from "sweetalert";
 import {
   REGISTER,
   FETCH_EMPLOYEES,
@@ -62,9 +63,7 @@ const employeesReducer = (state = initialState, action) => {
         employees: state.employees.filter((employee) => {
           return employee.id !== action.payload;
         }),
-        message: toast.success(`${action.message}`, {
-          position: "top-center",
-        }),
+        message: swal("Thanks", `${action.message}`, "success"),
       };
     default:
       return state;

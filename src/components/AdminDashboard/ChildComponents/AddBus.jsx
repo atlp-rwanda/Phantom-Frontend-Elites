@@ -1,14 +1,14 @@
 import React, { useEffect, useCallback, useRef } from "react";
 import PropTypes from "prop-types";
-import { faCirclePlus, faEye } from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import AddDriverFormModal from "./AddDriverFormModal";
-import { useSelector, useDispatch } from "react-redux";
+import AddBusFormModal from "./AddBusFormModal";
+import { useDispatch, useSelector } from "react-redux";
 import { showModalActionCreator } from "../../../redux/actions/showModal";
 
 // Add employee function component
-const AddDriver = ({ name }) => {
+const AddBus = ({ name }) => {
   const { isModalOpen } = useSelector((state) => state.showModalReducer);
   const dispatch = useDispatch();
   /** ref function for closing the modal
@@ -46,15 +46,6 @@ const AddDriver = ({ name }) => {
 
   return (
     <div className="flex justify-end">
-      <button className="border border-white rounded bg-[#363740] hover:bg-primary mr-6 py-[3px]">
-        <FontAwesomeIcon className="text-white pr-2 pl-2" icon={faEye} />
-        <Link
-          className="pr-2 text-white border-transparent"
-          to="/paginatedlist"
-        >
-          View Drivers assigned to Buses
-        </Link>
-      </button>
       <button
         onClick={toggleModal}
         className="border border-white rounded bg-[#363740] hover:bg-primary py-[3px]"
@@ -66,7 +57,7 @@ const AddDriver = ({ name }) => {
       </button>
 
       {isModalOpen && (
-        <AddDriverFormModal
+        <AddBusFormModal
           name={name}
           handleOutsideClickCloseModal={handleOutsideClickCloseModal}
           modalRef={modalRef}
@@ -75,9 +66,10 @@ const AddDriver = ({ name }) => {
     </div>
   );
 };
+
 // Validations for props received
-AddDriver.propTypes = {
+AddBus.propTypes = {
   name: PropTypes.string.isRequired,
 };
 
-export default AddDriver;
+export default AddBus;

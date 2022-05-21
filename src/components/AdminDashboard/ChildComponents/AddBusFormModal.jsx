@@ -3,16 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { register } from "../../../redux/actions/employeesAction";
-import employeeFormValidations from "../../../validations/employeeForm";
+import { registerBuses } from "../../../redux/actions/busesAction";
+import busesFormValidations from "../../../validations/busForm";
 import { showModalActionCreator } from "../../../redux/actions/showModal";
 
-const AddDriverFormModal = ({
-  name,
-  handleOutsideClickCloseModal,
-  modalRef,
-}) => {
-  const emailExistError = useSelector((state) => state.employeesReducer.errors);
+const AddBusFormModal = ({ name, handleOutsideClickCloseModal, modalRef }) => {
+  const busExistError = useSelector((state) => state.busesReducer.errors);
   const { isModalOpen } = useSelector((state) => state.showModalReducer);
   const dispatch = useDispatch();
 
@@ -20,10 +16,11 @@ const AddDriverFormModal = ({
     dispatch(showModalActionCreator(!isModalOpen));
   };
   const [values, setValues] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    gender: "Male",
+    brand: "",
+    plateNo: "",
+    driverId: null,
+    seats: "",
+    status: "inactive",
   });
 
   const [errors, setErrors] = useState({});
@@ -37,20 +34,20 @@ const AddDriverFormModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors(employeeFormValidations(values));
-    const user = {
-      firstName: values.firstName,
-      lastName: values.lastName,
-      email: values.email,
-      gender: values.gender,
-      roleId: 3,
+    setErrors(busesFormValidations(values));
+    const bus = {
+      brand: values.brand,
+      plateNo: values.plateNo,
+      driverId: values?.null,
+      seats: values.seats,
+      status: values.status,
     };
-    dispatch(register(user));
+    dispatch(registerBuses(bus));
     setValues({
-      firstName: "",
-      lastName: "",
-      email: "",
-      gender: "Male",
+      brand: "",
+      plateNo: "",
+      seats: "",
+      status: "inactive",
     });
   };
 
@@ -81,65 +78,58 @@ const AddDriverFormModal = ({
                   Register {name}
                 </h1>
               </div>
-              {emailExistError && (
+              {busExistError && (
                 <div className="text-red-800 text-sm -mt-2 my-4 font-bold">
-                  {emailExistError}
+                  {busExistError}
                 </div>
               )}
             </div>
-            <label htmlFor="Full name">First Name</label>
+            <label htmlFor="Full name">Bus Brand</label>
             <input
               type="text"
               className="block border border-gray-400 w-full p-2 rounded mb-4"
-              name="firstName"
-              placeholder="your first name"
-              value={values.firstName}
+              name="brand"
+              placeholder="Brand name of the bus"
+              value={values.brand}
               onChange={handleChange}
             />
-            {errors.firstName && (
-              <div className="text-red-800 text-sm -mt-4">
-                {errors.firstName}
-              </div>
+            {errors.brand && (
+              <div className="text-red-800 text-sm -mt-4">{errors.brand}</div>
             )}
-            <label htmlFor="Full name">Last Name</label>
+            <label htmlFor="Full name">Plate No</label>
             <input
               type="text"
               className="block border border-gray-400 w-full p-2 rounded mb-4"
-              name="lastName"
-              placeholder="your last name"
-              value={values.lastName}
+              name="plateNo"
+              placeholder="Bus plate number"
+              value={values.plateNo}
               onChange={handleChange}
             />
-            {errors.lastName && (
-              <div className="text-red-800 text-sm -mt-4">
-                {errors.lastName}
-              </div>
+            {errors.plateNo && (
+              <div className="text-red-800 text-sm -mt-4">{errors.plateNo}</div>
             )}
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">No of Bus seats</label>
             <input
               type="text"
-              name="email"
+              name="seats"
               className="block border border-gray-400 w-full p-2 rounded mb-4"
-              placeholder="example@xxx.com"
-              value={values.email}
+              placeholder="Number of seats in the bus"
+              value={values.seats}
               onChange={handleChange}
             />
-            {errors.email && (
-              <div className="text-red-800 text-sm -mt-4">{errors.email}</div>
+            {errors.seats && (
+              <div className="text-red-800 text-sm -mt-4">{errors.seats}</div>
             )}
-            <label htmlFor="Full name">Gender</label>
+            <label htmlFor="Full name">Bus Status</label>
             <select
               className="block border border-gray-400 w-full p-2 rounded mb-4"
-              name="gender"
-              value={values.gender}
+              name="status"
+              value={values.status}
               onChange={handleChange}
             >
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
             </select>
-            {errors.gender && (
-              <div className="text-red-800 text-sm -mt-4">{errors.gender}</div>
-            )}
             <div className="text-center">
               <button
                 type="submit"
@@ -155,10 +145,10 @@ const AddDriverFormModal = ({
   );
 };
 
-AddDriverFormModal.propTypes = {
+AddBusFormModal.propTypes = {
   name: PropTypes.string.isRequired,
   handleOutsideClickCloseModal: PropTypes.func.isRequired,
   modalRef: PropTypes.object.isRequired,
 };
 
-export default AddDriverFormModal;
+export default AddBusFormModal;

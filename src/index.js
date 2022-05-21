@@ -6,7 +6,6 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://phantom-backend-elites.herokuapp.com/api/v1";
 
-
 import "./main.css";
 import "./langConfig";
 import App from "./App";
