@@ -1,14 +1,16 @@
-import React, {useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux"
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faBars,
   faBell,
-  faSearch,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import { fetchProfile } from "../../../redux/actions/profileAction"
 import AvatarDropdown from "../../AvatarDropdown";
+import MobileSideBar from "./MobileSideBar";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProfile } from "../../../redux/actions/profileAction";
 
 const DashboardNav = ({
   navbarTitle,
@@ -17,19 +19,7 @@ const DashboardNav = ({
   open,
   setOpen,
 }) => {
-
-  const dispatch = useDispatch();
-  const profile = useSelector((state)=> state.profileReducer.profile);
-  const storedInfo = localStorage.getItem("token");
-  const userInfo = JSON.parse(storedInfo).user.user;
-
-  const {id} = userInfo;
-
-  useEffect(() => {
-    dispatch(fetchProfile(id));
-  }, [])
-
-
+  const [openMenu, setOpenMenu] = useState(false);
   const navigate = useNavigate();
   const handleClick = () => {
     setOpen(!open);
@@ -39,29 +29,53 @@ const DashboardNav = ({
     localStorage.removeItem("token");
     navigate("/");
   };
+  const handleOpenMenu = () => {
+    setOpenMenu(!openMenu);
+  };
+
+  const dispatch = useDispatch();
+  const profile = useSelector((state)=> state.profileReducer.profile);
+  const storedInfo = localStorage.getItem("token");
+  const userInfo = JSON.parse(storedInfo)?.user.user;
+
+  let id
+  userInfo? {id} = userInfo : id = null;
+
+  useEffect(() => {
+    dispatch(fetchProfile(id));
+  }, [])
+
 
   return (
     <>
       <div
         onClick={handleOutsideClick}
         ref={modalRef}
-        className="flex justify-between items-center bg-white border-b-2 border-gray-400 shadow-lg py-4 px-8"
+        className="flex justify-between items-center bg-white border-b-2 border-[#3C3868] shadow-lg py-4 px-8"
       >
+        <div className="block lg:hidden">
+          {!openMenu ? (
+            <FontAwesomeIcon
+              className="text-3xl flex items-center cursor-pointer"
+              icon={faBars}
+              onClick={handleOpenMenu}
+            />
+          ) : (
+            <FontAwesomeIcon
+              className="text-3xl flex items-center cursor-pointer"
+              icon={faXmark}
+              onClick={handleOpenMenu}
+            />
+          )}
+        </div>
         <div>
-          <h1 className="text-xl font-bold text-primary">{navbarTitle}</h1>
+          <h1 className="text-xl font-bold text-[#3C3868]">{navbarTitle}</h1>
         </div>
 
         <div className="flex">
-          <div className="border-2 border-[#A4A6B3] rounded mr-8 py-[1.5px]">
-            <FontAwesomeIcon
-              className="text-[#A4A6B3] text-lg pl-2"
-              icon={faSearch}
-            />
-            <input className="outline-none px-4 text-[#A4A6B3]" type="text" />
-          </div>
           <div className="mr-8">
             <FontAwesomeIcon
-              className="text-3xl text-[#363740] cursor-pointer"
+              className="text-3xl text-[#3C3868] cursor-pointer"
               icon={faBell}
             />
           </div>
@@ -77,6 +91,11 @@ const DashboardNav = ({
       {open && (
         <div className="">
           <AvatarDropdown handleLogout={handleLogout} />
+        </div>
+      )}
+      {openMenu && (
+        <div>
+          <MobileSideBar />
         </div>
       )}
     </>

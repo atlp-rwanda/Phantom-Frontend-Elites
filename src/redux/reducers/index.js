@@ -8,8 +8,9 @@ import { showRolePermissionModalReducer } from "./showRolePermissionModalReducer
 import roleReducer from "./roleReducer";
 import permissionReducer from "./permissionReducer";
 import profileReducer from "./profileReducer";
-import busesReducer from "./busesReducer"
-
+import busesReducer from "./busesReducer";
+import assignDriverBusReducer from "./assignDriverBusReducer";
+import unassignDriverFromBusReducer from "./unassignDriverFromBusReducer";
 
 /* ==================================================
 allReducers which combines all slice reducer functions
@@ -27,6 +28,8 @@ const allReducers = combineReducers({
   permissionReducer,
   profileReducer,
   busesReducer,
+  assignDriverBusReducer,
+  unassignDriverFromBusReducer,
 });
 
 export default allReducers;

@@ -30,11 +30,11 @@ const DashboardContainer = () => {
       <div className="lg:flex flex-wrap mx-auto justify-center lg:space-x-8 lg:items-center lg:space-y-2 space-y-6">
         <CircleWidget total={totalBuses} />
         <div className="flex lg:space-x-8">
-          <TotalWidget title="Total Operators" total={totalOperators} />
-          <TotalWidget title="Total Drivers" total={totalDrivers} />
+          <TotalWidget title="Total Operators" link={"/operators"} total={totalOperators} />
+          <TotalWidget title="Total Drivers" link={"/drivers"} total={totalDrivers} />
         </div>
         <div className="flex lg:space-x-8">
-          <TotalWidget title="Total Companies" total={totalCompanies} />
+          <TotalWidget title="Total Companies" link={"/buses"} total={totalCompanies} />
           <TotalWidget title="Total Routes" total={10} />
         </div>
       </div>

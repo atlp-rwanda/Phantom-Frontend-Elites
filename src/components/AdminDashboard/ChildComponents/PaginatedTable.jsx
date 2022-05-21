@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchDriversAssigned } from "../../../redux/actions/assignDriverBusAction";
 import PaginatedList from "./PaginatedList";
 import Table from "../../../skeleton/Table";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const PaginatedTable = () => {
   const { driversAssigned, isPending } = useSelector(
@@ -23,16 +21,6 @@ const PaginatedTable = () => {
         <h1 className="text-center text-xl text-primary font-bold py-4">
           List of Drivers Assigned
         </h1>
-        <div className="w-[250px] flex border-[1px] rounded-md border-primary py-[2px] mb-4 mx-[30px]">
-          <FontAwesomeIcon
-            className="text-primary text-lg px-2 pt-[3px]"
-            icon={faSearch}
-          />
-          <input
-            className="outline-none bg-transparent w-[200px] px-4 text-primary"
-            type="text"
-          />
-        </div>
         {isPending ? (
           <div className="flex justify-center">
             <Table />

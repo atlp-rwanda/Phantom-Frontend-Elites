@@ -3,28 +3,26 @@ import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import employeeFormValidations from "../../../validations/employeeForm";
-import { showDriverModalAC } from "../../../redux/actions/showModal";
-import { updateEmployee } from "../../../redux/actions/employeesAction";
+import busesFormValidations from "../../../validations/busForm";
+import { showBusModalAC } from "../../../redux/actions/showModal";
+import { updateBus } from "../../../redux/actions/busesAction";
 
-const UpdateDriverForm = ({ id, name }) => {
-  const { employees, emailExistError } = useSelector(
-    (state) => state.employeesReducer
-  );
-  const { isDriverModalOpen } = useSelector((state) => state.showModalReducer);
+const UpdateBusForm = ({ plateNo, name }) => {
+  const { buses } = useSelector((state) => state.busesReducer);
+  const { isBusModalOpen } = useSelector((state) => state.showModalReducer);
   const dispatch = useDispatch();
 
   const handleCloseModal = () => {
-    dispatch(showDriverModalAC(!isDriverModalOpen));
+    dispatch(showBusModalAC(!isBusModalOpen));
   };
-  const driver = employees.find((employee) => employee.id === id);
+  const bus = buses.find((bus) => bus.plateNo === plateNo);
 
   // const operator = operators[id-1]
   const [values, setValues] = useState({
-    firstName: driver.firstName,
-    lastName: driver.lastName,
-    gender: driver.gender,
-    roleId: driver.roleId,
+    brand: bus.brand,
+    plateNo: bus.plateNo,
+    seats: bus.seats,
+    status: bus.status,
   });
 
   const [errors, setErrors] = useState({});
@@ -38,15 +36,16 @@ const UpdateDriverForm = ({ id, name }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors(employeeFormValidations(values));
-    const user = { ...values };
-    dispatch(updateEmployee(id, user));
+    setErrors(busesFormValidations(values));
+    const busData = { ...values };
+    dispatch(updateBus(plateNo, busData));
     setValues({
-      firstName: "",
-      lastName: "",
-      gender: "Male",
+      brand: "",
+      plateNo: "",
+      seats: "",
+      status: "inactive",
     });
-    dispatch(showDriverModalAC(!isDriverModalOpen));
+    dispatch(showBusModalAC(!isBusModalOpen));
   };
 
   const modalRef = useRef();
@@ -56,10 +55,10 @@ const UpdateDriverForm = ({ id, name }) => {
   const escKeyPress = useCallback(
     (e) => {
       if (e.key === "Escape" && open) {
-        dispatch(showDriverModalAC(!isDriverModalOpen));
+        dispatch(showBusModalAC(!isBusModalOpen));
       }
     },
-    [isDriverModalOpen]
+    [isBusModalOpen]
   );
 
   // useEffect func to run the escKey Press func
@@ -93,72 +92,59 @@ const UpdateDriverForm = ({ id, name }) => {
               <div className="mb-6">
                 <h1 className="text-center text-xl font-bold">Update {name}</h1>
               </div>
-              {emailExistError && (
-                <div className="text-red-800 text-sm -mt-2 my-4 font-bold">
-                  {emailExistError}
-                </div>
-              )}
             </div>
-            <label>New First Name</label>
+            <label>New Brand Name</label>
             <input
               type="text"
               className="block border border-gray-400 w-full p-2 rounded mb-4"
-              name="firstName"
-              placeholder="first name to be updated"
-              value={values.firstName}
+              name="brand"
+              placeholder="Brand name to be updated"
+              value={values.brand}
               onChange={handleChange}
             />
-            {errors.firstName && (
-              <div className="text-red-800 text-sm -mt-4">
-                {errors.firstName}
-              </div>
+            {errors.brand && (
+              <div className="text-red-800 text-sm -mt-4">{errors.brand}</div>
             )}
-            <label>New Last Name</label>
+            <label>New plate number</label>
             <input
               type="text"
               className="block border border-gray-400 w-full p-2 rounded mb-4"
-              name="lastName"
-              placeholder="last name to be updated"
-              value={values.lastName}
+              name="plateNo"
+              placeholder="Plate number to be updated"
+              value={values.plateNo}
               onChange={handleChange}
             />
-            {errors.lastName && (
-              <div className="text-red-800 text-sm -mt-4">
-                {errors.lastName}
-              </div>
+            {errors.plateNo && (
+              <div className="text-red-800 text-sm -mt-4">{errors.plateNo}</div>
             )}
-            <label>New Gender</label>
+            <label>New seats</label>
+            <input
+              type="text"
+              className="block border border-gray-400 w-full p-2 rounded mb-4"
+              name="seats"
+              placeholder="Number of seats to be updated"
+              value={values.seats}
+              onChange={handleChange}
+            />
+            {errors.seats && (
+              <div className="text-red-800 text-sm -mt-4">{errors.seats}</div>
+            )}
+            <label>New status of the bus</label>
             <select
               className="block border border-gray-400 w-full p-2 rounded mb-4"
-              name="gender"
-              value={values.gender}
+              name="status"
+              value={values.status}
               onChange={handleChange}
             >
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
             </select>
-            {errors.gender && (
-              <div className="text-red-800 text-sm -mt-4">{errors.gender}</div>
-            )}
-            <label>New Role</label>
-            <select
-              className="block border border-gray-400 w-full p-2 rounded mb-4"
-              name="roleId"
-              value={values.roleId}
-              onChange={handleChange}
-            >
-              <option value="2">Operator</option>
-              <option value="3">Driver</option>
-            </select>
-            {errors.roleId && (
-              <div className="text-red-800 text-sm -mt-4">{errors.roleId}</div>
-            )}
             <div className="text-center">
               <button
                 type="submit"
                 className="mx-auto py-[5px] px-14 rounded bg-primary text-white font-bold hover:bg-gray-700 focus:outline-none my-1"
               >
-                Update Driver
+                Update Bus
               </button>
             </div>
           </form>
@@ -168,11 +154,11 @@ const UpdateDriverForm = ({ id, name }) => {
   );
 };
 
-UpdateDriverForm.propTypes = {
+UpdateBusForm.propTypes = {
   name: PropTypes.string.isRequired,
   handleOutsideClickCloseModal: PropTypes.func.isRequired,
   modalRef: PropTypes.object.isRequired,
-  id: PropTypes.number.isRequired,
+  plateNo: PropTypes.number.isRequired,
 };
 
-export default UpdateDriverForm;
+export default UpdateBusForm;

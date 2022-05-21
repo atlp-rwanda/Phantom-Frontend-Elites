@@ -3,6 +3,7 @@ import AddBus from "./ChildComponents/AddBus";
 import DashboardNav from "./ChildComponents/DashboardNav";
 import DashboardSidebar from "./ChildComponents/DashboardSidebar";
 import BusesTable from "./ChildComponents/BusesTable";
+import { useNavigate } from "react-router";
 
 const ManageBuses = () => {
   const [open, setOpen] = useState(false);
@@ -38,6 +39,19 @@ const ManageBuses = () => {
     return () => document.removeEventListener("keydown", escKeyPress);
   }, [escKeyPress]);
 
+  const isAuthenticated = localStorage.getItem("token");
+  const storedInfo = localStorage.getItem("token");
+  const userInfo = JSON.parse(storedInfo)?.user.user;
+
+  let role
+  userInfo? {role} = userInfo : role = null
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(!isAuthenticated || (role!==1 && role!==2)) navigate("/login");
+  })
+
+  if(isAuthenticated){
   return (
     <div onClick={handleOutsideClick} className="flex h-screen">
       <div className="flex-2">
@@ -64,6 +78,8 @@ const ManageBuses = () => {
       </div>
     </div>
   );
+
+  }else return null;
 };
 
 export default ManageBuses;

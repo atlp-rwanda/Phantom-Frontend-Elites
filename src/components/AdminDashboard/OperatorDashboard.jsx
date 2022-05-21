@@ -8,11 +8,16 @@ import OperatorsTable from "./ChildComponents/OperatorsTable";
 const OperatorDashboard = () => {
 
   const isAuthenticated = localStorage.getItem("token");
+  const storedInfo = localStorage.getItem("token");
+  const userInfo = JSON.parse(storedInfo)?.user.user;
+
+  let role
+  userInfo? {role} = userInfo : role = null
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (isAuthenticated === null) navigate("/login");
-  }, []);
+    useEffect(() => {
+      if ((!isAuthenticated) || (role!==1)) navigate("/login");
+    }, []);
   
   const [open, setOpen] = useState(false);
 

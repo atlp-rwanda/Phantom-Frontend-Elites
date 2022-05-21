@@ -1,4 +1,5 @@
 import React, { useEffect, useCallback, useState, useRef } from "react";
+import { useNavigate } from "react-router"
 import * as moment from "moment"
 import DashboardSider from "../components/AdminDashboard/ChildComponents/DashboardSidebar";
 import DashboardNav from "../components/AdminDashboard/ChildComponents/DashboardNav"
@@ -21,9 +22,13 @@ const UpdateProfile = () => {
   const {isLoading} = useSelector((state) => state.profileReducer)
 
   const storedInfo = localStorage.getItem("token");
-  const userInfo = JSON.parse(storedInfo).user.user;
+  const userInfo = JSON.parse(storedInfo)?.user.user;
 
-  const {id} = userInfo;
+  const isAuthenticated = localStorage.getItem("token");
+
+  let id
+  userInfo? {id} = userInfo : id = null;
+
   const date = moment(profile.dateofbirth).format('DD MMM, YYYY');
 
 
@@ -62,7 +67,11 @@ const UpdateProfile = () => {
     [open]
   );
 
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    if (!isAuthenticated) navigate("/login");
+  }, []);
 
   useEffect(() => {
     dispatch(fetchProfile(id));
@@ -74,6 +83,7 @@ const UpdateProfile = () => {
     return () => document.removeEventListener("keydown", escKeyPress);
   }, [escKeyPress]);
 
+  if(isAuthenticated){
   return (
     <>
      <div className="flex" onClick={handleOutsideClick} ref={modalRef}>
@@ -89,7 +99,7 @@ const UpdateProfile = () => {
             setOpen={setOpen}
             handleOutsideClick={handleOutsideClick}
             modalRef={modalRef}
-            navbarTitle="Manage Operators"
+            navbarTitle="Manage Profile"
           />
           </div>
           
@@ -104,9 +114,7 @@ const UpdateProfile = () => {
                 <div className="lg:pt-8 pt-0 flex-col lg:justify-start justify-center">
                   <div className="flex flex-col justify-between p-4 leading-normal">
                   <h4 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-mono">{`${profile.firstName} ${profile.lastName}`}</h4>
-                  <p className="mb-2 text-gray-400 dark:text-gray-400">You can change or fill in the missing <br /> personal information, like date of birth,<br/> address, phone,license and national id </p>
-
-                  
+                  <p className="mb-2 text-gray-400 dark:text-gray-400">You can change or fill in the missing <br /> personal information, like date of birth,<br/> address, phone,license and national id </p>                  
                   <p className="mb-2  text-gray-500 dark:text-gray-500"><span className="pr-4"><DateRangeIcon style={{ fill: '#2E64E3' }}/></span> {date}</p>     
                   <p className="mb-2  text-gray-500 dark:text-gray-500"><span className="pr-4"><BoyIcon style={{ fill: '#2E64E3' }}/><GirlIcon style={{ fill: '#2E64E3' }}/></span> {profile.gender}</p>
                   <p className="mb-2  text-gray-500 dark:text-gray-500"><span className="pr-4"><MailIcon style={{ fill: '#2E64E3' }}/></span>{profile.email}</p>
@@ -133,6 +141,10 @@ const UpdateProfile = () => {
      {isProfileModalOpen && <UpdateProfileModal id={id}/>}
     </>
   );
+  }
+  else{
+    return null;
+  }
   }
 
 

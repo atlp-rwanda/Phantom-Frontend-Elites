@@ -3,6 +3,8 @@ import {
   SHOW_MODAL,
   SHOW_OPERATOR_MODAL,
   SHOW_PROFILE_MODAL,
+  SHOW_BUS_MODAL,
+  SHOW_ASSIGN_MODAL
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -41,7 +43,23 @@ export const showModalReducer = (state = initialState, action) => {
         isDriverModalOpen: false,
         isModalOpen: false,
         isOperatorModalOpen: false,
-      }  
+      } 
+      case SHOW_BUS_MODAL:
+        return {
+          isBusModalOpen: action.payload,
+          isModalOpen: false,
+          isOperatorModalOpen: false,
+          isDriverModalOpen: false,
+          isAssignModalOpen: false,
+        };
+      case SHOW_ASSIGN_MODAL:
+        return {
+          isAssignModalOpen: action.payload,
+          isModalOpen: false,
+          isOperatorModalOpen: false,
+          isDriverModalOpen: false,
+          isBusModalOpen: false,
+        }; 
     default:
       return state;
   }

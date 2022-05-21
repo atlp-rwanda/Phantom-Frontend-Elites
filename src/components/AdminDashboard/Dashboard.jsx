@@ -7,13 +7,18 @@ import DashboardSidebar from "./ChildComponents/DashboardSidebar";
 const Dashboard = () => {
 
   const isAuthenticated = localStorage.getItem("token");
-  const userInfo = JSON.parse(isAuthenticated).user.user;
+  
+  const storedInfo = localStorage.getItem("token");
+  const userInfo = JSON.parse(storedInfo)?.user.user;
 
-  const {id} = userInfo;
+
+  let role
+  userInfo? {role} = userInfo : role = null
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    if ((isAuthenticated === null) || (id!==1)) navigate("/login");
+    if ((!isAuthenticated) || (role!==1)) navigate("/login");
   }, []);
 
   const [open, setOpen] = useState(false);

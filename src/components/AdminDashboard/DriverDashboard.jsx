@@ -8,7 +8,16 @@ import DriversTable from "./ChildComponents/DriversTable";
 const DriverDashboard = () => {
 
   const isAuthenticated = localStorage.getItem("token");
+  const storedInfo = localStorage.getItem("token");
+  const userInfo = JSON.parse(storedInfo)?.user.user;
+
+  let role
+  userInfo? {role} = userInfo : role = null
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if(!isAuthenticated || (role!==1 && role!==2)) navigate("/login");
+  })
 
   useEffect(() => {
     if (isAuthenticated === null) navigate("/login");

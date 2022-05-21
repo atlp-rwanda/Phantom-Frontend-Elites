@@ -26,7 +26,7 @@ const MobileSideBar = () => {
               icon={faHouseUser}
               className="pr-2 text-[#3c3868]"
             />
-            <Link className="text-[#3c3868]" to="/Dashboard">
+            <Link className="text-[#3c3868]" to="/dashboard">
               Dashboard
             </Link>
           </div>

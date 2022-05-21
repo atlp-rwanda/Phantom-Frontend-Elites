@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBell,
-  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { fetchProfile } from "../../redux/actions/profileAction";
@@ -51,13 +50,6 @@ const DashboardNav = ({
         </div>
 
         <div className="flex">
-          <div className="border-2 border-[#A4A6B3] rounded mr-8 py-[1.5px]">
-            <FontAwesomeIcon
-              className="text-[#A4A6B3] text-lg pl-2"
-              icon={faSearch}
-            />
-            <input className="outline-none px-4 text-[#A4A6B3]" type="text" />
-          </div>
           <div className="mr-8">
             <FontAwesomeIcon
               className="text-3xl text-[#363740] cursor-pointer"

@@ -7,13 +7,15 @@ import OperatorDashboardSidebar from "./OperatorDashboardSidebar"
 const OperatorsMainDashboard = () => {
 
   const isAuthenticated = localStorage.getItem("token");
-  const userInfo = JSON.parse(isAuthenticated).user.user;
-  const {id} = userInfo;
+  const userInfo = JSON.parse(isAuthenticated)?.user.user;
+
+  let role
+  userInfo? {role} = userInfo : role = null
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if ((isAuthenticated === null) || (id!==2)) navigate("/login");
+    if ((isAuthenticated === null) || (role!==2)) navigate("/login");
   }, []);
 
   const [open, setOpen] = useState(false);
