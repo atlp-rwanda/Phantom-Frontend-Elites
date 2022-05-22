@@ -31,7 +31,7 @@ const LoginAuthAction = (loginState, navigate ) => {
          navigate("/operators-dashboard");
       }
       else{
-        navigate('/');
+        navigate('/profile');
       }      
     } catch (error) {
           dispatch(returnErrors(error.response.data, error.response.status))

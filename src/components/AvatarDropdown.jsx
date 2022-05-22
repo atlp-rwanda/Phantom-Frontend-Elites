@@ -6,6 +6,7 @@ import {
   faKey,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NavLink } from "react-router-dom";
 
 const AvatarDropdown = ({ handleLogout }) => {
 
@@ -18,13 +19,15 @@ const AvatarDropdown = ({ handleLogout }) => {
   return (
     <div className="avatarDropdown shadow-md">
       <div className="dropdownItems">
-        <button onClick={ handleProfileClicked}
+        <button onClick={handleProfileClicked}
         >My Profile</button>
       </div>
       <hr className="my-2 border-[0.5px] border-gray-800 bg-gray-800" />
       <div className="dropdownItems">
         <FontAwesomeIcon icon={faKey} className="mr-2 icon text-gray-700" />
-        <button>Change Password</button>
+        <NavLink to="/changepassword">
+          <button>Change Password</button>
+        </NavLink>
       </div>
       <div className="dropdownItems">
         <FontAwesomeIcon

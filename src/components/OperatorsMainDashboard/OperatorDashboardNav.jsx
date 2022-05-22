@@ -1,10 +1,6 @@
 import React,{ useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import PropTypes from "prop-types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBell,
-} from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { fetchProfile } from "../../redux/actions/profileAction";
 import AvatarDropdown from "../AvatarDropdown";
@@ -35,7 +31,7 @@ const DashboardNav = ({
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/");
+    navigate("/login");
   };
 
   return (
@@ -50,15 +46,9 @@ const DashboardNav = ({
         </div>
 
         <div className="flex">
-          <div className="mr-8">
-            <FontAwesomeIcon
-              className="text-3xl text-[#363740] cursor-pointer"
-              icon={faBell}
-            />
-          </div>
           <div>
             <img
-              className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500 object-cover"
+              className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500 object-cover cursor-pointer"
               src={profile.profilePic}
               onClick={handleClick}
             />

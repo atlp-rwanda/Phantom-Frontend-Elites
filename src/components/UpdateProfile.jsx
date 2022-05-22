@@ -107,7 +107,7 @@ const UpdateProfile = () => {
             <ProfileSkeleton />
         ) : (
 
-          <div className="mt-28 w-[70%] m-auto">
+          <div className="mt-[15vh] w-[70%] m-auto">
             <div >
                 <div href="#"className="flex lg:space-x-28 space-x-0 space-y-6 lg:flex-row flex-col  bg-white rounded-lg border shadow-md w-auto h-auto hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                 <img className="lg:py-8 pt-8 py-0 px-8 flex lg:justify-start justify-center object-cover w-[450px] rounded" src={profile.profilePic} alt=""/>

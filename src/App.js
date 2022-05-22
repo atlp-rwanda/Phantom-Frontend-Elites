@@ -17,6 +17,8 @@ import Dashboard from "./components/AdminDashboard/Dashboard";
 import ManageBuses from "./components/AdminDashboard/ManageBuses";
 import PaginatedBoard from "./components/AdminDashboard/PaginatedBoard";
 import OperatorsMainDashboard from "./components/OperatorsMainDashboard/OperatorsMainDashboard";
+import ChangeMyPassword from "./components/AdminDashboard/ChildComponents/ChangeMyPassword";
+import RoleDashboard from "./components/AdminDashboard/RoleDashboard";
 
 
 /* =============================================
@@ -46,12 +48,13 @@ const App = () => {
             <Route path="/operators" element={<OperatorDashboard />} />
             <Route path="/drivers" element={<DriverDashboard />} />
             <Route path="/buses" element={<ManageBuses />} />
-            <Route path="/changepassword" element={<ChangePassword />} />
+            <Route path="/changepassword" element={<ChangeMyPassword />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<UpdateProfile />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/paginatedlist" element={<PaginatedBoard />} />
             <Route path="/operators-dashboard" element={<OperatorsMainDashboard />} />
+            <Route path="/roles" element={<RoleDashboard />} />
           </Routes>
         </React.StrictMode>
       </div>

@@ -11,6 +11,7 @@ import profileReducer from "./profileReducer";
 import busesReducer from "./busesReducer";
 import assignDriverBusReducer from "./assignDriverBusReducer";
 import unassignDriverFromBusReducer from "./unassignDriverFromBusReducer";
+import changePasswordReducer from "./changePasswordReducer";
 
 /* ==================================================
 allReducers which combines all slice reducer functions
@@ -30,6 +31,7 @@ const allReducers = combineReducers({
   busesReducer,
   assignDriverBusReducer,
   unassignDriverFromBusReducer,
+  changePasswordReducer,
 });
 
 export default allReducers;

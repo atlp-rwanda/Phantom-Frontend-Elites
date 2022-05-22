@@ -10,7 +10,7 @@ const initialState = {
   showLoading: false,
 };
 
-const employeesReducer = (state = initialState, action) => {
+const changePasswordReducer = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_PASSWORD_SUCCESS: {
       return {
@@ -36,4 +36,4 @@ const employeesReducer = (state = initialState, action) => {
   }
 };
 
-export default employeesReducer;
+export default changePasswordReducer;

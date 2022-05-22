@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import busesFormValidations from "../../../validations/busForm";
 import { showBusModalAC } from "../../../redux/actions/showModal";
 import { updateBus } from "../../../redux/actions/busesAction";
 
@@ -20,12 +19,10 @@ const UpdateBusForm = ({ plateNo, name }) => {
   // const operator = operators[id-1]
   const [values, setValues] = useState({
     brand: bus.brand,
-    plateNo: bus.plateNo,
     seats: bus.seats,
     status: bus.status,
   });
 
-  const [errors, setErrors] = useState({});
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({
@@ -36,12 +33,10 @@ const UpdateBusForm = ({ plateNo, name }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors(busesFormValidations(values));
     const busData = { ...values };
     dispatch(updateBus(plateNo, busData));
     setValues({
       brand: "",
-      plateNo: "",
       seats: "",
       status: "inactive",
     });
@@ -102,21 +97,6 @@ const UpdateBusForm = ({ plateNo, name }) => {
               value={values.brand}
               onChange={handleChange}
             />
-            {errors.brand && (
-              <div className="text-red-800 text-sm -mt-4">{errors.brand}</div>
-            )}
-            <label>New plate number</label>
-            <input
-              type="text"
-              className="block border border-gray-400 w-full p-2 rounded mb-4"
-              name="plateNo"
-              placeholder="Plate number to be updated"
-              value={values.plateNo}
-              onChange={handleChange}
-            />
-            {errors.plateNo && (
-              <div className="text-red-800 text-sm -mt-4">{errors.plateNo}</div>
-            )}
             <label>New seats</label>
             <input
               type="text"
@@ -126,9 +106,6 @@ const UpdateBusForm = ({ plateNo, name }) => {
               value={values.seats}
               onChange={handleChange}
             />
-            {errors.seats && (
-              <div className="text-red-800 text-sm -mt-4">{errors.seats}</div>
-            )}
             <label>New status of the bus</label>
             <select
               className="block border border-gray-400 w-full p-2 rounded mb-4"
